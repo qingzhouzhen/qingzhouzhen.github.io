@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="第一章 前言本章节描述了深度学习的发展历史，应用前景，发展趋势，粗略的介绍机器学习如何有别于软件编写的方法-机器学习是机器自己可以获取知识，有别于软件中的硬编码，深度学习的发展历史，那些导致它发展迟缓对手技术，核方法与图模型等。 第二章 线性代数本章描述线性代数技术，和本科的代数，考研的代数没有太大的区别， 除了一些新的概念以往没有接触过的，比如  张量，高纬矩阵 线性子空间，这个以前可能听过，原">
+<meta property="og:type" content="article">
+<meta property="og:title" content="黄汉卿">
+<meta property="og:url" content="http://yoursite.com/2018/04/12/深度学习花书/index.html">
+<meta property="og:site_name" content="黄汉卿">
+<meta property="og:description" content="第一章 前言本章节描述了深度学习的发展历史，应用前景，发展趋势，粗略的介绍机器学习如何有别于软件编写的方法-机器学习是机器自己可以获取知识，有别于软件中的硬编码，深度学习的发展历史，那些导致它发展迟缓对手技术，核方法与图模型等。 第二章 线性代数本章描述线性代数技术，和本科的代数，考研的代数没有太大的区别， 除了一些新的概念以往没有接触过的，比如  张量，高纬矩阵 线性子空间，这个以前可能听过，原">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-01T12:23:30.826Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="黄汉卿">
+<meta name="twitter:description" content="第一章 前言本章节描述了深度学习的发展历史，应用前景，发展趋势，粗略的介绍机器学习如何有别于软件编写的方法-机器学习是机器自己可以获取知识，有别于软件中的硬编码，深度学习的发展历史，那些导致它发展迟缓对手技术，核方法与图模型等。 第二章 线性代数本章描述线性代数技术，和本科的代数，考研的代数没有太大的区别， 除了一些新的概念以往没有接触过的，比如  张量，高纬矩阵 线性子空间，这个以前可能听过，原">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/12/深度学习花书/">
+
+
+
+
+
+  <title> | 黄汉卿</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">黄汉卿</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/12/深度学习花书/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄汉卿">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-12T07:54:57+08:00">
+                2018-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="第一章-前言"><a href="#第一章-前言" class="headerlink" title="第一章 前言"></a>第一章 前言</h3><p>本章节描述了深度学习的发展历史，应用前景，发展趋势，粗略的介绍机器学习如何有别于软件编写的方法-机器学习是机器自己可以获取知识，有别于软件中的硬编码，深度学习的发展历史，那些导致它发展迟缓对手技术，核方法与图模型等。</p>
+<h3 id="第二章-线性代数"><a href="#第二章-线性代数" class="headerlink" title="第二章 线性代数"></a>第二章 线性代数</h3><p>本章描述线性代数技术，和本科的代数，考研的代数没有太大的区别， 除了一些新的概念以往没有接触过的，比如</p>
+<ul>
+<li>张量，高纬矩阵</li>
+<li>线性子空间，这个以前可能听过，原始向量线性组合后所能到达的点的集合，$Ax = b$, b就是A向量的线性子空间</li>
+<li>伪逆，解方程$Ax = B$,无解的情况下求的A的左逆使得$Ax$与B的欧几里德距离最小</li>
+</ul>
+<p>###第三章 概率与信息论</p>
+<h2 id="第四章-数值计算"><a href="#第四章-数值计算" class="headerlink" title="第四章  数值计算"></a>第四章  数值计算</h2><p>通过迭代更新解的估计值，而非解析过程推倒得到解，比如函数$y=f(x)$,可以通过数学算法准确地解出最小值，也可以通过梯度下降的方法近似得到最小值，前者是解析解，后者是数值计算</p>
+<p>什么是多项分布？</p>
+<ul>
+<li><p>上溢，下益，接近0的数四舍五入为0为下益，接近无穷则为上益，数值稳定的例子：softmax</p>
+</li>
+<li><p>病态条件，条件数表征函数相对输入的微小变化而变化的快慢程度，$f(x)=A^{-1}x$的解通过求矩阵A的逆得到，如果矩阵A的特征值最大值与最小值的比例(条件数)特别大，对求解影响特别大</p>
+</li>
+<li><p>基于梯度的优化方法，优化指的是改变x的值使得函数$f(x)$取得最大或者最小，梯度下降是沿倒数反方向逐步改变输入</p>
+</li>
+<li><p>jacobian和Hessian矩阵，输入和输出都为向量，这时对变量求到得到的求导矩阵为jacobian矩阵；多维输入输出二阶导数矩阵为Hessian矩阵</p>
+</li>
+<li><p>约束优化， 变量的范围固定在某一些范围内，比如在$L^2$空间内要求$x^2$=1,转化为($sin\theta, cos\theta$)</p>
+</li>
+</ul>
+<p>##第五章 机器学习基础</p>
+<h3 id="5-1-学习算法"><a href="#5-1-学习算法" class="headerlink" title="5.1 学习算法"></a>5.1 学习算法</h3><p>三要素： 任务T, 性能度量P, 经验E</p>
+<p>机器学习的任务定义为系统应该如何处理样本，常见的任务有分类($P(k|x)$)，回归，转录(语音识别)，机器翻译，异常检测，合成采样；性能度量，衡量算法好坏，比如图像识别错误率；经验，从样本中学习规律，比较重要的是那个概念</p>
+<ul>
+<li>监督学习，提供样本x与答案y，让系统拟合样本至y，并提供泛化能力，如图片分类，检测</li>
+<li>非监督学习，有数据，但是没有标签数据，如聚类</li>
+<li>强化学习，数据来自于智能体和环境的交互反馈<br>###5.2 容量，过拟合，欠拟合</li>
+<li>过拟合，模型容量太小，不能降低训练集的误差，比如用一次函数拟合二次函数产生的样本</li>
+<li>欠拟合，模型容量太大，记住了太多训练集的特征，泛化能力太差即测试集误差太大，比如高次多项式拟合二次函数产生的样本，点与点之间曲线会陡增，但是实际曲线比较平滑</li>
+<li>容量，函数逼近样本点能力，比如一次函数只能逼近直线</li>
+<li>奥卡姆剃刀原则，在同样能够解释已知观测现象中，应该选择最简单那个(挖坑，不懂)</li>
+<li>没有免费午餐定律， 在所有可能的数据生成分布上平均之后，每一个分类算法在未观测过的点上都有相同的错误率，在机器学习算法中，没有哪个算法在各种情况下总是比别的算法更好</li>
+<li>正则化(regularizer)，中文翻译规则化，加入正则项的目的是防止过拟合，书中举二次函数的例子，如果用90次多项式拟合二次函数，显然会过拟合，如果江9次多项式中的3-9次的参数衰减到很小几乎没有，那差不多就是正确的，所以加入正则项的目的是抵消那些高次，深度学习中经常加入$L_2$正则项，因为loss函数是二次的<br>###5.3 超参数和验证集</li>
+<li><p>k折交叉验证，把数据集分成k份，一次选取其中的一份作为测试集，其他的作为训练集，然后把针对该模型的k次测试误差求平均。k折交叉用于数据集较小的时候充分利用数据<br>###5.4 估计，偏差和方差</p>
+</li>
+<li><p>点估计，模型参数估计值为$\theta$,真实值为$\tilde\theta$,数据集是$x_1,x_2,,,$点估计是$\tilde\theta$,它是对$\theta$的近似，它由数据点映射而来</p>
+</li>
+<li>偏差$bias(\tilde{\theta})$=$Ebias(\tilde{\theta})-\theta$</li>
+<li>一致性，$plim_{m\rightarrow\infty}\hat\theta_{m}=\theta$,该式表示当数据点m趋近无穷的时候，点估计会收敛到它的真实值<br>###5.5 最大似然估计</li>
+</ul>
+<p>估计拟合函数的好坏</p>
+<p>对$\theta$最大似然估计定义:$$arg max \sum_{i=1}^{m}{log*p_{model}(x^{(i)};\theta)}$$</p>
+<p>对$\theta$条件似然估计定义:$$arg max \sum_{i=1}^{m}{log*P(y^{(i)}|x^{(i)};\theta)}=-mlog\sigma-\frac{m}{2}log(2\pi)-\sum_{i=1}^{m}\frac{|||\hat{y}^i-y^i||^2}{2\sigma^2}$$</p>
+<p>在m个样本上的均方误差：$$MSE_{train}=\frac{1}{m}\sum_{i=1}^{m}||\hat{y}^i-y^i||^2$$</p>
+<p>$p_{model}$将任意输入映射到一个实数来估计真实值概率，所有的x都是独立同分布的样本点，最大似然的目的在于对所有的输入x，其输出接近真实值的概率之和最大，最大似然估计和均方误差的作用差不多，都是衡量一个拟合函数的拟合效果好不好</p>
+<h3 id="5-6贝叶斯统计"><a href="#5-6贝叶斯统计" class="headerlink" title="5.6贝叶斯统计"></a>5.6贝叶斯统计</h3><p>最大似然估计是预先知道函数点估计，也即知道函数权重$\theta$，然后对样本进行预测，贝叶斯统计中$\theta$也是变化的，是未知的定植，贝叶斯统计使用$\theta$的全估计，训练m个样本后的$\theta$对下一个样本的预测由影响，$\theta$是由前m个样本统计出来的(挖坑，这个地方理解的不是特别明白)</p>
+<h3 id="5-7监督学习"><a href="#5-7监督学习" class="headerlink" title="5.7监督学习"></a>5.7监督学习</h3><ul>
+<li>监督学习，每一个样本都有一个label,样本经过系统$f(x)$将被用于与label对比</li>
+<li><p>支持向量机，类似于线性回归，支持向量机基于线性函数，分类的时候输出类别而非逻辑回归的概率，支持向量机使用了核技巧，将逻辑回归中的线性函数写成样本点积的形式：$f(x)=b+w^{-1}x=b+\sum_1^mx^{-1}x^{i}$,(-1表示矩阵转置，markdown不知道怎么输入转置)，使用核函数核估计替换点积：$f(x)=b+\sum_1^m\alpha_ik(x,x^{(i)})$,总之支持向量机使用核函数使系统非线性化，核函数有很多，比如高斯核，早起图像检测rcnn分类部分就使用了支持向量机吗，支持向量机好是好，不过已经落时了，核函数$\phi(x)$提供来一组描述x的特征<br>###5.8无监督学习算法</p>
+</li>
+<li><p>主成分分析，将数据变换为元素之间彼此不相关表示，在输入空间寻找一个旋转，消除数据中未知变化因素，能用来干嘛？怎么-对输入数据作用于旋转W得到一个新的数据？</p>
+</li>
+<li><p>K-meas，将特征相似的数据分类，所有数据一共聚类成K类</p>
+</li>
+</ul>
+<p>###5.9 随机提督下降</p>
+<ul>
+<li>梯度下降，将所有的数据一口气全部塞入系统，计算慢，内存塞不下</li>
+<li>小批量随机梯度下降，一次只使用一个样本训练，不收敛</li>
+<li>随机梯度下降，一次计算batch-size个样本</li>
+</ul>
+<h2 id="第六章-深度前馈神经网络"><a href="#第六章-深度前馈神经网络" class="headerlink" title="第六章 深度前馈神经网络"></a>第六章 深度前馈神经网络</h2><p>网络就是由一些计算单元链式的组成，前者输出为后者的输入，最终输出结果，计算单元的参数都可以学习</p>
+<ul>
+<li><p>学习XOR, 异或单元</p>
+</li>
+<li><p>基于梯度的学习，基于梯度下降方法构建网络，使用概率模型构建代价函数，介绍了输出单元，高斯输出分布的线性单元，sigmod单元，softmax单元</p>
+</li>
+<li><p>隐藏单元，神经网络的隐藏层，一些计算单元，线性，非线形的，比如卷积，激活函数等</p>
+</li>
+<li><p>架构设计，万能近似定理高速我们，无论学习什么学习函数，都可以用一个足够大的MLP去逼近。架构设计，层与层之间是直接相连还是像resnet一样跳跃的相连接起来</p>
+</li>
+<li><p>反向传播算法，核心就是计算导数，即梯度，大部分机器学习的例子是计算代价函数关于参数$\theta$的导数<br>##第七章 深度学习中的正则化<br>正则化的目的在于向深度学习代价函数中添加惩罚，使原来的参数衰减</p>
+</li>
+<li><p>$L_2$正则，在代价函数中添加各个参数的平方项，线性的缩放每个参数$w_i$，$L_2$正则能使模型感知具有较高方差的输入数据，$L_2$：$\tilde{J}(w;X,y) = \frac{\alpha}{2}w^{\top}w + J(w;X,y)$,与之对应的梯度为$\Delta\tilde{J}(w;X,y)=\alpha w+\Delta \tilde J(w;X,y)$ ,更新梯度的公式为$w\leftarrow (1-\alpha)w+\Delta_{w}\tilde{J}(w;X,y)$,可以看出，正则化把权重参数做了收缩，即每步更新参数之前，先以常数因子收缩参数，再加上之前的导数项 </p>
+</li>
+<li><p>$L_1$正则化，$\sum_i|w_i|$，定义为各个参数绝对值之和</p>
+</li>
+<li><p>数据增强，图片翻转，平移，随机剪裁，添加噪声等使泛化能力增强的操作</p>
+</li>
+<li><p>噪声鲁棒性，向模型中添加噪声本质就是向模型添加正则项，添加方差很小的噪声能防止大的权重越学习越大的极端</p>
+</li>
+<li><p>多任务学习，就是共享参数，参数的一部分公用于多种任务</p>
+</li>
+<li><p>提前终止，early stop，提前停止训练，书中的第一个粗略是用现在的validation error和之前的对比，如果现在的值比之前反而大，p次出现这种情况就停止，认为是出现过拟合</p>
+</li>
+<li><p>参数共享，某些特征使用相同的参数，以减少模型的大小</p>
+</li>
+<li><p>Bagging和其他集成方法，通过综合几个模型得出决策结果，比如求各个模型的平均</p>
+</li>
+<li><p>Dropout, droupout的具体操作是在一次训练中神经网络每一个单元以一定的概率置为0，在本次训练中这个参数被看作是0，再执行正向计算与反向计算，这种操作等同与有很多模型，然后对所有模型求平均，所有模型共享一份参数</p>
+</li>
+<li><p>对抗训练，有时候、向数据集中加入微小的扰动，会使得计算结果错误率大大提高，所以对抗训练就是不断向样本加入噪声，让系统认识到这是个错误的样本，基本的做法是对抗样本(加入噪声的样本)生成器G不断生成样本去欺骗判别模型D，D要识别这是假的样本，两者不断交手，最终系统能正确识别对抗样本</p>
+</li>
+<li><p>切面距离，正切传播，流形正切分类器，即用于监督学习吗，也用在了强化学习中吗，没看懂，挖个坑，日后来填</p>
+</li>
+</ul>
+<p>##第八章 优化</p>
+<h3 id="8-1-学习和纯优化有什么不同"><a href="#8-1-学习和纯优化有什么不同" class="headerlink" title="8.1 学习和纯优化有什么不同"></a>8.1 学习和纯优化有什么不同</h3><ul>
+<li>批量梯度下降， 使用整个训练集，一次性计算所有样本中单个样本，并行，然后参数求平均</li>
+<li>随机梯度下降，每次只使用一个样本，一次计算一个样本的参数，然后再训练好的系统上训练下一个样本</li>
+<li>小批量随机梯度下降，使用样本的数量介于一个与全部之间，一次计算batch-size个样本的参数，求平均然后再计算下一个batch-size<br>###8.2 神经网络中的挑战</li>
+<li>病态，随机梯度下降会卡在某些情况下，很小的更新步长会导致代价函数增大，应该是进入局部最小值(不太懂)</li>
+<li>凸函数，就是凸函数，直观理解就是中间值大于两边的值</li>
+<li>凸优化，在凸集上最小化凸函数</li>
+<li>局部极小值，深度学习模型的局部极小值是可以接受的，因为它的代价函数也很小，加入它的代价函数很大，会使模型出问题</li>
+<li>鞍点，高原，平坦，神经网络会迅速跳出鞍点，因为梯度下降的目的是不停的寻找梯度更低分方向，而牛顿法则会停在鞍点，因为牛顿法的目的是寻找梯度为0的地方</li>
+<li>长期依赖，输入值经过特别深层次的神经网路容易引起梯度消失或者梯度爆炸，原因是梯度多次相乘会越来越小，比如线性函数，参数$\theta$是一个很小的值，经过多次的自己乘自己，差不多就没有来，再对变量求导，就可以忽略不计，resnet 通过旁路连接解决这个问题<h3 id="8-5-基本算法"><a href="#8-5-基本算法" class="headerlink" title="8.5 基本算法"></a>8.5 基本算法</h3></li>
+<li>随机梯度下降,选取m个样本，一次计算m个梯度，求平均，然后更新神经网络参数</li>
+<li>动量，将之前一步的梯度作用于当前的梯度，取得加速的效果，比如在某个方向上，上一步与当前梯度该方向相反，那么该方向的梯度将背衰减，而与上一个方向同方向的变量将加速</li>
+<li>nesterov动量，与上面动量算法唯一不同的地方在计算梯度的时候，动量法是在上一轮计算中更新过网络参数后直接用于当前批次数据的梯度计算，得到新梯度再与之前的速度矫正，nesterov算法是用之前的速度先更新网络参数，在用于计算当前批次数据</li>
+<li>Adagrad, 将计算出来的梯度平方累积后再用于更新网络</li>
+<li>RMSProp，累计梯度平方，与上一个算法的不同在于累积的方式<h3 id="8-6-二阶近似方法"><a href="#8-6-二阶近似方法" class="headerlink" title="8.6 二阶近似方法"></a>8.6 二阶近似方法</h3></li>
+<li>牛顿法， 计算梯度，再计算Hessian矩阵(二阶梯度)，用计算的H矩阵的逆乘以梯度作为detle更新参数</li>
+<li>共轭梯度法，用于解大型方程组，介于最速下降法和牛顿法之间的一个方法，只需要一阶导数信息，</li>
+<li>BFGS,在牛顿法的基础上的优化，牛顿法需要计算Hessian的逆矩阵，而BFGS用近似矩阵，省去了大量的计算开销<br>###8.7优化策略和元算法</li>
+<li>batch-norm,计算一个批数据的均值，训练的时候样本先减去均值，这样会使得收敛加速</li>
+<li>坐标下降，优化函数包含多个要求解的参数，可以固定住一部分，训练另一部分，如此循环，直到所有的都求出最优解，书中举例$f(x)=(x_1-x_2)^2+\alpha(x_1^2+x_2^2)$就不适合用该方法，因为参数$x_1, x_2$之间的关系太密切，固定住一个意味着另一个就定下来了</li>
+<li>Polyak算法，对优化算法访问过的参数$\theta$求均值，物理意义是，如果算法在两个山腰或者山顶之间来回走动而跨过山底部，那么使用polyak算法会取得折中的山底结果</li>
+<li>设计有助于优化的模型，就是设计神经网络的堆叠次序，采用什么算子等，比如resnet使用旁路连接减少梯度消失，这不是很多研究人员等主要工作吗<br>##第九章 卷积神经网络<br>卷积神经网络启发于哺乳动物神经单元，输入信息经过神经元一直传输到输出，从数学角度解释就是输入经过庞大的网络参数得到输出，深度学习要干的核心的事情就是设计这个网络，求出这一堆参数</li>
+<li>卷积，熟悉神经网络计算的很快就能在脑海里构建一副输入被卷积核反复移动得到一组输出，但是书中基于连续再到离散给了一堆的公式会让人摸不着头脑</li>
+<li>动机， 之所以对输入做卷积的动机，比如做边缘检测，稀疏等等</li>
+<li>池化，具体的操作是将某个点周围的数据结合起来，比如做平均，取最大，一般卷积，激活和池化会连在一起作为一个计算单元</li>
+<li><p>高校卷积算法， 在信号与系统这本书中，两个信号的卷积元算等价于先将信号做傅立叶变换转化到频域，在频域做乘法，然后从频域转回时域，这样做是因为在通信领域系统能处理的是频域的信号，而我们人能处理的是时域的信号<br>##第十章 序列建模:循环和递归网络<br>读到循环网络，我脑海里还是李沐课程周杰伦歌词预测里的那图和代码，对于一个循环神经网络单元，有三个参数(不包括偏置)，目标是输入一个词向量能预测下一个词向量以能够作词，输入与第一个参数作用，上一时刻隐含单元的输出与第二个参数作用，这两者广播相加得到当前时刻的隐含层输出H，当前时刻隐含层输出作用于第三个参数得到结果，贴代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def rnn(inputs, state, *params):</span><br><span class="line">    # inputs: num_steps 个尺寸为 batch_size * vocab_size 矩阵。</span><br><span class="line">    # H: 尺寸为 batch_size * hidden_dim 矩阵。</span><br><span class="line">    # outputs: num_steps 个尺寸为 batch_size * vocab_size 矩阵。</span><br><span class="line">    H = state</span><br><span class="line">    W_xh, W_hh, b_h, W_hy, b_y = params</span><br><span class="line">    outputs = []</span><br><span class="line">    for X in inputs:</span><br><span class="line">        H = nd.tanh(nd.dot(X, W_xh) + nd.dot(H, W_hh) + b_h)</span><br><span class="line">        Y = nd.dot(H, W_hy) + b_y</span><br><span class="line">        outputs.append(Y)</span><br><span class="line">    return (outputs, H)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>双向rnn，单向rnn是根据前面的信息推测后面的信息，而双向rnn还需要根据后面的信息推断前面的信息，比如”今天我肚子疼，想__一天”，根据后面可以缩小前面可以选词的范围，语音识别中，不光前面的声音输入决定输出，后面的信息也会决定前面的一些内容<br>##第十一章 实践方法论</p>
+</li>
+<li>准确率， 正类预测为正类除以正类预测为正类与负类被预测为正类之和</li>
+<li>召回率， 被预测为正类的样本除以所有正类样本的数量</li>
+<li>网格搜索超参， 就是递归，加入有m个超参，每个参数有n 个选择，那么搜索的复杂度是O$(m^n$)</li>
+<li>自动搜索，基于模型的搜索<br>##第十二章 应用</li>
+<li>CPU,GPU，后者可以并行计算，比如梯度下降，每个GPU单独计算自己的样本的梯度，然后将梯度取平均进行更新</li>
+<li>分布式，数据并行，每个机器训练不同的数据，得到梯度后去更新共同维护的一份参数；模型并行，每个机器使用同一个数据，分别负责模型的不同部分</li>
+<li>对比度归一化，对图片取均值等操作，一张图片的平均值被移除会怎么样？</li>
+<li>数据集增强，旋转，裁剪等操作</li>
+<li>语音识别，没有接触过，目的是将一段音频与一段文字做映射，就像图像一样输入一副图像，输出一个分类，输入一段语音，通过神经网络输出一段文字，由于语音前后有关联性，需要循环神经网络处理(挖坑：语音识别为什么需要循环神经网络？)</li>
+<li>自然语言处理 机器翻译，作诗作词</li>
+<li>推荐，用神经网络提取想要的特征，比如提取音乐的特征，该特征和用户喜欢歌曲特征做匹配</li>
+<li>强化学习推荐，采取动作a获得奖励，采取动作$a^`$获取另外一个奖励，每次以一定的概率采取动作以获得最大的奖励同时也以一定的概率向周围动作探索以获得更大的奖励<br>##第十三章 线性因子模型</li>
+<li>独立成分分析， 信号拆分成独立的进行分析，就像信号分解一样，相同房间用不用语言说话的人可以将内容解析成不同的语言进行分析</li>
+<li>慢性特征分析，重要特征随时间变化缓慢</li>
+<li>稀疏编码， 推断层h的过程和学习该层的参数<br>##第十四章 自编码器<br>就是压缩，并且是有损压缩，将数据变得更小，降维等等，用深度网络自动学习压缩算法，输入$x$,输出$x^`$使得两者尽可能一样</li>
+</ul>
+<h2 id="第十五章-表示学习"><a href="#第十五章-表示学习" class="headerlink" title="第十五章 表示学习"></a>第十五章 表示学习</h2><p>同样的数据可以有不同的表示，比如数字可以用阿拉伯数字表示也可以用罗马数字表示，但是用罗马数字表示的数字做除法会很蛋疼。它和深度学习的关系是，比如在一个分类器中，数据从输入到softmax层之前，都属于数据的表示，最后才是任务阶段。表示学习的目的就是要对原始数据学习到最好的表示，以方便后期任务的进行。</p>
+<ul>
+<li>贪心逐层无监督预训练，（挖坑：不理解，如何一层一层无监督训练，将数据卷积，处理，怎么样处理？）</li>
+</ul>
+<ul>
+<li>迁移学习，用一个已经学习好的模型，作用于另外一个任务，具体的操作比如在imagenet使用resnet50训练好的1000类要作用于flower数据集上，那需要把训练好的模型最后一层fc去掉，再添加一个102分类的fc作为最后的分类，这样再在flower有标签数据集上训练<br>##第十六章 深度学习中的结构化概率模型<br>计算图是数据输入到输出由一开始就定义好计算规则，数据就是正常的输入，比如图片，语音等，结构化的概率模型指将计算节点的数据表示称概率，用于处理与概率相关的任务，如接力跑问题，谁依赖谁跑完多少时间的概率<br>受限玻尔兹曼机，将数据替换成二值变量，是0还是1的概率取决于参数w和前面相连接节点的值<br>##第十七章 模特卡罗方法<br>蒙特卡罗方法等思想是用近似替代准确，用概率解代替解析解，比如算圆周率，向二维[0,1]之间均匀采样，最后在采样的点中，落在圆中的点除以总的点就能得到圆周率。<br>离散函数求和，连续函数求积分都可以表示为p*f的形式，求函数f在概率p的情况下的期望，比如f(1)在1处取0的概率0.1，取0.5点概率0.4，取1的概率0.5，那么它的期望就是0.1*0+0.5*0.4+1*0.5,在物理理解上就是大量撒点，并求出小于函数值的那些点<br>挖坑：马尔可夫链蒙特卡洛方法，吉布斯采样方法，看着这一堆公式，和我理解的都不太一样<br>##第十八章 直面配分函数<br>##第十九章 近似推断<br>变分推断，如果隐含层分子相互独立，联合分布可以改成各个分布乘积</li>
+</ul>
+<p>$q(h|v)=\prod_i(q_i|v)$</p>
+<h2 id="第二十章-深度生成模型"><a href="#第二十章-深度生成模型" class="headerlink" title="第二十章 深度生成模型"></a>第二十章 深度生成模型</h2><p>玻尔兹曼机，受限玻尔兹曼机，深度信念网络，深度玻尔兹曼机，时值数据上的玻尔兹曼机，用于结构化或序列输出的玻尔兹曼机</p>
+<p>唧唧歪歪一大堆网络，就是输入一些数据，输出一堆数据，并且已经过时了</p>
+<p>有向生成网络，应该就是目前比较流行的卷积神经网络什么的了</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/23/读书笔记3.22/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/11/机器学习周志华/" rel="prev" title="机器学习(周志华)">
+                机器学习(周志华) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/qingzhouzhen" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一章-前言"><span class="nav-number">1.</span> <span class="nav-text">第一章 前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二章-线性代数"><span class="nav-number">2.</span> <span class="nav-text">第二章 线性代数</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#第四章-数值计算"><span class="nav-number"></span> <span class="nav-text">第四章  数值计算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-学习算法"><span class="nav-number">1.</span> <span class="nav-text">5.1 学习算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-6贝叶斯统计"><span class="nav-number">2.</span> <span class="nav-text">5.6贝叶斯统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-7监督学习"><span class="nav-number">3.</span> <span class="nav-text">5.7监督学习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第六章-深度前馈神经网络"><span class="nav-number"></span> <span class="nav-text">第六章 深度前馈神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-学习和纯优化有什么不同"><span class="nav-number">1.</span> <span class="nav-text">8.1 学习和纯优化有什么不同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-5-基本算法"><span class="nav-number">2.</span> <span class="nav-text">8.5 基本算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-6-二阶近似方法"><span class="nav-number">3.</span> <span class="nav-text">8.6 二阶近似方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第十五章-表示学习"><span class="nav-number"></span> <span class="nav-text">第十五章 表示学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二十章-深度生成模型"><span class="nav-number"></span> <span class="nav-text">第二十章 深度生成模型</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
