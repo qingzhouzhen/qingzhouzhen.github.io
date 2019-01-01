@@ -515,6 +515,139 @@ Run server1$
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/01/协同过滤/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄汉卿">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/01/协同过滤/" itemprop="url">协同过滤</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-01T13:53:50+08:00">
+                2019-01-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          基于物品的协同过滤总结起来就是说如果用户A购买力物品1和物品2， 那么认为物品1和物品2是相似物品，在这个前提下，如果用户B购买了物品1，就把物品2推荐给B
+基于用户的协同过滤总结起来就是如果用户AB都购买了物品xyz，那么认为用户A和用户B是同一类用户，如果A购买了w，也把w推荐给B
+
+欧几里得距离：像几何一样计算两个变量之间的距离
+皮尔逊相关系数：两个变量XY之间的相关度，定义为两个变量之间的协方差和标准差之间的尚
+
+参考 https://blog.csdn.net/yimingsilence/article/details/54934302
+
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/01/协同过滤/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/04/yolov3详解/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1311,7 +1444,7 @@ $s.t. \ y_i(w^Tx_i+b&gt;=1),
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/15/kmeans/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/29/矩阵分解/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -1330,7 +1463,7 @@ $s.t. \ y_i(w^Tx_i+b&gt;=1),
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/15/kmeans/" itemprop="url">kmeans</a></h1>
+                <a class="post-title-link" href="/2018/07/29/矩阵分解/" itemprop="url">矩阵分解</a></h1>
         
 
         <div class="post-meta">
@@ -1342,8 +1475,8 @@ $s.t. \ y_i(w^Tx_i+b&gt;=1),
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-15T22:49:46+08:00">
-                2018-07-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-29T11:40:27+08:00">
+                2018-07-29
               </time>
             
 
@@ -1382,144 +1515,15 @@ $s.t. \ y_i(w^Tx_i+b&gt;=1),
       
         
           
-          玩一下kmeans，调戏以下国足，顺便预测一下18世界杯冠军，18-7-15 23:00世界杯
-物以类聚，人以群分，选亚洲15支球队
-123456789101112131415data = &#123;&quot;zhongguo&quot;:[50,50,50,40],            &quot;riben&quot;:[28,9,29,12],            &quot;hanguo&quot;:[17,15,27,26],            &quot;yilang&quot;:[25,40,28,18],           
+          PCA(principal component analysis)主成分分析，原始矩阵中的每一个item可以用基向量的线性组合表示
+SVD(singular value decomposition)奇异值矩阵分解，是一个矩阵及其转置矩阵的PCA， $R=M\sum U$
+SVD能通过矩阵分解能同时拿到行向量与列向量的基
+在电影推荐中，R的行代表某个用户，列代表某个电影，具体某个数值代表该用户对某个电影的评分，M的行代表某个用户对所有类型电影的喜好程度，U的列代表某个电影是否属于某种类型的电影，两者点乘为某个用户对某个电影的评分
+该算法的目标是：基于稀疏的
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/07/15/kmeans/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/07/深入浅出强化学习原理入门/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="黄汉卿">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/07/深入浅出强化学习原理入门/" itemprop="url">深入浅出强化学习原理入门</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-07T08:45:15+08:00">
-                2018-07-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          第2章 马尔可夫决策过程
-马尔可夫性， 当前系统的下一个状态仅与当前状态有关，而与以往状态无关
-马尔可夫过程，以一定的概率在有限状态下转换，吃饭睡觉打豆豆。。。
-马尔可夫决策过程，马尔可夫决策过程(S,A,P,R,$\gamma$)，S是有限状态集合，A是有限动作集合，P为状态转移，R是回报函数，$\gamma$是折扣因子，马尔可夫决策过程与马尔可夫过程不同的是它的动作是带转移概率的
-强化学习的目标是在给定的马尔可夫决策过程中寻找最优策略，这个策略指的是状态到动作的映射，在q-learning中，这个策略就是q表，第一维是状态，第二维是动作
-策略，所谓策
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/07/深入浅出强化学习原理入门/#more" rel="contents">
+            <a class="btn" href="/2018/07/29/矩阵分解/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1607,7 +1611,7 @@ $s.t. \ y_i(w^Tx_i+b&gt;=1),
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
