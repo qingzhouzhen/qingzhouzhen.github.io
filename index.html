@@ -258,7 +258,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/05/一步一步理解svm/" itemprop="url">Untitled</a></h1>
+                <a class="post-title-link" href="/2019/01/05/一步一步理解svm/" itemprop="url">svm推理inference</a></h1>
         
 
         <div class="post-meta">
@@ -1460,7 +1460,7 @@ $$x_t = x_{t-1}- \sqrt{\frac
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/08/26/svm算法/" itemprop="url">svm算法</a></h1>
+                <a class="post-title-link" href="/2018/08/26/svm算法/" itemprop="url">svm算法原理</a></h1>
         
 
         <div class="post-meta">
@@ -1512,12 +1512,11 @@ $$x_t = x_{t-1}- \sqrt{\frac
       
         
           
-          ###间隔与支持向量
-有类别的数据需要被分为两类，通过一个最有超平面将其分为两部分，推理的时候在最优超平面左边的为一类，在右边的为另一类，最优超平面定义为$w^Tx+b=0$，模型为$f(x)=w^Tx+b$。
-现在的问题是如何求得这个最优超平面，根据点到直线的距离，从支持向量到最优超平面的距离为$\frac{wx+b}{|w|}$，求最小距离时，即求支持向量到最优超平面的距离，因此$wx+b=1$,目标转为$min \ w$
+          间隔与支持向量有类别的数据需要被分为两类，通过一个最优超平面将其分为两部分，推理的时候在最优超平面一边的为一类，在另一边的为另一类，最优超平面定义为$w^Tx+b=0$，模型为$f(x)=w^Tx+b$。
+现在的问题是如何求得这个最优超平面，根据点到直线的距离，从支持向量到最优超平面的距离为$\frac{wx+b}{|w|}$，求最小距离时，即求支持向量到最优超平面的距离，因为对于支持向量有$wx+b=1$,目标转为$min \ w$
 最优化的目标转化为：
 $min\frac{1}{2}||w||^2$
-$s.t. \ y_i(w^Tx_i+b&gt;=1), 
+$s.t. \ y_i(w^Tx_i+b)&gt;
           ...
           <!--noindex-->
           <div class="post-button text-center">

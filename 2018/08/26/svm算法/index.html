@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="###间隔与支持向量 有类别的数据需要被分为两类，通过一个最有超平面将其分为两部分，推理的时候在最优超平面左边的为一类，在右边的为另一类，最优超平面定义为$w^Tx+b=0$，模型为$f(x)=w^Tx+b$。 现在的问题是如何求得这个最优超平面，根据点到直线的距离，从支持向量到最优超平面的距离为$\frac{wx+b}{|w|}$，求最小距离时，即求支持向量到最优超平面的距离，因此$wx+b=1">
+<meta name="description" content="间隔与支持向量有类别的数据需要被分为两类，通过一个最优超平面将其分为两部分，推理的时候在最优超平面一边的为一类，在另一边的为另一类，最优超平面定义为$w^Tx+b=0$，模型为$f(x)=w^Tx+b$。 现在的问题是如何求得这个最优超平面，根据点到直线的距离，从支持向量到最优超平面的距离为$\frac{wx+b}{|w|}$，求最小距离时，即求支持向量到最优超平面的距离，因为对于支持向量有$wx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="svm算法">
+<meta property="og:title" content="svm算法原理">
 <meta property="og:url" content="http://yoursite.com/2018/08/26/svm算法/index.html">
 <meta property="og:site_name" content="黄汉卿">
-<meta property="og:description" content="###间隔与支持向量 有类别的数据需要被分为两类，通过一个最有超平面将其分为两部分，推理的时候在最优超平面左边的为一类，在右边的为另一类，最优超平面定义为$w^Tx+b=0$，模型为$f(x)=w^Tx+b$。 现在的问题是如何求得这个最优超平面，根据点到直线的距离，从支持向量到最优超平面的距离为$\frac{wx+b}{|w|}$，求最小距离时，即求支持向量到最优超平面的距离，因此$wx+b=1">
+<meta property="og:description" content="间隔与支持向量有类别的数据需要被分为两类，通过一个最优超平面将其分为两部分，推理的时候在最优超平面一边的为一类，在另一边的为另一类，最优超平面定义为$w^Tx+b=0$，模型为$f(x)=w^Tx+b$。 现在的问题是如何求得这个最优超平面，根据点到直线的距离，从支持向量到最优超平面的距离为$\frac{wx+b}{|w|}$，求最小距离时，即求支持向量到最优超平面的距离，因为对于支持向量有$wx">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-01T12:27:34.741Z">
+<meta property="og:updated_time" content="2019-01-06T13:48:54.442Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="svm算法">
-<meta name="twitter:description" content="###间隔与支持向量 有类别的数据需要被分为两类，通过一个最有超平面将其分为两部分，推理的时候在最优超平面左边的为一类，在右边的为另一类，最优超平面定义为$w^Tx+b=0$，模型为$f(x)=w^Tx+b$。 现在的问题是如何求得这个最优超平面，根据点到直线的距离，从支持向量到最优超平面的距离为$\frac{wx+b}{|w|}$，求最小距离时，即求支持向量到最优超平面的距离，因此$wx+b=1">
+<meta name="twitter:title" content="svm算法原理">
+<meta name="twitter:description" content="间隔与支持向量有类别的数据需要被分为两类，通过一个最优超平面将其分为两部分，推理的时候在最优超平面一边的为一类，在另一边的为另一类，最优超平面定义为$w^Tx+b=0$，模型为$f(x)=w^Tx+b$。 现在的问题是如何求得这个最优超平面，根据点到直线的距离，从支持向量到最优超平面的距离为$\frac{wx+b}{|w|}$，求最小距离时，即求支持向量到最优超平面的距离，因为对于支持向量有$wx">
 
 
 
@@ -125,7 +125,7 @@
 
 
 
-  <title>svm算法 | 黄汉卿</title>
+  <title>svm算法原理 | 黄汉卿</title>
   
 
 
@@ -259,7 +259,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">svm算法</h1>
+          <h1 class="post-title" itemprop="name headline">svm算法原理</h1>
         
 
         <div class="post-meta">
@@ -309,29 +309,31 @@
       
 
       
-        <p>###间隔与支持向量</p>
-<p>有类别的数据需要被分为两类，通过一个最有超平面将其分为两部分，推理的时候在最优超平面左边的为一类，在右边的为另一类，最优超平面定义为$w^Tx+b=0$，模型为$f(x)=w^Tx+b$。</p>
-<p>现在的问题是如何求得这个最优超平面，根据点到直线的距离，从支持向量到最优超平面的距离为$\frac{wx+b}{|w|}$，求最小距离时，即求支持向量到最优超平面的距离，因此$wx+b=1$,目标转为$min \ w$</p>
+        <h3 id="间隔与支持向量"><a href="#间隔与支持向量" class="headerlink" title="间隔与支持向量"></a>间隔与支持向量</h3><p>有类别的数据需要被分为两类，通过一个最优超平面将其分为两部分，推理的时候在最优超平面一边的为一类，在另一边的为另一类，最优超平面定义为$w^Tx+b=0$，模型为$f(x)=w^Tx+b$。</p>
+<p>现在的问题是如何求得这个最优超平面，根据点到直线的距离，从支持向量到最优超平面的距离为$\frac{wx+b}{|w|}$，求最小距离时，即求支持向量到最优超平面的距离，因为对于支持向量有$wx+b=1$,目标转为$min \ w$</p>
 <p>最优化的目标转化为：</p>
 <p>$min\frac{1}{2}||w||^2$</p>
-<p>$s.t. \ y_i(w^Tx_i+b&gt;=1), i=0, 1, 2, 3…m​$    式6.6</p>
-<p>###对偶问题</p>
-<p>目的：利用式6.6的对偶问题得到模型$f(x)$</p>
+<p>$s.t. \ y_i(w^Tx_i+b)&gt;=1, i=0, 1, 2, 3…m$    式6.6</p>
+<h3 id="对偶问题"><a href="#对偶问题" class="headerlink" title="对偶问题"></a>对偶问题</h3><p>目的：利用式6.6的对偶问题得到模型$f(x)$</p>
 <p>使用朗格朗日乘子法可以解式6.6， 对式6.6点每个约束条件加拉格朗日乘子$\alpha_i$,该问题的拉格朗日式表示为：</p>
 <p>$L(w, b, \alpha)=\frac{1}{2}||w||^2+\sum_{i=1}^m\alpha_i(1-y_i(w^Tx_i+b))$     式6.8</p>
 <p>令L对$w$和b偏导为0：</p>
-<p>$w=\sum_{i=1}^m\alpha_i y_ix_i$</p>
-<p>$\sum_{i=0}^m\alpha_iy_i=0$</p>
-<p>将这两个偏导得到的条件代入6.8式，可以消去w和b，得到式6.6的对偶问题：</p>
+<p>$w=\sum_{i=1}^m\alpha_i y_ix_i$       6.9</p>
+<p>$\sum_{i=0}^m\alpha_iy_i=0$            6.10</p>
+<p>将这两个偏导得到的条件代入6.8式，可以消去w和b，6.9代入6.8，消去w，b由6.10整体代入消除；得到式6.6的对偶问题：</p>
 <p>$max \ \sum_i^m\alpha_i-\frac{1}{2}\sum_{i=1}^{m}\sum_{j=1}^{m}\alpha_i\alpha_jy_iy_jx^T_ix_j$                式6.11</p>
-<p>$s.t. \ \sum_{i=1}^{m}\alpha_iy_i$</p>
+<p>$s.t. \ \sum_{i=1}^{m}\alpha_iy_i=0$</p>
 <p>$\alpha_i&gt;=0$</p>
 <p>挖坑：为什么这里可以通过式6.6点对偶问题得到6.6的解？</p>
 <p>解出式6.11中的$\alpha_i,\alpha_j$就可以得到w, 从而得到模型：</p>
 <p>$f(x)=wx+b=\sum_{i=1}^m\alpha_iy_ix_ix+b$</p>
 <p>利用smo算法求解6.11式</p>
-<p>smo的思想是选取一对需要更新的参数$\alpha_i, \ a_j$其他参数固定，根据式6.11的约束条件，将一个变量用另外一个变量表示，6.11变成二次凸优化问题，解出$\alpha_i,\alpha_j$</p>
+<p>smo的思想是选取一对需要更新的参数$\alpha_i, \ a_j$其他参数固定，根据式6.11的约束条件，将一个变量用另外一个变量表示，6.11变成二次凸优化问题，解出$\alpha_i,\alpha_j$，具体的：</p>
+<p>式6.11的约束条件重新写为：$\alpha_{i}y_{i}+\alpha_{j}y_{j}=c$</p>
+<p>将上式$\alpha_{j}$用$\alpha_{i}$表示：$\alpha_{j}=\frac{c-\alpha_{i}y_{i}}{y_{j}}$</p>
+<p>式6.11此时变成只有一个变量的二次函数，仅有的约束是$\alpha_{i}$大于0.</p>
 <p>b的求解可以通过支持向量的$y_sf(x_s)=1$解出</p>
+<p>$y_s(wx+b)=1$-&gt; $b=\frac{1}{y_s}-wx$，更鲁棒一点的可以对所有的支持向量求均值</p>
 <h3 id="核函数"><a href="#核函数" class="headerlink" title="核函数"></a>核函数</h3><p>原先的输入空间可能是线性不可分的，将其映射到高维空间后就可以分了</p>
 <p>$x-&gt;\phi(x)$</p>
 <p>模型$f(x)=wx+b$变成$f(x)=w^T\phi(x)+b$</p>
@@ -502,7 +504,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#核函数"><span class="nav-number">1.</span> <span class="nav-text">核函数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#间隔与支持向量"><span class="nav-number">1.</span> <span class="nav-text">间隔与支持向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对偶问题"><span class="nav-number">2.</span> <span class="nav-text">对偶问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#核函数"><span class="nav-number">3.</span> <span class="nav-text">核函数</span></a></li></ol></div>
             
 
           </div>
