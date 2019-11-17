@@ -271,7 +271,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/caffe安装/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/物体检测mAP计算方式/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -290,7 +290,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/11/17/caffe安装/" itemprop="url">caffe安装</a></h1>
+                <a class="post-title-link" href="/2019/11/17/物体检测mAP计算方式/" itemprop="url">物体检测mAP计算方式(voc07)</a></h1>
         
 
         <div class="post-meta">
@@ -302,7 +302,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-17T10:59:47+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-17T12:02:47+08:00">
                 2019-11-17
               </time>
             
@@ -342,18 +342,18 @@
       
         
           
-          安装caffe前提：安装好cuda8, cudnn, opencv3
-参考：
-http://caffe.berkeleyvision.org/install_apt.html
-https://blog.csdn.net/yhaolpz/article/details/71375762
-http://3ms.huawei.com/km/blogs/details/5425467
-http://3ms.huawei.com/km/blogs/details/5577119
+          
+iou, 两个图片交并比超过0.5则认为检测正确
 
-git clone https://github.com/BVLC/caffe.gi
+precision=TP/(TP+FP), recall=TP/(TP+FN),在一张图片中，针对狗这个类别，TP代表狗被检测成狗，FP代表别的东西被检测成了狗，FN代表狗没有被检测出来
+
+针对一张图片，对某一个类物体检测出来，按照score排序，选择不同的阈值(置信度阈值)，会得到不同的precision和recall， 绘制一条precision,recall的曲线，曲线下面的面积就是AP值，VOC07取11个不同recall对应的precision取平均得到mAP
+
+PascalVOC2007，
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/11/17/caffe安装/#more" rel="contents">
+            <a class="btn" href="/2019/11/17/物体检测mAP计算方式/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -404,7 +404,7 @@ git clone https://github.com/BVLC/caffe.gi
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/14/opencv编译/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/分类，检测，语义分割，实例分割的区别/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -423,7 +423,7 @@ git clone https://github.com/BVLC/caffe.gi
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/09/14/opencv编译/" itemprop="url">opencv编译</a></h1>
+                <a class="post-title-link" href="/2019/11/17/分类，检测，语义分割，实例分割的区别/" itemprop="url">分类，检测，语义分割，实例分割的区别</a></h1>
         
 
         <div class="post-meta">
@@ -435,8 +435,8 @@ git clone https://github.com/BVLC/caffe.gi
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-14T23:33:09+08:00">
-                2019-09-14
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-17T12:01:37+08:00">
+                2019-11-17
               </time>
             
 
@@ -475,11 +475,145 @@ git clone https://github.com/BVLC/caffe.gi
       
         
           
-          opencv编译12345678910111213141516171819202122下载opencv:https://opencv.org/releases.htmlunzip opencv-3.4.0.zipcd opencv-3.4.0mkdir build &amp;&amp; cd buildcmake -D CMAKE_BUILD_TYPE=RELEASE \-D CMAKE_INSTALL_PREFIX=/usr/local \-D WITH_CUDA=on -D ENABLE_FAST_MATH=1 \-D CUDA_FAST_MATH=
+          分类，检测，语义分割，实例分割的区别
+
+语义分割(semantic segmentation)就是把图像中每一个像素属于什么类别(比如person)都识别出来，但是它没有告诉这个像素属于第几个人，而实例分割(instance segmentation)不光把一个像素属于那个类别识别出来，还识别出它属于该类别中的第几个实例
+FCN和Alexnet的区别在于，后者对一张图片做一次分类，而前者对每一个像素点都做一次分类
+
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/11/17/分类，检测，语义分割，实例分割的区别/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/人脸识别算法/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄汉卿">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/17/人脸识别算法/" itemprop="url">人脸识别算法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-17T12:00:51+08:00">
+                2019-11-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          问题人脸识别算法包括两种类别，一种是给定一张图片，再给一个id，输出该图片是否是该id匹配的对；另一种是给一个数据库，再给一张图片，如果这个图片在数据库中有匹配，找出该匹配，如果没有输出不存在
+siamese网络siamese通过神经网络对图片进行编码，编码函数描述为$f(x^i)$， 输出一个特征向量，比如128维的张量
+
+有两种办法判断两幅图片是否是同一张图片
+每张图片分别通过siamese网络，分别得到特征向量$f(x^1)$和$f(x^2)$, 计算两者之间的欧式距离$d=||f(x^1)-f(x^2)||^2$，如果欧氏距离超过$\tau$,则
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/09/14/opencv编译/#more" rel="contents">
+            <a class="btn" href="/2019/11/17/人脸识别算法/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -530,7 +664,7 @@ git clone https://github.com/BVLC/caffe.gi
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/25/花生壳内网穿透ssh远程登录/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/TensorRT-classify/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -549,7 +683,7 @@ git clone https://github.com/BVLC/caffe.gi
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/25/花生壳内网穿透ssh远程登录/" itemprop="url">花生壳内网穿透ssh远程登录</a></h1>
+                <a class="post-title-link" href="/2019/11/17/TensorRT-classify/" itemprop="url">TensorRT-classify</a></h1>
         
 
         <div class="post-meta">
@@ -561,8 +695,8 @@ git clone https://github.com/BVLC/caffe.gi
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-25T23:34:44+08:00">
-                2019-08-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-17T11:59:00+08:00">
+                2019-11-17
               </time>
             
 
@@ -601,17 +735,17 @@ git clone https://github.com/BVLC/caffe.gi
       
         
           
-          注册账号https://console.oray.com/passport/register.html?fromurl=http%3A%2F%2Fhsk.oray.com%2F
-注册成功可以买5元一个的壳域名，我没有买
-下载客户端https://hsk.oray.com/download/
-选择linux
-安装客户端，得到sn码
-添加设备https://hsk.oray.com/console/manage/添加设备
-映射https://b.oray.com/点击+号图片添加一个新的映射，对于新建ssh服务映射，映射类型选通用应用，外网端口选动态端口号，
+          环境caffe, Ubuntu16.04, python2.7
+编译caffe这里需要注意一点，读取数据用python读取图片，不用官方推荐的lmdb数据格式，这样更容易定为问题
+定义类名为12
+import caffeimport numpy as npimport yamlimport osimport cPickleimport cv2
+class classifyInput(caffe.Layer):
+def load_data_annotations(self, index):
+    label, img_path = index.split
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/08/25/花生壳内网穿透ssh远程登录/#more" rel="contents">
+            <a class="btn" href="/2019/11/17/TensorRT-classify/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -662,7 +796,7 @@ git clone https://github.com/BVLC/caffe.gi
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/10/linux-ssr客户端安装/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/TensorRT-CenterNet-ObjectDet/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -681,7 +815,7 @@ git clone https://github.com/BVLC/caffe.gi
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/10/linux-ssr客户端安装/" itemprop="url">linux ssr客户端安装</a></h1>
+                <a class="post-title-link" href="/2019/11/17/TensorRT-CenterNet-ObjectDet/" itemprop="url">TensorRT-CenterNet-物体检测</a></h1>
         
 
         <div class="post-meta">
@@ -693,8 +827,8 @@ git clone https://github.com/BVLC/caffe.gi
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-10T23:40:24+08:00">
-                2019-08-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-17T11:58:09+08:00">
+                2019-11-17
               </time>
             
 
@@ -733,14 +867,13 @@ git clone https://github.com/BVLC/caffe.gi
       
         
           
-          安装ssr客户端git clonelink12```cd path/shadowsocksr-linux-client-CLI/
-cp ssrlink12```sudo chmod 777 /usr/local/bin/ssr
-install```12```ssr config```等同于``` vi /usr/local/share/shadowsocksr/config.json
-123456789101112131415161718192021222324&#123;    &quot;server&quot;: &quot;69.194.9.xx
+          源码https://github.com/qingzhouzhen/CenterNet，fork自https://github.com/xingyizhou/CenterNet， 2019/10/8
+0.4.1```123456#### 训练模型按照&lt;https://github.com/qingzhouzhen/CenterNet/blob/master/experiments/ctdet_coco_dla_1x.sh&gt;，默认使用pose_dla_dcn, 使用修dlav0模型：```cd path/CenterNet/src
+1pytho
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/08/10/linux-ssr客户端安装/#more" rel="contents">
+            <a class="btn" href="/2019/11/17/TensorRT-CenterNet-ObjectDet/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -791,7 +924,7 @@ install```12```ssr config```等同于``` vi /usr/local/share/shadowsocksr/config
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/21/genymotion安装/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/TensorRT-CenterNet-MultiPose/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -810,7 +943,7 @@ install```12```ssr config```等同于``` vi /usr/local/share/shadowsocksr/config
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/21/genymotion安装/" itemprop="url">genymotion安装</a></h1>
+                <a class="post-title-link" href="/2019/11/17/TensorRT-CenterNet-MultiPose/" itemprop="url">TensorRT-CenterNet-姿态估计</a></h1>
         
 
         <div class="post-meta">
@@ -822,8 +955,8 @@ install```12```ssr config```等同于``` vi /usr/local/share/shadowsocksr/config
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-21T14:20:44+08:00">
-                2019-04-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-17T11:57:24+08:00">
+                2019-11-17
               </time>
             
 
@@ -862,281 +995,13 @@ install```12```ssr config```等同于``` vi /usr/local/share/shadowsocksr/config
       
         
           
-          环境Mac OS 10.14，vituralbox6.0
-下载安装个人免费版，地址https://www.genymotion.com/get-full-version/
-一路next安装完毕，启动一个Android模拟器
-配置x86转arm下载Genymotion-ARM-Translation-Librarities工具转换包:https://pan.baidu.com/s/1nsm-Tn0jkx8JCEJL7ItZpA
-将下载好的转换包直接拖到Android模拟器界面上，点击ok然后重启模拟器，最后将需要安装的apk包拖到模拟器上安装
-
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/21/genymotion安装/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/14/线性回归从0开始/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="黄汉卿">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/14/线性回归从0开始/" itemprop="url">线性回归从0开始</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-14T08:39:26+08:00">
-                2019-01-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          习题
-为什么squared_loss函数中需要使用reshape?
-
-因为y_hat是二维的，第二个维度的个数为1，而label值y是一维的，y_hat之所以是二维的是因为X是二维的，dot出来的值一定是二维的
-
-如果样本个数不能被批量大小整除，data_iter函数有什么变化？
-
-data_iter函数最后会一个batch返回的样本个数不是batch_size个，而是不足batch_size个，如1000个样本，batch_size=9,最后一个batch样本个数是9个
-
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/14/线性回归从0开始/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/08/Hexo-next添加搜索/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="黄汉卿">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/08/Hexo-next添加搜索/" itemprop="url">Hexo-next添加搜索</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-08T08:22:34+08:00">
-                2019-01-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          简单实用hexo自带搜索功能
-安装插件1npm install hexo-generator-searchdb --save
-配置博客打开博客根目录的_config文件，添加
-12345search:  path: search.xml  field: post  format: html  limit: 10000
-配置主题打开当前主题下的_config文件，将Local search 的相关配置，设为 true
-123local_search:  enable: true  # if auto, trigger search by changing 
+          源码https://github.com/qingzhouzhen/CenterNet，fork自https://github.com/xingyizhou/CenterNet， 2019/10/10
+0.4.1```1234#### 训练模型按照&lt;https://github.com/qingzhouzhen/CenterNet/blob/master/experiments/ctdet_coco_dla_1x.sh&gt;，默认使用pose_dla_dcn, 使用修dlav0模型：
+python main.py multi_pose –arch
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/01/08/Hexo-next添加搜索/#more" rel="contents">
+            <a class="btn" href="/2019/11/17/TensorRT-CenterNet-MultiPose/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1187,7 +1052,7 @@ data_iter函数最后会一个batch返回的样本个数不是batch_size个，�
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/05/一步一步理解svm/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/quantize/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -1206,7 +1071,7 @@ data_iter函数最后会一个batch返回的样本个数不是batch_size个，�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/05/一步一步理解svm/" itemprop="url">线性svm推理inference</a></h1>
+                <a class="post-title-link" href="/2019/11/17/quantize/" itemprop="url">int8量化</a></h1>
         
 
         <div class="post-meta">
@@ -1218,8 +1083,8 @@ data_iter函数最后会一个batch返回的样本个数不是batch_size个，�
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-05T22:37:33+08:00">
-                2019-01-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-17T11:55:39+08:00">
+                2019-11-17
               </time>
             
 
@@ -1258,13 +1123,19 @@ data_iter函数最后会一个batch返回的样本个数不是batch_size个，�
       
         
           
-          svm.SVC()svm.SVC()使用ovo，每一个类别和其他类别分别构造一个svm，一共n*(n-1)/2svm分类器，当判断一个未知类别的样本，每个分类器对这个点进行分类，最后投票，得票最多的类别为最终类别
-构造四个类别：
-1234cls1 = np.array([[0, 1, 0],[1, 1, 0], [2, 1, 0], [3, 1, 0], [4, 1, 0]])cls2 = np.array([[0, 3, 1],[1, 3, 1], [2, 3, 1], [3, 3, 1], [4, 3, 1]])cls3 = np.array([[0
+          梯度量化参考：
+http://on-demand.gputechconf.com/gtc/2017/presentation/s7310-8-bit-inference-with-tensorrt.pdf
+目标：将FP32的数据转换为INT8，并且精度不会降低很多 
+为什么：INT8有更高的吞吐量，更低的内存占用 
+挑战：INT8精确度低的问题 
+解决办法：在量化训练好的模型参数和计算的时候最小化信息损失 
+结果：TensorRT已经搞定了这些 
+量化 原理一句话原理将fp32的卷积(相乘)转换为int8的卷积(相乘)
+A = scale_A * QA 
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/01/05/一步一步理解svm/#more" rel="contents">
+            <a class="btn" href="/2019/11/17/quantize/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1315,7 +1186,7 @@ data_iter函数最后会一个batch返回的样本个数不是batch_size个，�
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/01/github+hexo+mac建博客/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/Mask-rcnn/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -1334,7 +1205,7 @@ data_iter函数最后会一个batch返回的样本个数不是batch_size个，�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/01/github+hexo+mac建博客/" itemprop="url">github+hexo+mac建博客</a></h1>
+                <a class="post-title-link" href="/2019/11/17/Mask-rcnn/" itemprop="url">Mask-rcnn</a></h1>
         
 
         <div class="post-meta">
@@ -1346,8 +1217,8 @@ data_iter函数最后会一个batch返回的样本个数不是batch_size个，�
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-01T19:28:29+08:00">
-                2019-01-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-17T11:54:30+08:00">
+                2019-11-17
               </time>
             
 
@@ -1386,32 +1257,20 @@ data_iter函数最后会一个batch返回的样本个数不是batch_size个，�
       
         
           
-          由于板瓦工升级，之前的wordpress弃坑，转hexo+github方案
-一 安装node.js
-安装node
+          mask-rcnn在faster-rcnn基础上修改而来，网络结构图如下
 
-123brew link nodebrew uninstall nodebrew install node
 
-验证node
+roi-align
+roi-pooling:
 
-12npm -vnode -v
+roi-pooling有两个地方发生精度损失，一个找出感兴趣区域后经过32倍下采样取整的精度损失，如上图的rpn阶段找出一个665*665的框，映射到下采样过的特征图上变成20*20，另一个地方是对roi区域变成7*7对时候采取的一个取整，先将roi变成49个小区域，每个小区域都是取整过的，有精度损失
+roi-align:
 
-卸载node
-
-1brew uninstall node
-二 配置ssh免密登陆
-配置免密登陆
-
-1github-&gt;setting-&gt;SSH And GPG keys-&gt;New SSH Key
-
-验证配置成功
-
-1ssh -T git@github.com
-输入ye
+roi-align有针对上述两处取整做了改进，第一次rpn出来的框不取整，带上小数，直接对带小数的roi区
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/01/01/github+hexo+mac建博客/#more" rel="contents">
+            <a class="btn" href="/2019/11/17/Mask-rcnn/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1462,7 +1321,7 @@ data_iter函数最后会一个batch返回的样本个数不是batch_size个，�
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/01/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/loss/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -1481,7 +1340,7 @@ data_iter函数最后会一个batch返回的样本个数不是batch_size个，�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/01/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/2019/11/17/loss/" itemprop="url">Untitled</a></h1>
         
 
         <div class="post-meta">
@@ -1493,8 +1352,8 @@ data_iter函数最后会一个batch返回的样本个数不是batch_size个，�
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-01T13:53:50+08:00">
-                2019-01-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-17T11:53:50+08:00">
+                2019-11-17
               </time>
             
 
@@ -1533,14 +1392,153 @@ data_iter函数最后会一个batch返回的样本个数不是batch_size个，�
       
         
           
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post"
-More info: Writing
-Run server1$
+          loss, 损失函数
+交叉熵损失函数
+二分类： $$tlogy_i + (1-t)log(1-y_i)$$
+多分类： $$-\sum_{i=1}^Clog(y_i)$$
+
+
+
+focal loss
+focal loss由两部分组成，一部分解决类别不平衡，如下公式，pt是分类正确的概率，$\alpha_t$是一个可以设置的参数，当正类很多的时候，即$p_t$接近1的值很多，CE几乎由正类样本组成，这时把$\alpha_t$设置成当样本为正类是0-0.5之间，这样削减容易样本的loss值
+$$CE(p_t)=-\alpha_tlog(p_t)$$
+另一部分解
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/01/01/hello-world/#more" rel="contents">
+            <a class="btn" href="/2019/11/17/loss/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/faster-rcnn原理/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄汉卿">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/17/faster-rcnn原理/" itemprop="url">Faster-rcnn</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-17T11:53:24+08:00">
+                2019-11-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原理
+
+conver layer原图resize到800x600， Conv layer出来(50x38x256)的输出
+RPN
+从conv layer出来后每一个像素点配9个anchor；上面的分之经过1x1卷积形成50x38x18的张量，channel维度上每两个点代表一个anchor，分表表示前景与背景；
+
+下一个分支经过1x1卷积形成50x38x36的张量，channel维度上每四个点代表一个anchor，用来回归位置的准确性，输出的anchor是(x,y,w,h), GT是($x_a,y_a,w_a,h_a$)，通过线性映射使得两者比较接近，需
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/11/17/faster-rcnn原理/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1582,7 +1580,7 @@ Run server1$
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1628,7 +1626,7 @@ Run server1$
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

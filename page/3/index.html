@@ -271,7 +271,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/11/机器学习周志华/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/MXNet制作rec文件/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -290,7 +290,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/11/机器学习周志华/" itemprop="url">机器学习(周志华)</a></h1>
+                <a class="post-title-link" href="/2019/11/17/MXNet制作rec文件/" itemprop="url">MXNet制作rec文件</a></h1>
         
 
         <div class="post-meta">
@@ -302,8 +302,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-11T08:02:46+08:00">
-                2018-05-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-17T11:36:43+08:00">
+                2019-11-17
               </time>
             
 
@@ -342,17 +342,20 @@
       
         
           
-          绪论机器学习是致力于通过计算手段，利用经验来改善系统性能的学科
-模型推理结果，如果是离散的则为分类，连续的是回归
-机器学习与归纳偏好，通过数据的特征判断一些指标，比如书中举例通过色泽等判断西瓜好坏
-发展历程：推理期(七八十年代)-&gt;知识期(七十年代开始)-&gt;学习期(从样例中学习,八十年代开始)-&gt;统计学习(九十年代中期)，在这过程中反复进入高潮与低谷的深度学习，或者连结主义学习，就是至今依然热门的深度学习
-应用：计算机视觉-图片，视频，自然语言，语音，天气预报，能源勘测，环境监测，客户数据分析，搜索，自动驾驶，
-第二章 模型评估与选择
+          参考https://www.jianshu.com/p/1c85e4127cea
 
+准备10个文件夹，一个文件夹放对应的类别
+
+cd  incubator-mxnet/tools
+
+制作lst文件， python im2rec.py train /data0/hhq/data/light/train --list --recursive
+
+从tran.lst生成rec，python im2rec.py train /data0/hhq/data/light/train --num-thread=4
+以上步骤会将所有文件生成train.rec，如果要按照一
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/05/11/机器学习周志华/#more" rel="contents">
+            <a class="btn" href="/2019/11/17/MXNet制作rec文件/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -403,7 +406,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/12/深度学习花书/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/ExtremeNet_custom/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -422,7 +425,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/12/深度学习花书/" itemprop="url">深度学习(花书)</a></h1>
+                <a class="post-title-link" href="/2019/11/17/ExtremeNet_custom/" itemprop="url">ExtremeNet训练自己的数据</a></h1>
         
 
         <div class="post-meta">
@@ -434,8 +437,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-12T07:54:57+08:00">
-                2018-04-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-17T11:35:30+08:00">
+                2019-11-17
               </time>
             
 
@@ -474,16 +477,16 @@
       
         
           
-          第一章 前言本章节描述了深度学习的发展历史，应用前景，发展趋势，粗略的介绍机器学习如何有别于软件编写的方法-机器学习是机器自己可以获取知识，有别于软件中的硬编码，深度学习的发展历史，那些导致它发展迟缓对手技术，核方法与图模型等。
-第二章 线性代数本章描述线性代数技术，和本科的代数，考研的代数没有太大的区别， 除了一些新的概念以往没有接触过的，比如
+          环境labelme数据转换coco格式用python2，labelme, Ubuntu16.04, python3.7
+数据准备
+下载转labelme到coco格式的脚本：https://github.com/wucng/TensorExpand.git
+将1中下载的detection/Data_interface/MSCOCO/labelme data```)拷贝到labelme的文件夹中13. 在labelme标注文件中执行```python labelme2COCO.py
 
-张量，高纬矩阵
-线性子空间，这个以前可能听过，原始向量线性组合后所能到达的点的集合，$Ax = b$, b就是A向量的线性子空间
-伪逆，解方程$Ax = B$,无解的情况下求的A的左逆使得$Ax$与B的欧几里
+3如果正确，将生产new.json，coco格式的标签文件, new.js
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/04/12/深度学习花书/#more" rel="contents">
+            <a class="btn" href="/2019/11/17/ExtremeNet_custom/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -534,7 +537,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/23/读书笔记3.22/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/darknet转caffe/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -553,7 +556,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/03/23/读书笔记3.22/" itemprop="url">读书笔记3.25</a></h1>
+                <a class="post-title-link" href="/2019/11/17/darknet转caffe/" itemprop="url">darknet转caffe</a></h1>
         
 
         <div class="post-meta">
@@ -565,8 +568,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-23T00:22:38+08:00">
-                2018-03-23
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-17T11:34:18+08:00">
+                2019-11-17
               </time>
             
 
@@ -605,15 +608,19 @@
       
         
           
-          ##人类简史-从动物到上帝
-尤瓦尔·赫拉利
-全书结构逻辑清晰，比较容易读懂与理解，也举了不少生动的例子，好书
-###第一部分 认知革命
-第一章讲述人类起源，一开始和其他物种没什么区别，但是渐渐的人类会合作，会使用火，使得效率变高，食物更容易被消化，从而将其他动物与人类区分开；第二章知善恶树，人类开始会讲故事，把一堆人凑一起合作，故事可以多半是假的，但是只要人人都信就成，比如基督教聚集一伙人做礼拜，现在创始人给员工画大饼讲故事，让大家聚集在一起。第三章亚当和夏娃的一天，原始社会很富足的，饿了去找吃的，困了就睡，大概一周工作2天就行了，前提是那时候到处都是吃
+          参考：https://blog.csdn.net/nodototao/article/details/85711703
+https://blog.csdn.net/cgt19910923/article/details/83242079
+1 修改caffe源码并编译参考安装caffe
+2 模型转换
+安装 pytorch
+
+下载github开源工程https://github.com/marvis/pytorch-caffe-darknet-convert
+
+下载https://github.com/ChenYingpeng/caffe-yolov3/bl
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/23/读书笔记3.22/#more" rel="contents">
+            <a class="btn" href="/2019/11/17/darknet转caffe/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -664,7 +671,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/04/读书笔记3.4/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/darknet训练自己的yolov3/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -683,7 +690,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/03/04/读书笔记3.4/" itemprop="url">读书笔记3.11</a></h1>
+                <a class="post-title-link" href="/2019/11/17/darknet训练自己的yolov3/" itemprop="url">Untitled</a></h1>
         
 
         <div class="post-meta">
@@ -695,8 +702,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-04T11:57:40+08:00">
-                2018-03-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-17T11:33:12+08:00">
+                2019-11-17
               </time>
             
 
@@ -735,23 +742,14 @@
       
         
           
-          ##从0到1
-彼得·蒂尔
-###内容简介
-#####第0章 前言
-从0到1是什么–从无创造出有，不是从竞争的零和中获利
-#####第1章 未来的挑战
-解释从0到1，水平进步与垂直进步，从0到1是垂直进步
-#####第2章 像1999年那样狂欢
-描述了1999年互联网泡沫前后的情景以及总结出了经验教训
-第3章 所有成功的企业都是不同的成功的企业都是解决了问题，失败的企业都是无法逃避竞争，描述了垄断与非垄断的相关问题
-第4章 竞争意识不要去追求竞争，随大流的去竞争，要放弃跟风的竞争，专注于自己
-第5章 后发优势还是在讲垄断与创新
-第6章 成功不是中彩票成功前
+          
+title: darknet框架使用编译修改Makefile
+123GPU=1CUDNN=1OPENCV=1
+1234567python3额外添加LINKFLAGS := -Wl,-rpath,/home/hhq/anaconda3/lib$(EXEC): $(EXECOBJ) $(ALIB)        $(CC) $(COMMON) $(CFLAGS) $^ -o $@ $(LDFLAGS) $(LINKFLAGS) $(ALIB)$(SLIB): $(OBJS)        $(CC) $(CFLAGS) -shared $^ -o $@ $
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/04/读书笔记3.4/#more" rel="contents">
+            <a class="btn" href="/2019/11/17/darknet训练自己的yolov3/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -802,7 +800,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/1984/01/24/samba/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/仿射变换/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -821,7 +819,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/1984/01/24/samba/" itemprop="url">Untitled</a></h1>
+                <a class="post-title-link" href="/2019/11/17/仿射变换/" itemprop="url">仿射变换</a></h1>
         
 
         <div class="post-meta">
@@ -833,8 +831,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="1984-01-24T16:00:00+08:00">
-                1984-01-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-17T11:24:07+08:00">
+                2019-11-17
               </time>
             
 
@@ -873,20 +871,14 @@
       
         
           
-          linux安装samba ubuntu16.04安装samba,windows访问
-
-安装samba
- sudo apt-get install samba
-
-修改配置项
- vimlink12在末尾添加如下，记得/home/hhq/ 路径下有share这个文件夹
-
-
-[share]   path = /home/hhq/share   public = yes   writable = yes   valid users = hhq   create mask = 0644   force create mode = 0644   directory m
+          
+getAffineTransform(src, dst)
+该函数接受两个3x2的矩阵，表示源图片的三个点和对应目标图片的三个点
+用$X = \begin{bmatrix} x_0 \ y_0\ \end{bmatrix} $表示原始图片的一个点，$T  = \begin{bmatrix} x \ y\ \end{bmatrix}$表示转换后的图片上对应的点，$M= \begin{bmatrix} a_{00} &amp;&amp; a_{01} &amp;&amp; b_{00} \ a_{10} &amp;&amp; a_{11} &amp;&amp
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/1984/01/24/samba/#more" rel="contents">
+            <a class="btn" href="/2019/11/17/仿射变换/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -937,7 +929,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/1984/01/24/ubuntu16.04安装cuda/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/caffe安装/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -956,7 +948,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/1984/01/24/ubuntu16.04安装cuda/" itemprop="url">ubuntu16.04安装cuda</a></h1>
+                <a class="post-title-link" href="/2019/11/17/caffe安装/" itemprop="url">caffe安装</a></h1>
         
 
         <div class="post-meta">
@@ -968,8 +960,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="1984-01-24T16:00:00+08:00">
-                1984-01-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-17T10:59:47+08:00">
+                2019-11-17
               </time>
             
 
@@ -1008,19 +1000,18 @@
       
         
           
-          环境ubuntu16.04.01桌面
-kernel 4.4.0
-RTX270
-禁用nouveaunouveau是默认的显卡驱动，一般linux出厂都使用该驱动，要禁止它
-创建文件: vilink12添加内容
-blacklist nouveauoptions nouveau modeset=012更新```initramfs
-1sudo update-initramfs -u
-重启
-| grep nouveau```12345678没有输出则禁用成功#### 关闭X Server`CTRL+ALT+F1`进入tty1```sudo service ligh
+          安装caffe前提：安装好cuda8, cudnn, opencv3
+参考：
+http://caffe.berkeleyvision.org/install_apt.html
+https://blog.csdn.net/yhaolpz/article/details/71375762
+http://3ms.huawei.com/km/blogs/details/5425467
+http://3ms.huawei.com/km/blogs/details/5577119
+
+git clone https://github.com/BVLC/caffe.gi
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/1984/01/24/ubuntu16.04安装cuda/#more" rel="contents">
+            <a class="btn" href="/2019/11/17/caffe安装/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1071,7 +1062,7 @@ blacklist nouveauoptions nouveau modeset=012更新```initramfs
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/1984/01/24/win10安装ubuntu16.04/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/14/opencv编译/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -1090,7 +1081,7 @@ blacklist nouveauoptions nouveau modeset=012更新```initramfs
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/1984/01/24/win10安装ubuntu16.04/" itemprop="url">win10安装ubuntu16.04</a></h1>
+                <a class="post-title-link" href="/2019/09/14/opencv编译/" itemprop="url">opencv编译</a></h1>
         
 
         <div class="post-meta">
@@ -1102,8 +1093,8 @@ blacklist nouveauoptions nouveau modeset=012更新```initramfs
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="1984-01-24T16:00:00+08:00">
-                1984-01-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-14T23:33:09+08:00">
+                2019-09-14
               </time>
             
 
@@ -1142,20 +1133,403 @@ blacklist nouveauoptions nouveau modeset=012更新```initramfs
       
         
           
-          环境win+r 输入msinfo32, 华硕B360-plus
-Win10
-查看bios引导程序是UEFI还是老式Legacßy, UEFI对应的磁盘分区为GPT,Legacy对应的MBR
-
-方法一，win+r 输入msinfo32能直接看到BIOS的模式
-方法二，进入磁盘管理，右键磁盘0，点击卷能看到磁盘分区模式是UEFI还是MBR
-
-本文针对新的UEFI模式
-下载ubuntu16.04从网易下载：http://mirrors.163.com/ubuntu-releases/16.04/，选择16.04-desktop
-默认16.04.6，该版本ker
+          opencv编译12345678910111213141516171819202122下载opencv:https://opencv.org/releases.htmlunzip opencv-3.4.0.zipcd opencv-3.4.0mkdir build &amp;&amp; cd buildcmake -D CMAKE_BUILD_TYPE=RELEASE \-D CMAKE_INSTALL_PREFIX=/usr/local \-D WITH_CUDA=on -D ENABLE_FAST_MATH=1 \-D CUDA_FAST_MATH=
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/1984/01/24/win10安装ubuntu16.04/#more" rel="contents">
+            <a class="btn" href="/2019/09/14/opencv编译/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/25/花生壳内网穿透ssh远程登录/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄汉卿">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/25/花生壳内网穿透ssh远程登录/" itemprop="url">花生壳内网穿透ssh远程登录</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-25T23:34:44+08:00">
+                2019-08-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          注册账号https://console.oray.com/passport/register.html?fromurl=http%3A%2F%2Fhsk.oray.com%2F
+注册成功可以买5元一个的壳域名，我没有买
+下载客户端https://hsk.oray.com/download/
+选择linux
+安装客户端，得到sn码
+添加设备https://hsk.oray.com/console/manage/添加设备
+映射https://b.oray.com/点击+号图片添加一个新的映射，对于新建ssh服务映射，映射类型选通用应用，外网端口选动态端口号，
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/25/花生壳内网穿透ssh远程登录/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/10/linux-ssr客户端安装/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄汉卿">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/10/linux-ssr客户端安装/" itemprop="url">linux ssr客户端安装</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-10T23:40:24+08:00">
+                2019-08-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          安装ssr客户端git clonelink12```cd path/shadowsocksr-linux-client-CLI/
+cp ssrlink12```sudo chmod 777 /usr/local/bin/ssr
+install```12```ssr config```等同于``` vi /usr/local/share/shadowsocksr/config.json
+123456789101112131415161718192021222324&#123;    &quot;server&quot;: &quot;69.194.9.xx
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/10/linux-ssr客户端安装/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/21/genymotion安装/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄汉卿">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/21/genymotion安装/" itemprop="url">genymotion安装</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-21T14:20:44+08:00">
+                2019-04-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          环境Mac OS 10.14，vituralbox6.0
+下载安装个人免费版，地址https://www.genymotion.com/get-full-version/
+一路next安装完毕，启动一个Android模拟器
+配置x86转arm下载Genymotion-ARM-Translation-Librarities工具转换包:https://pan.baidu.com/s/1nsm-Tn0jkx8JCEJL7ItZpA
+将下载好的转换包直接拖到Android模拟器界面上，点击ok然后重启模拟器，最后将需要安装的apk包拖到模拟器上安装
+
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/21/genymotion安装/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1197,7 +1571,7 @@ Win10
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1243,7 +1617,7 @@ Win10
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
