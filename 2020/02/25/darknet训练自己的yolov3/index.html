@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="黄汉卿">
 <meta property="og:description" content="编译修改Makefile 123GPU=1CUDNN=1OPENCV=1 1234567python3额外添加LINKFLAGS := -Wl,-rpath,/home/hhq/anaconda3/lib$(EXEC): $(EXECOBJ) $(ALIB)        $(CC) $(COMMON) $(CFLAGS) $^ -o $@ $(LDFLAGS) $(LINKFLAGS) $(AL">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-02-25T15:20:16.280Z">
+<meta property="og:updated_time" content="2020-02-25T15:25:43.535Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="darknet框架使用">
 <meta name="twitter:description" content="编译修改Makefile 123GPU=1CUDNN=1OPENCV=1 1234567python3额外添加LINKFLAGS := -Wl,-rpath,/home/hhq/anaconda3/lib$(EXEC): $(EXECOBJ) $(ALIB)        $(CC) $(COMMON) $(CFLAGS) $^ -o $@ $(LDFLAGS) $(LINKFLAGS) $(AL">
@@ -303,7 +303,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-25T23:20:16+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-25T23:25:43+08:00">
                 2020-02-25
               </time>
             
@@ -345,12 +345,34 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GPU=1</span><br><span class="line">CUDNN=1</span><br><span class="line">OPENCV=1</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">python3</span><br><span class="line">额外添加</span><br><span class="line">LINKFLAGS := -Wl,-rpath,/home/hhq/anaconda3/lib</span><br><span class="line">$(EXEC): $(EXECOBJ) $(ALIB)</span><br><span class="line">        $(CC) $(COMMON) $(CFLAGS) $^ -o $@ $(LDFLAGS) $(LINKFLAGS) $(ALIB)</span><br><span class="line">$(SLIB): $(OBJS)</span><br><span class="line">        $(CC) $(CFLAGS) -shared $^ -o $@ $(LDFLAGS) $(LINKFLAGS)</span><br></pre></td></tr></table></figure>
 <p>make -j24</p>
-<h4 id="处理数据"><a href="#处理数据" class="headerlink" title="处理数据"></a>处理数据</h4><p>在<figure class="highlight plain"><figcaption><span>voc_label.py```,从xml标注文件生成txt标注文件</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### custom数据训练</span><br><span class="line"></span><br><span class="line">- 修改voc.data</span><br></pre></td></tr></table></figure></p>
-<p>classes= 1<br>train  = /data0/hhq/project/darknet-master/mydata/2031_train.txt<br>valid  = /data0/hhq/project/darknet-master/mydata/2031_trainval.txt<br>names = /data2/hhq/project/darknet-master/mydata/voc.names<br>backup = /data2/hhq/project/darknet-master/mydata/model/</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 修改voc.names</span><br><span class="line"></span><br><span class="line">`light`</span><br><span class="line"></span><br><span class="line">- 修改yolov3-voc.cfg</span><br><span class="line"></span><br><span class="line">修改classes，yolo上面一层卷积层的filter数量n=anchors*(1+4+1)</span><br><span class="line"></span><br><span class="line">- 训练</span><br></pre></td></tr></table></figure>
-<p>./darknet detector train ./mydata/voc.data ./mydata/yolov3-voc.cfg ./mydata/yolov3.weights -clear 0 -gpus 0,1  | tee train-0322-01.log<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- 输出</span><br><span class="line"></span><br><span class="line">batch 输出，如</span><br></pre></td></tr></table></figure></p>
-<p>2705: 0.256951, 0.259272 avg, 0.000040 rate, 34.392978 seconds, 692480 images<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2706迭代次数，0.256951总损失loss，0.259272 avg平均损失，0.000040当前学习率，34当前批次数据训练所花时间，692480=64*2705</span><br><span class="line"></span><br><span class="line">详细输出，如</span><br></pre></td></tr></table></figure></p>
-<p>Region 82 Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.000002, .5R: -nan, .75R: -nan,  count: 0<br>Region 94 Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.000010, .5R: -nan, .75R: -nan,  count: 0<br>Region 106 Avg IOU: 0.851382, Class: 0.999875, Obj: 0.997986, No Obj: 0.000242, .5R: 1.000000, .75R: 0.846154,  count: 13<br><code>`</code></p>
+<h4 id="处理数据"><a href="#处理数据" class="headerlink" title="处理数据"></a>处理数据</h4><p>在</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/data0/hhq/data</span><br></pre></td></tr></table></figure>
+<p>下执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python voc_label.py</span><br></pre></td></tr></table></figure>
+<p>从xml标注文件生成txt标注文件</p>
+<h4 id="custom数据训练"><a href="#custom数据训练" class="headerlink" title="custom数据训练"></a>custom数据训练</h4><ul>
+<li>修改voc.data</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">classes= 1</span><br><span class="line">train  = /data0/hhq/project/darknet-master/mydata/2031_train.txt</span><br><span class="line">valid  = /data0/hhq/project/darknet-master/mydata/2031_trainval.txt</span><br><span class="line">names = /data2/hhq/project/darknet-master/mydata/voc.names</span><br><span class="line">backup = /data2/hhq/project/darknet-master/mydata/model/</span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改voc.names</li>
+</ul>
+<p><code>light</code></p>
+<ul>
+<li>修改yolov3-voc.cfg</li>
+</ul>
+<p>修改classes，yolo上面一层卷积层的filter数量n=anchors*(1+4+1)</p>
+<ul>
+<li>训练</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./darknet detector train ./mydata/voc.data ./mydata/yolov3-voc.cfg ./mydata/yolov3.weights -clear 0 -gpus 0,1  | tee train-0322-01.log</span><br></pre></td></tr></table></figure>
+<ul>
+<li>输出</li>
+</ul>
+<p>batch 输出，如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2705: 0.256951, 0.259272 avg, 0.000040 rate, 34.392978 seconds, 692480 images</span><br></pre></td></tr></table></figure></p>
+<p>2706迭代次数，0.256951总损失loss，0.259272 avg平均损失，0.000040当前学习率，34当前批次数据训练所花时间，692480=64*2705</p>
+<p>详细输出，如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Region 82 Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.000002, .5R: -nan, .75R: -nan,  count: 0</span><br><span class="line">Region 94 Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.000010, .5R: -nan, .75R: -nan,  count: 0</span><br><span class="line">Region 106 Avg IOU: 0.851382, Class: 0.999875, Obj: 0.997986, No Obj: 0.000242, .5R: 1.000000, .75R: 0.846154,  count: 13</span><br></pre></td></tr></table></figure>
 <p>Region Avg IOU: 0.32657, 表示在当前 subdivision 内的图片的平均 IOU, 代表预测的矩形框和真实目标的交集与并集之比, 这里是 75.96%, 这个模型此时已经达到了很高的训练精度;</p>
 <p>Class: 0.809470,  标注物体分类的正确率, 期望该值趋近于1;</p>
 <p>Obj: 0.732717,  越接近 1 越好;</p>
@@ -513,7 +535,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#编译"><span class="nav-number">1.</span> <span class="nav-text">编译</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#处理数据"><span class="nav-number">2.</span> <span class="nav-text">处理数据</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#编译"><span class="nav-number">1.</span> <span class="nav-text">编译</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#处理数据"><span class="nav-number">2.</span> <span class="nav-text">处理数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#custom数据训练"><span class="nav-number">3.</span> <span class="nav-text">custom数据训练</span></a></li></ol></div>
             
 
           </div>
