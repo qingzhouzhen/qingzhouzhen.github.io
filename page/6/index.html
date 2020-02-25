@@ -406,7 +406,7 @@ Win10
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/1984/01/24/samba/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/1984/01/24/ubuntu16.04安装cuda/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -425,7 +425,7 @@ Win10
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/1984/01/24/samba/" itemprop="url">Untitled</a></h1>
+                <a class="post-title-link" href="/1984/01/24/ubuntu16.04安装cuda/" itemprop="url">ubuntu16.04安装cuda</a></h1>
         
 
         <div class="post-meta">
@@ -477,20 +477,19 @@ Win10
       
         
           
-          linux安装samba ubuntu16.04安装samba,windows访问
-
-安装samba
- sudo apt-get install samba
-
-修改配置项
- vimlink12在末尾添加如下，记得/home/hhq/ 路径下有share这个文件夹
-
-
-[share]   path = /home/hhq/share   public = yes   writable = yes   valid users = hhq   create mask = 0644   force create mode = 0644   directory m
+          环境ubuntu16.04.01桌面
+kernel 4.4.0
+RTX270
+禁用nouveaunouveau是默认的显卡驱动，一般linux出厂都使用该驱动，要禁止它
+创建文件: vilink12添加内容
+blacklist nouveauoptions nouveau modeset=012更新```initramfs
+1sudo update-initramfs -u
+重启
+| grep nouveau```12345678没有输出则禁用成功#### 关闭X Server`CTRL+ALT+F1`进入tty1```sudo service ligh
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/1984/01/24/samba/#more" rel="contents">
+            <a class="btn" href="/1984/01/24/ubuntu16.04安装cuda/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
