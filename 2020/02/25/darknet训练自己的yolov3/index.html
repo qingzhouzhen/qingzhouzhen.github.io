@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="官方文档：http://rapidjson.org/zh-cn/index.html 纯头文件，不需要安装，拷贝rapidjson到项目，然后include它 读取include 1234#include &amp;quot;lib/rapidjson/document.h&amp;quot;#include &amp;quot;lib/rapidjson/writer.h&amp;quot;#include &amp;quot;lib">
+<meta name="description" content="编译修改Makefile 123GPU=1CUDNN=1OPENCV=1 1234567python3额外添加LINKFLAGS := -Wl,-rpath,/home/hhq/anaconda3/lib$(EXEC): $(EXECOBJ) $(ALIB)        $(CC) $(COMMON) $(CFLAGS) $^ -o $@ $(LDFLAGS) $(LINKFLAGS) $(AL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="rapidjson使用">
-<meta property="og:url" content="http://yoursite.com/2019/11/17/rapidjson使用/index.html">
+<meta property="og:title" content="darknet框架使用">
+<meta property="og:url" content="http://yoursite.com/2020/02/25/darknet训练自己的yolov3/index.html">
 <meta property="og:site_name" content="黄汉卿">
-<meta property="og:description" content="官方文档：http://rapidjson.org/zh-cn/index.html 纯头文件，不需要安装，拷贝rapidjson到项目，然后include它 读取include 1234#include &amp;quot;lib/rapidjson/document.h&amp;quot;#include &amp;quot;lib/rapidjson/writer.h&amp;quot;#include &amp;quot;lib">
+<meta property="og:description" content="编译修改Makefile 123GPU=1CUDNN=1OPENCV=1 1234567python3额外添加LINKFLAGS := -Wl,-rpath,/home/hhq/anaconda3/lib$(EXEC): $(EXECOBJ) $(ALIB)        $(CC) $(COMMON) $(CFLAGS) $^ -o $@ $(LDFLAGS) $(LINKFLAGS) $(AL">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-17T03:40:46.520Z">
+<meta property="og:updated_time" content="2020-02-25T15:20:16.280Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="rapidjson使用">
-<meta name="twitter:description" content="官方文档：http://rapidjson.org/zh-cn/index.html 纯头文件，不需要安装，拷贝rapidjson到项目，然后include它 读取include 1234#include &amp;quot;lib/rapidjson/document.h&amp;quot;#include &amp;quot;lib/rapidjson/writer.h&amp;quot;#include &amp;quot;lib">
+<meta name="twitter:title" content="darknet框架使用">
+<meta name="twitter:description" content="编译修改Makefile 123GPU=1CUDNN=1OPENCV=1 1234567python3额外添加LINKFLAGS := -Wl,-rpath,/home/hhq/anaconda3/lib$(EXEC): $(EXECOBJ) $(ALIB)        $(CC) $(COMMON) $(CFLAGS) $^ -o $@ $(LDFLAGS) $(LINKFLAGS) $(AL">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/11/17/rapidjson使用/">
+  <link rel="canonical" href="http://yoursite.com/2020/02/25/darknet训练自己的yolov3/">
 
 
 
 
 
-  <title>rapidjson使用 | 黄汉卿</title>
+  <title>darknet框架使用 | 黄汉卿</title>
   
 
 
@@ -274,7 +274,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/rapidjson使用/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/25/darknet训练自己的yolov3/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -291,7 +291,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">rapidjson使用</h1>
+          <h1 class="post-title" itemprop="name headline">darknet框架使用</h1>
         
 
         <div class="post-meta">
@@ -303,8 +303,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-17T11:40:46+08:00">
-                2019-11-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-25T23:20:16+08:00">
+                2020-02-25
               </time>
             
 
@@ -341,13 +341,22 @@
       
 
       
-        <p>官方文档：<a href="http://rapidjson.org/zh-cn/index.html" target="_blank" rel="noopener">http://rapidjson.org/zh-cn/index.html</a></p>
-<p>纯头文件，不需要安装，拷贝rapidjson到项目，然后include它</p>
-<h4 id="读取"><a href="#读取" class="headerlink" title="读取"></a>读取</h4><p>include</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;lib/rapidjson/document.h&quot;</span><br><span class="line">#include &quot;lib/rapidjson/writer.h&quot;</span><br><span class="line">#include &quot;lib/rapidjson/stringbuffer.h&quot;</span><br><span class="line">#include &quot;lib/rapidjson/filereadstream.h&quot;</span><br></pre></td></tr></table></figure>
-<p>读取文件并解析</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">FILE* fp = fopen(config_file.c_str(), &quot;r&quot;);</span><br><span class="line">    char readBuffer[65536];</span><br><span class="line">    rapidjson::FileReadStream is(fp, readBuffer, sizeof(readBuffer));</span><br><span class="line">    rapidjson::Document d;</span><br><span class="line">    d.ParseStream(is);</span><br><span class="line">    rapidjson::Value&amp; s = d[cameraID.c_str()];</span><br><span class="line">    list&lt;std::array&lt;int, 4&gt;&gt; boxesList;</span><br><span class="line">    for (auto&amp; v : s.GetArray()) &#123;</span><br><span class="line">        std::array&lt;int, 4&gt; boxArray;</span><br><span class="line">        string box = v.GetString();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h4 id="写入"><a href="#写入" class="headerlink" title="写入"></a>写入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">rapidjson::StringBuffer s;</span><br><span class="line">rapidjson::Writer&lt;rapidjson::StringBuffer&gt; writer(s);</span><br><span class="line">writer.StartObject();</span><br><span class="line">writer.Key(&quot;detID&quot;);</span><br><span class="line">writer.String(m_videoInfo.stream_id.c_str());</span><br><span class="line">writer.Key(&quot;vehicleInfor&quot;);</span><br><span class="line">writer.StartArray();</span><br><span class="line">for (auto box:boxes)&#123;</span><br><span class="line">    writer.StartObject();</span><br><span class="line">    writer.Key(&quot;x1&quot;);</span><br><span class="line">    writer.Double(box.x);</span><br><span class="line">    writer.Key(&quot;y1&quot;);</span><br><span class="line">    writer.Double(box.y);</span><br><span class="line">    writer.Key(&quot;x2&quot;);</span><br><span class="line">    writer.Double(box.x + box.w);</span><br><span class="line">    writer.Key(&quot;y2&quot;);</span><br><span class="line">    writer.Double(box.y + box.h);</span><br><span class="line">    writer.EndObject();</span><br><span class="line">&#125;</span><br><span class="line">writer.EndArray();</span><br><span class="line">writer.EndObject();</span><br></pre></td></tr></table></figure>
+        <h4 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h4><p>修改Makefile</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GPU=1</span><br><span class="line">CUDNN=1</span><br><span class="line">OPENCV=1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">python3</span><br><span class="line">额外添加</span><br><span class="line">LINKFLAGS := -Wl,-rpath,/home/hhq/anaconda3/lib</span><br><span class="line">$(EXEC): $(EXECOBJ) $(ALIB)</span><br><span class="line">        $(CC) $(COMMON) $(CFLAGS) $^ -o $@ $(LDFLAGS) $(LINKFLAGS) $(ALIB)</span><br><span class="line">$(SLIB): $(OBJS)</span><br><span class="line">        $(CC) $(CFLAGS) -shared $^ -o $@ $(LDFLAGS) $(LINKFLAGS)</span><br></pre></td></tr></table></figure>
+<p>make -j24</p>
+<h4 id="处理数据"><a href="#处理数据" class="headerlink" title="处理数据"></a>处理数据</h4><p>在<figure class="highlight plain"><figcaption><span>voc_label.py```,从xml标注文件生成txt标注文件</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### custom数据训练</span><br><span class="line"></span><br><span class="line">- 修改voc.data</span><br></pre></td></tr></table></figure></p>
+<p>classes= 1<br>train  = /data0/hhq/project/darknet-master/mydata/2031_train.txt<br>valid  = /data0/hhq/project/darknet-master/mydata/2031_trainval.txt<br>names = /data2/hhq/project/darknet-master/mydata/voc.names<br>backup = /data2/hhq/project/darknet-master/mydata/model/</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 修改voc.names</span><br><span class="line"></span><br><span class="line">`light`</span><br><span class="line"></span><br><span class="line">- 修改yolov3-voc.cfg</span><br><span class="line"></span><br><span class="line">修改classes，yolo上面一层卷积层的filter数量n=anchors*(1+4+1)</span><br><span class="line"></span><br><span class="line">- 训练</span><br></pre></td></tr></table></figure>
+<p>./darknet detector train ./mydata/voc.data ./mydata/yolov3-voc.cfg ./mydata/yolov3.weights -clear 0 -gpus 0,1  | tee train-0322-01.log<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- 输出</span><br><span class="line"></span><br><span class="line">batch 输出，如</span><br></pre></td></tr></table></figure></p>
+<p>2705: 0.256951, 0.259272 avg, 0.000040 rate, 34.392978 seconds, 692480 images<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2706迭代次数，0.256951总损失loss，0.259272 avg平均损失，0.000040当前学习率，34当前批次数据训练所花时间，692480=64*2705</span><br><span class="line"></span><br><span class="line">详细输出，如</span><br></pre></td></tr></table></figure></p>
+<p>Region 82 Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.000002, .5R: -nan, .75R: -nan,  count: 0<br>Region 94 Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.000010, .5R: -nan, .75R: -nan,  count: 0<br>Region 106 Avg IOU: 0.851382, Class: 0.999875, Obj: 0.997986, No Obj: 0.000242, .5R: 1.000000, .75R: 0.846154,  count: 13<br><code>`</code></p>
+<p>Region Avg IOU: 0.32657, 表示在当前 subdivision 内的图片的平均 IOU, 代表预测的矩形框和真实目标的交集与并集之比, 这里是 75.96%, 这个模型此时已经达到了很高的训练精度;</p>
+<p>Class: 0.809470,  标注物体分类的正确率, 期望该值趋近于1;</p>
+<p>Obj: 0.732717,  越接近 1 越好;</p>
+<p>No Obj: 0.002799, 期望该值越来越小, 但不为零;</p>
+<p>.5R: 1.000000, 是在 recall/count 中定义的, 是当前模型在所有 subdivision 图片中检测出的正样本与实际的正样本的比值。在本例中, 全部的正样本被正确的检测到。 </p>
+<p>count: 4, 所有当前 subdivision 图片（本例中一共 8 张）中包含正样本的图片的数量。 在输出 log 中的其他行中, 可以看到其他 subdivision 也有的只含有 6 或 1 个正样本, 说明在 subdivision 中含有不包含在检测对象 classes 中的图片。</p>
 
       
     </div>
@@ -372,8 +381,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/11/17/pytorch可视化/" rel="next" title="pytorch模型可视化">
-                <i class="fa fa-chevron-left"></i> pytorch模型可视化
+              <a href="/2019/11/17/物体检测mAP计算方式/" rel="next" title="物体检测mAP计算方式(voc07)">
+                <i class="fa fa-chevron-left"></i> 物体检测mAP计算方式(voc07)
               </a>
             
           </div>
@@ -381,10 +390,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/11/17/TensorRT打印网络推理时间/" rel="prev" title="TensorRT打印网络推理时间">
-                TensorRT打印网络推理时间 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -508,7 +513,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#读取"><span class="nav-number">1.</span> <span class="nav-text">读取</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#写入"><span class="nav-number">2.</span> <span class="nav-text">写入</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#编译"><span class="nav-number">1.</span> <span class="nav-text">编译</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#处理数据"><span class="nav-number">2.</span> <span class="nav-text">处理数据</span></a></li></ol></div>
             
 
           </div>
