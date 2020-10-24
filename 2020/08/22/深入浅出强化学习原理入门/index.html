@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="第2章 马尔可夫决策过程 马尔可夫性， 当前系统的下一个状态仅与当前状态有关，而与以往状态无关 马尔可夫过程，以一定的概率在有限状态下转换，吃饭睡觉打豆豆。。。 马尔可夫决策过程，马尔可夫决策过程(S,A,P,R,$\gamma$)，S是有限状态集合，A是有限动作集合，P为状态转移，R是回报函数，$\gamma$是折扣因子，马尔可夫决策过程与马尔可夫过程不同的是它的动作是带转移概率的 强化学习的目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入浅出强化学习原理入门">
+<meta property="og:url" content="http://yoursite.com/2020/08/22/深入浅出强化学习原理入门/index.html">
+<meta property="og:site_name" content="黄汉卿">
+<meta property="og:description" content="第2章 马尔可夫决策过程 马尔可夫性， 当前系统的下一个状态仅与当前状态有关，而与以往状态无关 马尔可夫过程，以一定的概率在有限状态下转换，吃饭睡觉打豆豆。。。 马尔可夫决策过程，马尔可夫决策过程(S,A,P,R,$\gamma$)，S是有限状态集合，A是有限动作集合，P为状态转移，R是回报函数，$\gamma$是折扣因子，马尔可夫决策过程与马尔可夫过程不同的是它的动作是带转移概率的 强化学习的目">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-08-22T15:51:37.293Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="深入浅出强化学习原理入门">
+<meta name="twitter:description" content="第2章 马尔可夫决策过程 马尔可夫性， 当前系统的下一个状态仅与当前状态有关，而与以往状态无关 马尔可夫过程，以一定的概率在有限状态下转换，吃饭睡觉打豆豆。。。 马尔可夫决策过程，马尔可夫决策过程(S,A,P,R,$\gamma$)，S是有限状态集合，A是有限动作集合，P为状态转移，R是回报函数，$\gamma$是折扣因子，马尔可夫决策过程与马尔可夫过程不同的是它的动作是带转移概率的 强化学习的目">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/08/22/深入浅出强化学习原理入门/">
+
+
+
+
+
+  <title>深入浅出强化学习原理入门 | 黄汉卿</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">黄汉卿</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/22/深入浅出强化学习原理入门/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄汉卿">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">深入浅出强化学习原理入门</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-22T23:51:37+08:00">
+                2020-08-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="第2章-马尔可夫决策过程"><a href="#第2章-马尔可夫决策过程" class="headerlink" title="第2章 马尔可夫决策过程"></a>第2章 马尔可夫决策过程</h3><ul>
+<li>马尔可夫性， 当前系统的下一个状态仅与当前状态有关，而与以往状态无关</li>
+<li>马尔可夫过程，以一定的概率在有限状态下转换，吃饭睡觉打豆豆。。。</li>
+<li>马尔可夫决策过程，马尔可夫决策过程(S,A,P,R,$\gamma$)，S是有限状态集合，A是有限动作集合，P为状态转移，R是回报函数，$\gamma$是折扣因子，马尔可夫决策过程与马尔可夫过程不同的是它的动作是带转移概率的</li>
+<li>强化学习的目标是在给定的马尔可夫决策过程中寻找最优策略，这个策略指的是状态到动作的映射，在q-learning中，这个策略就是q表，第一维是状态，第二维是动作</li>
+<li>策略，所谓策略是指状态到动作的映射，在q-learning中指的是从一个状态转移到下一个状态到概率</li>
+<li>状态值函数V，智能体在状态s时采用策略$\pi$采取一系列连续动作得到的累积回报的期望，详细一点就是智能体处于状态s，采用策略pi后所有一系列动作得到的回报累积，这里之所以要加期望，是因为有些策略采取的动作是概率，比如书中的例子一个人在某个状态睡觉打游戏是有一定概率大，都有可能发生—挖坑，书中图2.4圆圈中的状态值函数是怎么计算出来的？</li>
+<li>状态行为值函数Q，智能体在状态s时采取一步动作后进入下一个状态得到的状态值函数</li>
+<li>挖坑—什么是贝尔曼方程？<br>###第3章 基于模型的动态规划方法</li>
+</ul>
+<p>理解公式$v_{k+1}(s) = \sum_{a\in A}\pi(a|s)(R_s^a+\gamma\sum_{s^<code>\in S}P_{ss</code>}v_k(s`))$就行</p>
+<p>强化学习中主要使用值函数进行策略评估和策略改善，即训练与推理。上面的公式就是值函数迭代的公式（高斯塞德尔迭代法），从图3.7理解，当前状态的值函数等于采取所有动作得到的回报并加上所到达状态的值函数的期望，具体计算方法见图3.7下面的那个计算例子。</p>
+<p>利用值函数进行推理采用贪婪策略，即从当前状态出发，把所有可以采取的动作都做一遍，哪个回报大就采用哪个动作</p>
+<h3 id="第4章-基于蒙特卡罗的强化学习方法"><a href="#第4章-基于蒙特卡罗的强化学习方法" class="headerlink" title="第4章 基于蒙特卡罗的强化学习方法"></a>第4章 基于蒙特卡罗的强化学习方法</h3><ul>
+<li>蒙特卡罗积分，求某个函数在某个区间的定积分，将函数先乘以某个分布已知的函数$\pi(x)$,然后在这个已知的分布上采样，最后求和的均值。</li>
+<li>原理，和动态规划的一样，有衡量在某个状态s采取一些列动作获得回报和的状态值函数V，有Q函数，不同的是动态规划的值函数是迭代出来的，蒙特卡洛方法的V函数是采样然后计算出来的</li>
+<li>同策略，产生数据的策略和要评估改善的策略是同一个策略，即训练的时候在状态s采取的动作和在推理的时候在状态s采取的动作是否一致，dqn中就是异策略，训练的时候为了尽可能走过所有的状态，状态到动作映射会覆盖所有的状态，但是推理的时候只会选取最有的策略</li>
+</ul>
+<h3 id="第5章-基于时间差分的强化学习方法"><a href="#第5章-基于时间差分的强化学习方法" class="headerlink" title="第5章 基于时间差分的强化学习方法"></a>第5章 基于时间差分的强化学习方法</h3><p>TD方法：$V(S_t)&lt;-V(S_t)+\alpha(R_{t+1}+\gamma V(S_{t+1})-V(S_t))$</p>
+<p>值函数等于上一步的值函数的一个比例加上当前动作后的reward和下一个状态的值函数</p>
+<ul>
+<li>时序差分方法，蒙特卡罗方法，动态规划方法的区别与联系，动态规划方法用空间换时间，把每个动作后的Q表都记录下来，在求某个状态的值函数时，在采取了某个动作走到下一个状态时，下一个状态的Q值已经记录下来了，由上一次记录并存储下来，举例见书中图3.7，这个方法需要知道状态的转移概率，在每个状态，采取哪个动作的概率都是需要已知，这个现实中是 不好弄的；蒙特卡罗可以解决动态规划需要状态转移矩阵的问题，它从随机初始状态开始，通过多次实验，统计从状态s到最终状态得到的奖励，缺点是效率低，每次都需要等到实验做完，且需要多次实验；时间差分结合了两者优势，用Q表存储记录每次实验后的状态值函数，但是像蒙特卡洛方法一样不停的与周围环境交互得到新数据，不要先验概率</li>
+</ul>
+<p>TD($\lambda$):TD方法使用了下一个状态的值函数，TD($\lambda$)使用多个</p>
+<h3 id="动态规划，蒙特卡洛，时间差分的对比"><a href="#动态规划，蒙特卡洛，时间差分的对比" class="headerlink" title="动态规划，蒙特卡洛，时间差分的对比"></a>动态规划，蒙特卡洛，时间差分的对比</h3><p>蒙特卡洛：$Q(s,a)\leftarrow Q(s,a) + \alpha(G_t - Q(s,a))$</p>
+<p>在状态s处的状态行为值函数为状态行为值函数+随机试验到状态s时的累积回报（挖坑，Q不是不记忆的吗？）</p>
+<p>时间差分：$Q(s,a)\leftarrow Q(s,a)+\alpha(r + \gamma Q(s<code>,a</code>)- Q(s,a))$</p>
+<p>时间差分用空间换时间，用一张Q表记录以前做过的试验，更新的时候通过走一步进入状态s`，并加上以前记录的状态s·共同得到状态s处的状态行为值函数，</p>
+<p>###第6章 基于值函数逼近的强化学习方法</p>
+<ul>
+<li>基于值函数逼近理论，在Q-learning，时间差分，蒙特卡洛等方法中，使用Q表记录在什么样的状态采取什么动作会得到什么回报值，基于值函数逼近的就是使用参数$\theta$表示值函数，输入状态和动作，得到回报的值函数</li>
+<li>dqn，  $Q(s,a)\leftarrow Q(s,a)+\alpha(r + \gamma Q(s<code>,a</code>)- Q(s,a))$</li>
+</ul>
+<p>​                     $\theta_{t+1}=\theta + \alpha[r + \gamma max_{a<code>}Q(s</code>,a`;\theta)- Q(s,a;\theta)] \Delta (Q(s,a;\theta))$</p>
+<p>计算TD目标网络的参数$r + \gamma max_{a<code>}Q(s</code>,a`;\theta)$的参数为$\theta^-$，而计算值函数的网络参数为$\theta$，一条数据包括当前状态$s_1$，采取动作a，立即回报r，下一个动作$s_2$，取出数据训练时，$\theta$每一步都更新，$\theta^-$每隔一定步数才更新；计算的方法为用贪婪策略在某些状态选取动作，存储一下数据，然后采样通过上式子更新参数$\theta$，目标网络参数只计算，等到若干步以后，才将Q函数的$\theta$更新到目标函数的Q函数中</p>
+<h3 id="第7章-基于策略梯度的强化学习方法"><a href="#第7章-基于策略梯度的强化学习方法" class="headerlink" title="第7章 基于策略梯度的强化学习方法"></a>第7章 基于策略梯度的强化学习方法</h3><p>直接搜索策略</p>
+<p>###第8章 基于置信域策略优化的强化学习方法</p>
+<ul>
+<li>TRPO Trust Region Policy Optimization基于置信域策略优化</li>
+<li>$\eta(\tilde\pi)=\eta(\pi) + E_{s_0,a_0…\tilde\pi}[\sum_{t=0}^{\infty}\gamma^tA_{\pi}(s_t,a_t)]$，为了搜索好的策略，即关于的策略函数每前进一步，回报函数都会比以前的好，需要更好的$\theta$的步长，或者把回报函数更改为旧回报函数加上一项不小于0的新值，以保证递增，$A_{\pi}(s,a)=Q_{\pi}(s,a)-V_{\pi}(s)$</li>
+<li>信息论，$H(P,Q)=-\int P(x)logQ(x){\rm d}x$,交叉熵常用来作为机器学习的损失函数，真是样本分布是$P(x)$，模型概率分布是$Q(x)$，两者相等时最小</li>
+<li>优化方法，最速下降法，就是朝着导数方向前进，应该就是梯度下降法；牛顿法，使用二阶导数性质的梯度下降法，$x_{k+1}=x_k + d_k$, $G_kd_k=g_k$，$g_k$是一阶导数，$G_k$是二阶导数，反正就是迭代更新参数x</li>
+</ul>
+<h3 id="第9章-基于确定性策略搜索的强化学习方法"><a href="#第9章-基于确定性策略搜索的强化学习方法" class="headerlink" title="第9章 基于确定性策略搜索的强化学习方法"></a>第9章 基于确定性策略搜索的强化学习方法</h3><p>随机策略指在状态s确定时，智能体采取的动作不一定是一样的，但是确定性策略则不一样，在状态s一定是，它所采取的动作一定是一样的。</p>
+<ul>
+<li>Actor-Critic- Algorithm，行动与评估策略，行动策略是随机的以保证可以探索环境，评估策略是确定性的</li>
+<li>ddpg，$r_t+\gamma Q^w(s_{t+1},u_{\theta}(s_{t+1})-Q^w(s_t, a_t))$,行动策略网络是$u$，参数为$\theta$,评估网络$Q$，参数是$w$，训练的时候采用贪婪策略探索环境，使用确定性策略更新Q，评估的时候使用Q函数</li>
+<li>DQN和DDPG的区别，DQN时离散的，DDPG时连续的；DQN只有一个网络，DDPG有两个网络；</li>
+</ul>
+<p>###第10章 基于引导策略搜索的强化学习方法</p>
+<p>无模型时，智能体通过向环境试错得到策略网络，gps算法先通过控制相从数据中获取好的数据，监督相从控制相产生的数据学习模型；之所以要这么干的原因是有些网路有成千上万个参数，用常见的环境试错，无法从环境中学习到好的策略</p>
+<h3 id="第11章-逆向强化学习"><a href="#第11章-逆向强化学习" class="headerlink" title="第11章 逆向强化学习"></a>第11章 逆向强化学习</h3><p>通常强化学习的回报函数都是人为经验给出的，但是这个是很主观的，逆向强化学习就是为了解决如何学习强化学习回报而来的。</p>
+<ul>
+<li>学徒学习方法，智能体从专家示例中学习回报函数</li>
+<li>最大边际规划方法，先建模$D={(x_i,A_i,p_i,F_i,y_i,L_i)}$从左到右依次为状态空间，动作空间，状态转移概率，回报函数的特征向量，专家轨迹，策略损失函数，学习者要照一个特征到回报的现行映射</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/08/22/linux-ssr客户端安装/" rel="next" title="linux ssr客户端安装">
+                <i class="fa fa-chevron-left"></i> linux ssr客户端安装
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/08/22/读书笔记3.22/" rel="prev" title="读书笔记3.25">
+                读书笔记3.25 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/qingzhouzhen" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#第2章-马尔可夫决策过程"><span class="nav-number">1.</span> <span class="nav-text">第2章 马尔可夫决策过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第4章-基于蒙特卡罗的强化学习方法"><span class="nav-number">2.</span> <span class="nav-text">第4章 基于蒙特卡罗的强化学习方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第5章-基于时间差分的强化学习方法"><span class="nav-number">3.</span> <span class="nav-text">第5章 基于时间差分的强化学习方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态规划，蒙特卡洛，时间差分的对比"><span class="nav-number">4.</span> <span class="nav-text">动态规划，蒙特卡洛，时间差分的对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第7章-基于策略梯度的强化学习方法"><span class="nav-number">5.</span> <span class="nav-text">第7章 基于策略梯度的强化学习方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第9章-基于确定性策略搜索的强化学习方法"><span class="nav-number">6.</span> <span class="nav-text">第9章 基于确定性策略搜索的强化学习方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第11章-逆向强化学习"><span class="nav-number">7.</span> <span class="nav-text">第11章 逆向强化学习</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

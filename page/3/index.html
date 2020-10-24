@@ -271,7 +271,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/pascalvoc转coco/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/22/svm算法/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -290,7 +290,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/11/17/pascalvoc转coco/" itemprop="url">pascal voc数据转coco</a></h1>
+                <a class="post-title-link" href="/2020/08/22/svm算法/" itemprop="url">svm算法原理</a></h1>
         
 
         <div class="post-meta">
@@ -302,8 +302,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-17T11:39:00+08:00">
-                2019-11-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-22T23:51:37+08:00">
+                2020-08-22
               </time>
             
 
@@ -342,18 +342,15 @@
       
         
           
-          
-准备pascal voc数据
-123AnnotationsImageSetsJPEGImages
-转的过程中没用到ImagesSets文件夹
-
-转换后输出json文件
-
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010
+          间隔与支持向量有类别的数据需要被分为两类，通过一个最优超平面将其分为两部分，推理的时候在最优超平面一边的为一类，在另一边的为另一类，最优超平面定义为$w^Tx+b=0$，模型为$f(x)=w^Tx+b$。
+现在的问题是如何求得这个最优超平面，根据点到直线的距离，从支持向量到最优超平面的距离为$\frac{wx+b}{|w|}$，求最小距离时，即求支持向量到最优超平面的距离，因为对于支持向量有$wx+b=1$,目标转为$min \ w$
+最优化的目标转化为：
+$min\frac{1}{2}||w||^2$
+$s.t. \ y_i(w^Tx_i+b)&gt;
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/11/17/pascalvoc转coco/#more" rel="contents">
+            <a class="btn" href="/2020/08/22/svm算法/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -404,7 +401,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/mxnet工具类/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/22/caffe安装/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -423,7 +420,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/11/17/mxnet工具类/" itemprop="url">mxnet工具类</a></h1>
+                <a class="post-title-link" href="/2020/08/22/caffe安装/" itemprop="url">caffe安装</a></h1>
         
 
         <div class="post-meta">
@@ -435,8 +432,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-17T11:37:58+08:00">
-                2019-11-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-22T23:51:37+08:00">
+                2020-08-22
               </time>
             
 
@@ -475,20 +472,18 @@
       
         
           
-          profiler官方http://mxnet.incubator.apache.org/architecture/release_note_0_9.html?highlight=profiler
-profiler可以用来分析mxnet的性能，比如计算中每一个算子前向所花的时间
-主要步骤包括设置profiler:
+          安装caffe前提：安装好cuda8, cudnn, opencv3
+参考：
+http://caffe.berkeleyvision.org/install_apt.html
+https://blog.csdn.net/yhaolpz/article/details/71375762
+http://3ms.huawei.com/km/blogs/details/5425467
+http://3ms.huawei.com/km/blogs/details/5577119
 
-1234profiler开始：* ```mx.profiler.profiler_set_state(&apos;run&apos;)
-
-
-profiler结束：
-
-1234### 网络可视化```mx.viz.plot_network(net
+git clone https://github.com/BVLC/caffe.gi
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/11/17/mxnet工具类/#more" rel="contents">
+            <a class="btn" href="/2020/08/22/caffe安装/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -539,7 +534,7 @@ profiler结束：
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/mxnet如何查看中间结果/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/22/TensorRT-CenterNet-ObjectDet/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -558,7 +553,7 @@ profiler结束：
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/11/17/mxnet如何查看中间结果/" itemprop="url">mxnet如何查看中间结果</a></h1>
+                <a class="post-title-link" href="/2020/08/22/TensorRT-CenterNet-ObjectDet/" itemprop="url">TensorRT-CenterNet-物体检测</a></h1>
         
 
         <div class="post-meta">
@@ -570,8 +565,273 @@ profiler结束：
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-17T11:37:18+08:00">
-                2019-11-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-22T23:51:37+08:00">
+                2020-08-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          源码https://github.com/qingzhouzhen/CenterNet，fork自https://github.com/xingyizhou/CenterNet， 2019/10/8
+0.4.1```123456#### 训练模型按照&lt;https://github.com/qingzhouzhen/CenterNet/blob/master/experiments/ctdet_coco_dla_1x.sh&gt;，默认使用pose_dla_dcn, 使用修dlav0模型：```cd path/CenterNet/src
+1pytho
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/08/22/TensorRT-CenterNet-ObjectDet/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/22/无人机下道路语义分割(FCN)/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄汉卿">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/08/22/无人机下道路语义分割(FCN)/" itemprop="url">无人机下道路语义分割(FCN)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-22T23:51:37+08:00">
+                2020-08-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          环境
+ubuntu16.4
+CUDA 9.0
+Anaconda 3 （numpy、os、datetime、matplotlib）
+pytorch == 0.4.1 or 1.0
+torchvision == 0.2.1
+OpenCV-Python == 3.4.1
+
+源码https://github.com/qingzhouzhen/road_seg
+原理
+下采样之后不断上采样，每次上采样后和下采样后相同形状的张量相加，最终得到输入和输出张量的shape相同，每个像素都被预测类别。
+数据原图放在一个文件夹，标签图片放在另外一个文件夹，标签图片为黑白图片，
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/08/22/无人机下道路语义分割(FCN)/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/22/mxnet如何查看中间结果/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄汉卿">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/08/22/mxnet如何查看中间结果/" itemprop="url">mxnet如何查看中间结果</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-22T23:51:37+08:00">
+                2020-08-22
               </time>
             
 
@@ -616,7 +876,7 @@ profiler结束：
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/11/17/mxnet如何查看中间结果/#more" rel="contents">
+            <a class="btn" href="/2020/08/22/mxnet如何查看中间结果/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -667,7 +927,7 @@ profiler结束：
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/MXNet制作rec文件/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/22/ubuntu16.04安装cuda/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -686,7 +946,7 @@ profiler结束：
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/11/17/MXNet制作rec文件/" itemprop="url">MXNet制作rec文件</a></h1>
+                <a class="post-title-link" href="/2020/08/22/ubuntu16.04安装cuda/" itemprop="url">ubuntu16.04安装cuda</a></h1>
         
 
         <div class="post-meta">
@@ -698,8 +958,8 @@ profiler结束：
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-17T11:36:43+08:00">
-                2019-11-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-22T23:51:37+08:00">
+                2020-08-22
               </time>
             
 
@@ -738,20 +998,19 @@ profiler结束：
       
         
           
-          参考https://www.jianshu.com/p/1c85e4127cea
-
-准备10个文件夹，一个文件夹放对应的类别
-
-cd  incubator-mxnet/tools
-
-制作lst文件， python im2rec.py train /data0/hhq/data/light/train --list --recursive
-
-从tran.lst生成rec，python im2rec.py train /data0/hhq/data/light/train --num-thread=4
-以上步骤会将所有文件生成train.rec，如果要按照一
+          环境ubuntu16.04.01桌面
+kernel 4.4.0
+RTX270
+禁用nouveaunouveau是默认的显卡驱动，一般linux出厂都使用该驱动，要禁止它
+创建文件: vilink12添加内容
+blacklist nouveauoptions nouveau modeset=012更新```initramfs
+1sudo update-initramfs -u
+重启
+| grep nouveau```12345678没有输出则禁用成功#### 关闭X Server`CTRL+ALT+F1`进入tty1```sudo service ligh
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/11/17/MXNet制作rec文件/#more" rel="contents">
+            <a class="btn" href="/2020/08/22/ubuntu16.04安装cuda/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -802,7 +1061,7 @@ cd  incubator-mxnet/tools
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/ExtremeNet_custom/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/22/ExtremeNet_custom/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -821,7 +1080,7 @@ cd  incubator-mxnet/tools
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/11/17/ExtremeNet_custom/" itemprop="url">ExtremeNet训练自己的数据</a></h1>
+                <a class="post-title-link" href="/2020/08/22/ExtremeNet_custom/" itemprop="url">ExtremeNet训练自己的数据</a></h1>
         
 
         <div class="post-meta">
@@ -833,8 +1092,8 @@ cd  incubator-mxnet/tools
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-17T11:35:30+08:00">
-                2019-11-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-22T23:51:37+08:00">
+                2020-08-22
               </time>
             
 
@@ -886,7 +1145,7 @@ cd  incubator-mxnet/tools
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/11/17/ExtremeNet_custom/#more" rel="contents">
+            <a class="btn" href="/2020/08/22/ExtremeNet_custom/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -937,7 +1196,7 @@ cd  incubator-mxnet/tools
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/darknet转caffe/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/22/ExtremeNet/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -956,7 +1215,7 @@ cd  incubator-mxnet/tools
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/11/17/darknet转caffe/" itemprop="url">darknet转caffe</a></h1>
+                <a class="post-title-link" href="/2020/08/22/ExtremeNet/" itemprop="url">Extremenet</a></h1>
         
 
         <div class="post-meta">
@@ -968,8 +1227,8 @@ cd  incubator-mxnet/tools
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-17T11:34:18+08:00">
-                2019-11-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-22T23:51:37+08:00">
+                2020-08-22
               </time>
             
 
@@ -1008,19 +1267,15 @@ cd  incubator-mxnet/tools
       
         
           
-          参考：https://blog.csdn.net/nodototao/article/details/85711703
-https://blog.csdn.net/cgt19910923/article/details/83242079
-1 修改caffe源码并编译参考安装caffe
-2 模型转换
-安装 pytorch
-
-下载github开源工程https://github.com/marvis/pytorch-caffe-darknet-convert
-
-下载https://github.com/ChenYingpeng/caffe-yolov3/bl
+          ExtremeNet论文地址：
+摘要提出一种目标检测新思路，首先通过标准的关键点检测检测四个极值点和一个中心点，然后通过几何关系对提取到的关键点进行分组，5个极值点对应一个检测结果
+该方法使目标检测转化为一个基于外观信息的关键点估计问题，从而避开区域分类和隐含特征学习
+原理
+在O(hw)的空间预测5个heatmap，代表该位置是否是某个类别的极左点，极右点，极顶点，极底点，预测的是概率值，代表该位置是否有极值点以及它所属的类别；ExtremeNet通过暴力组合所有的极点来判断哪些点来自于同一个物体，通过四个极值点计算该四个点的物理中心，到center h
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/11/17/darknet转caffe/#more" rel="contents">
+            <a class="btn" href="/2020/08/22/ExtremeNet/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1071,7 +1326,7 @@ https://blog.csdn.net/cgt19910923/article/details/83242079
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/仿射变换/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/22/github+hexo+mac建博客/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -1090,7 +1345,7 @@ https://blog.csdn.net/cgt19910923/article/details/83242079
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/11/17/仿射变换/" itemprop="url">仿射变换</a></h1>
+                <a class="post-title-link" href="/2020/08/22/github+hexo+mac建博客/" itemprop="url">github+hexo+mac建博客</a></h1>
         
 
         <div class="post-meta">
@@ -1102,8 +1357,8 @@ https://blog.csdn.net/cgt19910923/article/details/83242079
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-17T11:24:07+08:00">
-                2019-11-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-22T23:51:37+08:00">
+                2020-08-22
               </time>
             
 
@@ -1142,14 +1397,32 @@ https://blog.csdn.net/cgt19910923/article/details/83242079
       
         
           
-          
-getAffineTransform(src, dst)
-该函数接受两个3x2的矩阵，表示源图片的三个点和对应目标图片的三个点
-用$X = \begin{bmatrix} x_0 \ y_0\ \end{bmatrix} $表示原始图片的一个点，$T  = \begin{bmatrix} x \ y\ \end{bmatrix}$表示转换后的图片上对应的点，$M= \begin{bmatrix} a_{00} &amp;&amp; a_{01} &amp;&amp; b_{00} \ a_{10} &amp;&amp; a_{11} &amp;&amp
+          由于板瓦工升级，之前的wordpress弃坑，转hexo+github方案
+一 安装node.js
+安装node
+
+123brew link nodebrew uninstall nodebrew install node
+
+验证node
+
+12npm -vnode -v
+
+卸载node
+
+1brew uninstall node
+二 配置ssh免密登陆
+配置免密登陆
+
+1github-&gt;setting-&gt;SSH And GPG keys-&gt;New SSH Key
+
+验证配置成功
+
+1ssh -T git@github.com
+输入ye
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/11/17/仿射变换/#more" rel="contents">
+            <a class="btn" href="/2020/08/22/github+hexo+mac建博客/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1200,7 +1473,7 @@ getAffineTransform(src, dst)
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/caffe安装/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/22/优化算法/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -1219,7 +1492,7 @@ getAffineTransform(src, dst)
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/11/17/caffe安装/" itemprop="url">caffe安装</a></h1>
+                <a class="post-title-link" href="/2020/08/22/优化算法/" itemprop="url">优化算法</a></h1>
         
 
         <div class="post-meta">
@@ -1231,8 +1504,8 @@ getAffineTransform(src, dst)
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-17T10:59:47+08:00">
-                2019-11-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-22T23:51:37+08:00">
+                2020-08-22
               </time>
             
 
@@ -1271,276 +1544,18 @@ getAffineTransform(src, dst)
       
         
           
-          安装caffe前提：安装好cuda8, cudnn, opencv3
-参考：
-http://caffe.berkeleyvision.org/install_apt.html
-https://blog.csdn.net/yhaolpz/article/details/71375762
-http://3ms.huawei.com/km/blogs/details/5425467
-http://3ms.huawei.com/km/blogs/details/5577119
-
-git clone https://github.com/BVLC/caffe.gi
+          随机梯度$$x_t = x{t-1}+\eta \nabla f(x)$$
+小批量随机梯度下降$$x_t=x_{t-1}+\frac{1}{m}\sum_i^m\nabla f(x^i)$$
+动量法$$v_t=v_{t-1}+g_t$$
+$$x_t=x_{t-1}+v_t$$
+如果当前某个方向梯度和上一个方向不一致，则会衰减，如果一致则会得到加强
+Adagrad自动调整学习率，通过不断累积梯度，梯度累积多少用以调整后期的学习率
+$$s_t = s_{t-1}+g_t  \bigodot g_t$$
+$$x_t = x_{t-1}- \sqrt{\frac
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/11/17/caffe安装/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/14/opencv编译/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="黄汉卿">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/14/opencv编译/" itemprop="url">opencv编译</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-14T23:33:09+08:00">
-                2019-09-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          opencv编译12345678910111213141516171819202122下载opencv:https://opencv.org/releases.htmlunzip opencv-3.4.0.zipcd opencv-3.4.0mkdir build &amp;&amp; cd buildcmake -D CMAKE_BUILD_TYPE=RELEASE \-D CMAKE_INSTALL_PREFIX=/usr/local \-D WITH_CUDA=on -D ENABLE_FAST_MATH=1 \-D CUDA_FAST_MATH=
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/09/14/opencv编译/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/25/花生壳内网穿透ssh远程登录/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="黄汉卿">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/25/花生壳内网穿透ssh远程登录/" itemprop="url">花生壳内网穿透ssh远程登录</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-25T23:34:44+08:00">
-                2019-08-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          注册账号https://console.oray.com/passport/register.html?fromurl=http%3A%2F%2Fhsk.oray.com%2F
-注册成功可以买5元一个的壳域名，我没有买
-下载客户端https://hsk.oray.com/download/
-选择linux
-安装客户端，得到sn码
-添加设备https://hsk.oray.com/console/manage/添加设备
-映射https://b.oray.com/点击+号图片添加一个新的映射，对于新建ssh服务映射，映射类型选通用应用，外网端口选动态端口号，
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/08/25/花生壳内网穿透ssh远程登录/#more" rel="contents">
+            <a class="btn" href="/2020/08/22/优化算法/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>

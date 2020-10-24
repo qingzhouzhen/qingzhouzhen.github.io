@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="绪论机器学习是致力于通过计算手段，利用经验来改善系统性能的学科 模型推理结果，如果是离散的则为分类，连续的是回归 机器学习与归纳偏好，通过数据的特征判断一些指标，比如书中举例通过色泽等判断西瓜好坏 发展历程：推理期(七八十年代)-&amp;gt;知识期(七十年代开始)-&amp;gt;学习期(从样例中学习,八十年代开始)-&amp;gt;统计学习(九十年代中期)，在这过程中反复进入高潮与低谷的深度学习，或者连结主义学习，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习(周志华)">
+<meta property="og:url" content="http://yoursite.com/2020/08/22/机器学习周志华/index.html">
+<meta property="og:site_name" content="黄汉卿">
+<meta property="og:description" content="绪论机器学习是致力于通过计算手段，利用经验来改善系统性能的学科 模型推理结果，如果是离散的则为分类，连续的是回归 机器学习与归纳偏好，通过数据的特征判断一些指标，比如书中举例通过色泽等判断西瓜好坏 发展历程：推理期(七八十年代)-&amp;gt;知识期(七十年代开始)-&amp;gt;学习期(从样例中学习,八十年代开始)-&amp;gt;统计学习(九十年代中期)，在这过程中反复进入高潮与低谷的深度学习，或者连结主义学习，">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-08-22T15:51:37.085Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="机器学习(周志华)">
+<meta name="twitter:description" content="绪论机器学习是致力于通过计算手段，利用经验来改善系统性能的学科 模型推理结果，如果是离散的则为分类，连续的是回归 机器学习与归纳偏好，通过数据的特征判断一些指标，比如书中举例通过色泽等判断西瓜好坏 发展历程：推理期(七八十年代)-&amp;gt;知识期(七十年代开始)-&amp;gt;学习期(从样例中学习,八十年代开始)-&amp;gt;统计学习(九十年代中期)，在这过程中反复进入高潮与低谷的深度学习，或者连结主义学习，">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/08/22/机器学习周志华/">
+
+
+
+
+
+  <title>机器学习(周志华) | 黄汉卿</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">黄汉卿</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/22/机器学习周志华/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄汉卿">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">机器学习(周志华)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-22T23:51:37+08:00">
+                2020-08-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h2><p>机器学习是致力于通过计算手段，利用经验来改善系统性能的学科</p>
+<p>模型推理结果，如果是离散的则为分类，连续的是回归</p>
+<p>机器学习与归纳偏好，通过数据的特征判断一些指标，比如书中举例通过色泽等判断西瓜好坏</p>
+<p>发展历程：推理期(七八十年代)-&gt;知识期(七十年代开始)-&gt;学习期(从样例中学习,八十年代开始)-&gt;统计学习(九十年代中期)，在这过程中反复进入高潮与低谷的深度学习，或者连结主义学习，就是至今依然热门的深度学习</p>
+<p>应用：计算机视觉-图片，视频，自然语言，语音，天气预报，能源勘测，环境监测，客户数据分析，搜索，自动驾驶，</p>
+<h2 id="第二章-模型评估与选择"><a href="#第二章-模型评估与选择" class="headerlink" title="第二章 模型评估与选择"></a>第二章 模型评估与选择</h2><ul>
+<li><p>过拟合与欠拟合，新增一个过拟合与欠拟合的形象例子，样本中的树叶都有锯齿，推理的时候会认为没有锯齿的树叶就不是树叶，这样就是过拟合，记住了不一般化的特征；把树推理成叶子，这是欠拟合，知识学习的不够充分。经典的例子是曲线回归，过拟合是记住太多的点，欠拟合是模型表示能力太差记不住曲线的整体走向</p>
+</li>
+<li><p>留出法，将数据分成两部分，一部分用于训练一部分用于测试，多次划分取平均，除了划分可能允许重叠，感觉说的比交叉验证更宽泛</p>
+</li>
+<li><p>交叉验证，划分为互不重叠的几部分，一部分用于验证，其他的用于训练，循环，直到所有的数据都曾被用于测试用</p>
+</li>
+<li><p>自助法，从一个数据集中不停的重复采样，直到新的数据集中包含样本的数量和原始数据集样本数量一样，未取到的样本作为测试集，取到的作为训练集</p>
+</li>
+<li><p>查准率与查全率，以二分类为例，查准率是预测为正例的结果中，把正例预测为正例的概率，查全率是正例被预测为正例的概率，前者按照被预测为正例的角度看待，后者从样本正例角度看待</p>
+<p>|          | 预测结果 |      |<br>| ——– | ——– | —- |<br>| 真实情况 | 正例     | 反例 |<br>| 正例     | TP       | FN   |<br>| 负例     | FP       | TN   |</p>
+</li>
+</ul>
+<p>​       查准率：$\frac{TP}{TP+FP}$ 查全率：$\frac{TP}{TP+FN}$</p>
+<ul>
+<li>ROC曲线，$\frac{TP}{TP+FN}$做横轴$\frac{FP}{FP+TN}$作纵轴</li>
+<li>代价敏感错误率，把健康人预测为病人和把病人预测为健康人都算一次出错，但是实际上代价是不一样的，前者再检查一次，后者更严重</li>
+<li>比较检验 ～</li>
+</ul>
+<h2 id="第三章-线性模型"><a href="#第三章-线性模型" class="headerlink" title="第三章 线性模型"></a>第三章 线性模型</h2><ul>
+<li>线性模型，多元一次函数，连续的叫回归，离散的叫分类</li>
+<li>线性判别分析，样本是给定的，目的是要找到一条直线，使得同类样本投影尽可能的接近，不同类别的投影尽可能分开</li>
+<li>多分类学习，分为ovo,ovm,mvm，一对一就是找很多分类器，所有的分类结果中，出现最多的那一类即为要分类的结果，ovm，某一个类为正类，其他的归为负类，某次预测中正类即只包含一个类的类别被预测出，该类为要分类</li>
+<li>类别不平衡问题，正类负类比例不平衡，常用的办法是过采样或欠采样，即将多的负类样本欠采样出和正类差不多数量多样本，或将少的一方重复采样到和多多差不多的数量样本</li>
+</ul>
+<h2 id="第四章-决策树"><a href="#第四章-决策树" class="headerlink" title="第四章 决策树"></a>第四章 决策树</h2><ul>
+<li>划分选择，有多个属性的时候怎么决定哪个属性先划分哪个属性后划分，基于信息增益的决策办法$Ent(D)=-\sum_{k=1}^{y}p_klogp_k$,$Gain(D,a)=Ent(D)-\sum_{v=1}^{v}\frac{|D^v|}{D}Ent(D^v)$，它的基本含义是，在当前的所有属性中，计算所有属性（比如色泽）的的信息增益，计算到Grain最小的那个作为这次决策的因素，再从划分出来的子集中循环这个公式，直到划分完全    </li>
+<li>预剪枝，在规划的过程中提前结束决策分支，比如书中的例子先按脐部分完应该按色泽分了，但是分了之后正确率反而降低了，这时候就结束这个点的决策。之所以正确率更低了是因为拥有这两个属性的瓜中既有好瓜，也有坏瓜，怎么分都分不不开，这个就是欠拟合了</li>
+<li>后剪枝，先生成决策树，在自底到上计算每个非叶子结点，看看这个节点要不要合并为叶子结点，如果合并后正确率更高就合并，称为剪枝</li>
+</ul>
+<h2 id="第五章-神经网络"><a href="#第五章-神经网络" class="headerlink" title="第五章 神经网络"></a>第五章 神经网络</h2><ul>
+<li>多层感知机，前馈神经网络，一层解决与，或，非等问题，异或则需要多层神经网络解决</li>
+<li>BP，反向传播，$y=ax+b$,对a求导，a是关于x的表达，通过样本就能得到a</li>
+<li>局部最小与全局最小，跳出局部最小的办法通常有模拟退火，每次迭代都以一定概率接受比以前更差的结果；随机提督下降，随机的样本能帮助跳出局部最小，挖坑，不是很理解；遗传算法，</li>
+<li>其他常见神经网络，RBF，单隐层前馈神经网络，使用径向基函数作为激活函数；ART网络，每次只有一个输出节点的数据胜出，比较的原理是计算每个输入与识别层节点的距离；SOM网络，竞争学习型，能将高位数据映射到低维度；Elman网络，循环神经网络，输出输入给自己，构成时序序列；玻尔兹曼机，一层输入，一层隐藏层，一层输出，用的多的是受限玻尔兹曼机，0，1取值；深度学习，卷积，激活，pool堆叠。</li>
+</ul>
+<p>##第六章支持向量机</p>
+<ul>
+<li>支持向量机，存在一个超平面将样本分开，距离超平面最近都点称为支持向量，找出最大间隔的超平面就找到了模型，$wx+b=0$要找到w和b</li>
+<li>核函数，低纬线性不可分，将原始样本空间映射到高维使得线性可分，划分平面函数$f(x)=w^T\phi(x+b)$,其中$\phi(x)$是对函数升维，现在用一个函数替代升维函数，$f(x)=\sum_1^m\alpha_iy_ik(x,x_i)+b$,其中k是可函数，一共有m个样本</li>
+<li>软间隔，划分超平面不要求全部将样本分开，允许一定的误差</li>
+<li>支持向量回归，回归在一个向量带上，而不是通常的一条直线</li>
+</ul>
+<h2 id="第七章-贝叶斯分类器"><a href="#第七章-贝叶斯分类器" class="headerlink" title="第七章 贝叶斯分类器"></a>第七章 贝叶斯分类器</h2><p>疑问：表4.3类先验概率8/17， 9/17是怎么计算得到的？</p>
+<p>公式：$P(y_i|x)=\frac{P(x|y_i)P(y_i)}{P(x)}$</p>
+<p>解释：我们想要知道某个样本x的分类y，可以通过过往统计数据的样本概率得出，具体的说就是通过知道具体某一个分类下，样本x的所有特征的概率</p>
+<p>举例：smn真假用户判别，类别有真假，x有三个特征，日志数／注册天数，用户数／注册天数，是否使用真实头像，目的是给出一个x后要判断出是真假用户，可以计算样本数据中归为真用户的三个特征下的概率，再通过公式，计算真用户下三个特征概率乘积和假用户下三个特征乘积概率的对比，哪个大就分为哪个类别</p>
+<p>参考：<a href="http://www.cnblogs.com/leoo2sk/archive/2010/09/17/naive-bayesian-classifier.html" target="_blank" rel="noopener">http://www.cnblogs.com/leoo2sk/archive/2010/09/17/naive-bayesian-classifier.html</a></p>
+<p>西瓜书好坏瓜分类：目的是要测试具有一组特征的习惯是好还是坏。通过样本，先计算每个特征的条件概率，再计算每一个的类的概率，最后将预测的独立分布的概率乘起来，得到最终的分类概率，取大的那一类</p>
+<p>贝叶斯的核心就是已知x的输入(特征)，想要求出类别，转换为已知分类的特征概率乘积，后者是知道的</p>
+<h3 id="第八章-集成学习"><a href="#第八章-集成学习" class="headerlink" title="第八章 集成学习"></a>第八章 集成学习</h3><p>多个基学习器共同决策，形成最终的结果，bagging通过对样本扰动，每个基学习器学习不同的子集，共同决策出最终结果</p>
+<p>id3用所有特征中信息增益最高的作为分类点，cart用平方最小误差或者基尼指数最小准则作为分类或者回归，对每个给出的样本在某个特征上进行决策</p>
+<p>随机森林，对总体的数据集随机采样出多个子集，每个子集训练一个cart决策树，多个决策树按一定的权重共同决策</p>
+<h3 id="第九章-聚类"><a href="#第九章-聚类" class="headerlink" title="第九章 聚类"></a>第九章 聚类</h3><ul>
+<li>K-means, 初始化要聚类的个数k，初始化k个中心点，计算所有样本到k个中心点的距离，将其归为最近中心点的一类，结束归类后重新计算每一类的中心点，再重复上面的步骤</li>
+<li>LVQ,假定数据都有类别，比如西瓜数据集中都被标记为好瓜和坏瓜的类别，初始化q个原型向量，再将每一个样本与原型向量依次做对比，选择距离最近的一个，如果类别相同，让原型向量与样本以学习率靠近，反之则远离</li>
+<li>密度聚类，选一些初始核心对象，在密度可达-其实就是离的近的点-的点归为一类，即两个点是否在一个$\epsilon$的距离内，将已经分类的样本除去，将剩下的样本重复以上操作，聚出不同的类，直到总的样本为空</li>
+</ul>
+<h3 id="第10章-降维与度量学习"><a href="#第10章-降维与度量学习" class="headerlink" title="第10章 降维与度量学习"></a>第10章 降维与度量学习</h3><ul>
+<li>k临近 从样本中选择与目标样本距离最近的k个点，统计这k个点中的分类，将类别最多的一个赋予改样本</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/08/22/物体检测mAP计算方式/" rel="next" title="物体检测mAP计算方式(voc07)">
+                <i class="fa fa-chevron-left"></i> 物体检测mAP计算方式(voc07)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/08/22/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/qingzhouzhen" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#绪论"><span class="nav-number">1.</span> <span class="nav-text">绪论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二章-模型评估与选择"><span class="nav-number">2.</span> <span class="nav-text">第二章 模型评估与选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三章-线性模型"><span class="nav-number">3.</span> <span class="nav-text">第三章 线性模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四章-决策树"><span class="nav-number">4.</span> <span class="nav-text">第四章 决策树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第五章-神经网络"><span class="nav-number">5.</span> <span class="nav-text">第五章 神经网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第七章-贝叶斯分类器"><span class="nav-number">6.</span> <span class="nav-text">第七章 贝叶斯分类器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第八章-集成学习"><span class="nav-number">6.1.</span> <span class="nav-text">第八章 集成学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第九章-聚类"><span class="nav-number">6.2.</span> <span class="nav-text">第九章 聚类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第10章-降维与度量学习"><span class="nav-number">6.3.</span> <span class="nav-text">第10章 降维与度量学习</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
