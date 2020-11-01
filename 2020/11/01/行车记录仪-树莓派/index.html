@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="间隔与支持向量有类别的数据需要被分为两类，通过一个最优超平面将其分为两部分，推理的时候在最优超平面一边的为一类，在另一边的为另一类，最优超平面定义为$w^Tx+b=0$，模型为$f(x)=w^Tx+b$。 现在的问题是如何求得这个最优超平面，根据点到直线的距离，从支持向量到最优超平面的距离为$\frac{wx+b}{|w|}$，求最小距离时，即求支持向量到最优超平面的距离，因为对于支持向量有$wx">
+<meta name="description" content="树莓派摄像头监控摄像头树莓派外接摄像头有两种一般法，一种是通过USB，这种比较常用，另一种是通过CIS，这种事树莓派官方自带的方法，我就是通过这种接口外接摄像头获取图片的 注意方向别插反了,摄像头排线金属的朝金属的一方，插好硬件后 raspi-config```12选5```interfacing options 接着选1 Camera选择enable,系统会提示重启，重启后就可以了 获取图片这">
 <meta property="og:type" content="article">
-<meta property="og:title" content="svm算法原理">
-<meta property="og:url" content="http://yoursite.com/2020/08/22/svm算法/index.html">
+<meta property="og:title" content="黄汉卿">
+<meta property="og:url" content="http://yoursite.com/2020/11/01/行车记录仪-树莓派/index.html">
 <meta property="og:site_name" content="黄汉卿">
-<meta property="og:description" content="间隔与支持向量有类别的数据需要被分为两类，通过一个最优超平面将其分为两部分，推理的时候在最优超平面一边的为一类，在另一边的为另一类，最优超平面定义为$w^Tx+b=0$，模型为$f(x)=w^Tx+b$。 现在的问题是如何求得这个最优超平面，根据点到直线的距离，从支持向量到最优超平面的距离为$\frac{wx+b}{|w|}$，求最小距离时，即求支持向量到最优超平面的距离，因为对于支持向量有$wx">
+<meta property="og:description" content="树莓派摄像头监控摄像头树莓派外接摄像头有两种一般法，一种是通过USB，这种比较常用，另一种是通过CIS，这种事树莓派官方自带的方法，我就是通过这种接口外接摄像头获取图片的 注意方向别插反了,摄像头排线金属的朝金属的一方，插好硬件后 raspi-config```12选5```interfacing options 接着选1 Camera选择enable,系统会提示重启，重启后就可以了 获取图片这">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-08-22T15:51:37.249Z">
+<meta property="og:updated_time" content="2020-11-01T03:10:27.267Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="svm算法原理">
-<meta name="twitter:description" content="间隔与支持向量有类别的数据需要被分为两类，通过一个最优超平面将其分为两部分，推理的时候在最优超平面一边的为一类，在另一边的为另一类，最优超平面定义为$w^Tx+b=0$，模型为$f(x)=w^Tx+b$。 现在的问题是如何求得这个最优超平面，根据点到直线的距离，从支持向量到最优超平面的距离为$\frac{wx+b}{|w|}$，求最小距离时，即求支持向量到最优超平面的距离，因为对于支持向量有$wx">
+<meta name="twitter:title" content="黄汉卿">
+<meta name="twitter:description" content="树莓派摄像头监控摄像头树莓派外接摄像头有两种一般法，一种是通过USB，这种比较常用，另一种是通过CIS，这种事树莓派官方自带的方法，我就是通过这种接口外接摄像头获取图片的 注意方向别插反了,摄像头排线金属的朝金属的一方，插好硬件后 raspi-config```12选5```interfacing options 接着选1 Camera选择enable,系统会提示重启，重启后就可以了 获取图片这">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/08/22/svm算法/">
+  <link rel="canonical" href="http://yoursite.com/2020/11/01/行车记录仪-树莓派/">
 
 
 
 
 
-  <title>svm算法原理 | 黄汉卿</title>
+  <title> | 黄汉卿</title>
   
 
 
@@ -274,7 +274,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/22/svm算法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/01/行车记录仪-树莓派/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -291,7 +291,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">svm算法原理</h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -303,8 +303,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-22T23:51:37+08:00">
-                2020-08-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-01T11:10:27+08:00">
+                2020-11-01
               </time>
             
 
@@ -341,41 +341,37 @@
       
 
       
-        <h3 id="间隔与支持向量"><a href="#间隔与支持向量" class="headerlink" title="间隔与支持向量"></a>间隔与支持向量</h3><p>有类别的数据需要被分为两类，通过一个最优超平面将其分为两部分，推理的时候在最优超平面一边的为一类，在另一边的为另一类，最优超平面定义为$w^Tx+b=0$，模型为$f(x)=w^Tx+b$。</p>
-<p>现在的问题是如何求得这个最优超平面，根据点到直线的距离，从支持向量到最优超平面的距离为$\frac{wx+b}{|w|}$，求最小距离时，即求支持向量到最优超平面的距离，因为对于支持向量有$wx+b=1$,目标转为$min \ w$</p>
-<p>最优化的目标转化为：</p>
-<p>$min\frac{1}{2}||w||^2$</p>
-<p>$s.t. \ y_i(w^Tx_i+b)&gt;=1, i=0, 1, 2, 3…m$    式6.6</p>
-<h3 id="对偶问题"><a href="#对偶问题" class="headerlink" title="对偶问题"></a>对偶问题</h3><p>目的：利用式6.6的对偶问题得到模型$f(x)$</p>
-<p>使用朗格朗日乘子法可以解式6.6， 对式6.6点每个约束条件加拉格朗日乘子$\alpha_i$,该问题的拉格朗日式表示为：</p>
-<p>$L(w, b, \alpha)=\frac{1}{2}||w||^2+\sum_{i=1}^m\alpha_i(1-y_i(w^Tx_i+b))$     式6.8</p>
-<p>令L对$w$和b偏导为0：</p>
-<p>$w=\sum_{i=1}^m\alpha_i y_ix_i$       6.9</p>
-<p>$\sum_{i=0}^m\alpha_iy_i=0$            6.10</p>
-<p>将这两个偏导得到的条件代入6.8式，可以消去w和b，6.9代入6.8，消去w，b由6.10整体代入消除；得到式6.6的对偶问题：</p>
-<p>$max \ \sum_i^m\alpha_i-\frac{1}{2}\sum_{i=1}^{m}\sum_{j=1}^{m}\alpha_i\alpha_jy_iy_jx^T_ix_j$                式6.11</p>
-<p>$s.t. \ \sum_{i=1}^{m}\alpha_iy_i=0$</p>
-<p>$\alpha_i&gt;=0$</p>
-<p>挖坑：为什么这里可以通过式6.6点对偶问题得到6.6的解？</p>
-<p>解出式6.11中的$\alpha_i,\alpha_j$就可以得到w, 从而得到模型：</p>
-<p>$f(x)=wx+b=\sum_{i=1}^m\alpha_iy_ix_ix+b$</p>
-<p>利用smo算法求解6.11式</p>
-<p>smo的思想是选取一对需要更新的参数$\alpha_i, \ a_j$其他参数固定，根据式6.11的约束条件，将一个变量用另外一个变量表示，6.11变成二次凸优化问题，解出$\alpha_i,\alpha_j$，具体的：</p>
-<p>式6.11的约束条件重新写为：$\alpha_{i}y_{i}+\alpha_{j}y_{j}=c$</p>
-<p>将上式$\alpha_{j}$用$\alpha_{i}$表示：$\alpha_{j}=\frac{c-\alpha_{i}y_{i}}{y_{j}}$</p>
-<p>式6.11此时变成只有一个变量的二次函数，仅有的约束是$\alpha_{i}$大于0.</p>
-<p>b的求解可以通过支持向量的$y_sf(x_s)=1$解出</p>
-<p>$y_s(wx+b)=1$-&gt; $b=\frac{1}{y_s}-wx$，更鲁棒一点的可以对所有的支持向量求均值</p>
-<h3 id="核函数"><a href="#核函数" class="headerlink" title="核函数"></a>核函数</h3><p>原先的输入空间可能是线性不可分的，将其映射到高维空间后就可以分了</p>
-<p>$x-&gt;\phi(x)$</p>
-<p>模型$f(x)=wx+b$变成$f(x)=w^T\phi(x)+b$</p>
-<p>最优化问题</p>
-<p>$min\ \frac{1}{2}||w||^2$</p>
-<p>$s.t.\ y_i(wx_i+b)&gt;=1$</p>
-<p>用拉格朗日解法，其对偶问题为：</p>
-<p>$max\ \sum_{i=1}^{m}\alpha_i+\sum_{i=1}^{m}\sum_{j=1}^{m}\alpha_i\alpha_jy_iy_j\phi(x_i)^T\phi(x_j)$</p>
-<p>$s.t.\ \alpha_iy_i=0$</p>
-<p>由于$\phi(x_i)\phi(x_j)$的计算量可能很大，用核函数$k(x_i, x_j)$替代</p>
+        <hr>
+<h2 id="树莓派摄像头监控"><a href="#树莓派摄像头监控" class="headerlink" title="树莓派摄像头监控"></a>树莓派摄像头监控</h2><h3 id="摄像头"><a href="#摄像头" class="headerlink" title="摄像头"></a>摄像头</h3><p>树莓派外接摄像头有两种一般法，一种是通过USB，这种比较常用，另一种是通过CIS，这种事树莓派官方自带的方法，我就是通过这种接口外接摄像头获取图片的</p>
+<p>注意方向别插反了,摄像头排线金属的朝金属的一方，插好硬件后</p>
+<figure class="highlight plain"><figcaption><span>raspi-config```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">选5```interfacing options</span><br></pre></td></tr></table></figure>
+<p>接着选1 Camera选择enable,系统会提示重启，重启后就可以了</p>
+<h3 id="获取图片"><a href="#获取图片" class="headerlink" title="获取图片"></a>获取图片</h3><p>这部分采用最简单的raspistill工具获取</p>
+<p>获取的shell命令为<figure class="highlight plain"><figcaption><span>-o image.jpg -t 1000```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">程序设置每秒取一张图片，代码如下</span><br></pre></td></tr></table></figure></p>
+<p>import os<br>import shutil<br>import time<br>from datetime import datetime,timedelta</p>
+<p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    TIME_DALTA = 1<br>    while True:<br>        save_root = “/home/pi/Videos/save_images/“<br>        time_now = datetime.now()<br>        N_days_ago = time_now + timedelta(days=-TIME_DALTA)<br>        year_month_day = str(time_now.year) + “-“ + str(time_now.month) + “-“ + str(time_now.day)<br>        year_month_day_N = str(N_days_ago.year) + “-“ + str(N_days_ago.month) + “-“ + str(N_days_ago.day)<br>        hour_min_sec = str(time_now.hour) + “-“ + str(time_now.minute) + “-“ + str(time_now.second)<br>        root_dir = os.path.join(save_root, year_month_day)<br>        root_dir_N = os.path.join(save_root, year_month_day_N)<br>        if os.path.isdir(root_dir_N):<br>            shutil.rmtree(root_dir_N,True)<br>        save_path = os.path.join(root_dir, hour_min_sec) + “.jpg”<br>        if not os.path.exists(root_dir):<br>            os.mkdir(root_dir)<br>        try:<br>            time_start = datetime.now()<br>            print(“++++++++++++++++++++++save path: “, save_path)<br>            print(“start time: “, time_start)<br>            cmd = “raspistill -t 1000 -o {}”.format(save_path)<br>            time_end = datetime.now()<br>            print(“end time: “, time_end)<br>            os.system(cmd)</p>
+<pre><code>    # time.sleep(1)
+except:
+    print(&quot;get image failed&quot;)
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 开机自动运行</span><br><span class="line"></span><br><span class="line">因为没接口控制什么时候开始，什么时候结束，就设置为开机程序自动运行</span><br><span class="line"></span><br><span class="line">```sudo vim /etc/rc.local</span><br></pre></td></tr></table></figure>
+<p>添加启动命令</p>
+<figure class="highlight plain"><figcaption><span>python save_video_from_rtsp.py > save_log.txt 2>&1 &```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 环境问题</span><br><span class="line"></span><br><span class="line">- pip安装包的时候报memoryerror,原因是树莓派3b的内存只有1G，解决办法是增加SWAP空间</span><br><span class="line"></span><br><span class="line">  ```cd /var</span><br></pre></td></tr></table></figure>
+<p>  先关闭</p>
+  <figure class="highlight plain"><figcaption><span>swapoff</span><a href="/var/swap```">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">重新设置swap大小</span><br><span class="line"></span><br><span class="line">```sudo dd if=/dev/zero of=swap bs=1M count=1024</span><br></pre></td></tr></table></figure>
+<p>  格式化</p>
+  <figure class="highlight plain"><figcaption><span>mkswap</span><a href="/var/swap```">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">开启</span><br><span class="line"></span><br><span class="line">```sudo swapon /var/swap</span><br></pre></td></tr></table></figure>
+<p>  通过free -m查看</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
+<li><p>opencv+picamera</p>
+<p>本打算用opencv+picamera来执行的，但是装不上opencv，装不上cv2所需要的numpy,报错<code>ModuleNotFoundError: No module named &#39;numpy.core._multiarray_umath</code> 一直没有解决,缺失libcblas时参考了：<a href="https://blog.csdn.net/kevindree/article/details/88772691" target="_blank" rel="noopener">https://blog.csdn.net/kevindree/article/details/88772691</a></p>
+<p>想参考未参考上的：<a href="http://www.voidcn.com/article/p-gcmfibth-bmp.html" target="_blank" rel="noopener">http://www.voidcn.com/article/p-gcmfibth-bmp.html</a></p>
+<p><a href="https://blog.csdn.net/qq_35987777/article/details/97919963" target="_blank" rel="noopener">https://blog.csdn.net/qq_35987777/article/details/97919963</a></p>
+</li>
+<li><p>raspistill</p>
+<p>参考了：<a href="https://www.cnblogs.com/jikexianfeng/p/7130843.html，" target="_blank" rel="noopener">https://www.cnblogs.com/jikexianfeng/p/7130843.html，</a> 也可以raspistill –help</p>
+<p>获取图片：<a href="https://www.cnblogs.com/uestc-mm/p/7587783.html" target="_blank" rel="noopener">https://www.cnblogs.com/uestc-mm/p/7587783.html</a></p>
+</li>
+</ol>
 
       
     </div>
@@ -400,8 +396,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/08/22/caffe安装/" rel="next" title="caffe安装">
-                <i class="fa fa-chevron-left"></i> caffe安装
+              <a href="/2020/10/24/摄像头监控存储/" rel="next" title="摄像头监控存储">
+                <i class="fa fa-chevron-left"></i> 摄像头监控存储
               </a>
             
           </div>
@@ -409,10 +405,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/08/22/quantize/" rel="prev" title="int8量化">
-                int8量化 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -536,7 +528,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#间隔与支持向量"><span class="nav-number">1.</span> <span class="nav-text">间隔与支持向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对偶问题"><span class="nav-number">2.</span> <span class="nav-text">对偶问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#核函数"><span class="nav-number">3.</span> <span class="nav-text">核函数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#树莓派摄像头监控"><span class="nav-number">1.</span> <span class="nav-text">树莓派摄像头监控</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#摄像头"><span class="nav-number">1.1.</span> <span class="nav-text">摄像头</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取图片"><span class="nav-number">1.2.</span> <span class="nav-text">获取图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">1.3.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
             
 
           </div>
