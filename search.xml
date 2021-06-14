@@ -291,9 +291,9 @@
     <content type="text"><![CDATA[注册账号https://console.oray.com/passport/register.html?fromurl=http%3A%2F%2Fhsk.oray.com%2F 注册成功可以买5元一个的壳域名，我没有买 下载客户端https://hsk.oray.com/download/ 选择linux 安装客户端，得到sn码 添加设备https://hsk.oray.com/console/manage/添加设备 映射https://b.oray.com/点击+号图片添加一个新的映射，对于新建ssh服务映射，映射类型选通用应用，外网端口选动态端口号，内网主机选内网主机号(通过ifconfig查看或者查看路由器管理页)，端口号填22 测试过一会(大概十分钟)就能ping通壳域名 ssh axxx@xxx20v7.zicp.vip -p 56194]]></content>
   </entry>
   <entry>
-    <title><![CDATA[loss, 损失函数]]></title>
+    <title><![CDATA[常见损失函数]]></title>
     <url>%2F2020%2F08%2F22%2Floss%2F</url>
-    <content type="text"><![CDATA[交叉熵损失函数 二分类： $$tlogy_i + (1-t)log(1-y_i)$$ 多分类： $$-\sum_{i=1}^Clog(y_i)$$ focal loss focal loss由两部分组成，一部分解决类别不平衡，如下公式，pt是分类正确的概率，$\alpha_t$是一个可以设置的参数，当正类很多的时候，即$p_t$接近1的值很多，CE几乎由正类样本组成，这时把$\alpha_t$设置成当样本为正类是0-0.5之间，这样削减容易样本的loss值 $$CE(p_t)=-\alpha_tlog(p_t)$$ 另一部分解决难样本问题，通过设置$\lambda$,控制容易样本(p接近1)与难样本(p远离1)的的loss权重，让容易分的样本loss值低 $$FL(p_t)=-(1-p_t)^{\lambda}log(p_t)$$ ​ focal loss通过综合上面两个特点，既控制样本不均衡的损失，也控制难分样本的损失$$FL(p_t) = -\alpha(1-p_t)^{\lambda}log(p_t)$$]]></content>
+    <content type="text"><![CDATA[交叉熵损失函数 二分类： $$tlogy_i + (1-t)log(1-y_i)$$ 而分类有正负类概念，t为label，y为模型预测的概率，label为正类，预测为正类的概率大，这样loss就低 多分类： $$-\sum_{i=1}^C p(x_i)log(y_i)$$ $p(x_i)$为label, $y_i$为预测值，只有当预测为类i大概率$y_i$很大时，才会有很小的损失 focal loss focal loss由两部分组成，一部分解决类别不平衡，如下公式，pt是分类正确的概率，$\alpha_t$是一个可以设置的参数，当正类很多的时候，即$p_t$接近1的值很多，CE几乎由正类样本组成，这时把$\alpha_t$设置成当样本为正类是0-0.5之间，这样削减容易样本的loss值 $$CE(p_t)=-\alpha_tlog(p_t)$$ 另一部分解决难样本问题，通过设置$\lambda$,控制容易样本(p接近1)与难样本(p远离1)的的loss权重，让容易分的样本loss值低$$FL(p_t)=-(1-p_t)^{\lambda}log(p_t)$$ ​ focal loss通过综合上面两个特点，既控制样本不均衡的损失，也控制难分样本的损失$$FL(p_t) = -\alpha(1-p_t)^{\lambda}log(p_t)$$ 平方损失函数 $L(Y, f(X))=(Y-f(X))^2$ L1损失(绝对值损失) $L(Y,f(X)) = |Y-f(X)|$ 对比损失函数 $L(I_p,I_q)=\frac12 [yd^2 + (1-y)max(\alpha-d, 0)^2]$ y等于1代表两个样本是同一个类别，y等于0代表两个样本不是同一个类别，d代表两个样本的特征欧式距离，正样本对下，d应该要很小才能使得损失很小。对比损失函数通常用于人脸识别，图像检索等地方，尤其是对于图像去重领域有效 0-1损失函数 $L(Y, f(X))=0, Y=f(X)$ $L(Y,f(X))=1,Y!=f(X)$ 合页损失 $L(\hat{y}=max(0,1-y*\hat{y}))$ y是label，其值是正负1，代表该样本是正类还是负类，预测值$\hat{y}$，当y为正样本，$\hat{y}$大于等于1时，loss为0，当y为负样本，$\hat{y}$小于等于-1时，loss为0， 其他情况下都会返回loss值。 另一种表达:$L(w, b)=max(0,1-f(yf(X)))$ 该损失函数最知名的一个应用就是svm，推理在边界之外的都不会产生损失，在边界内部就会产生损失]]></content>
   </entry>
   <entry>
     <title><![CDATA[树莓派安装]]></title>

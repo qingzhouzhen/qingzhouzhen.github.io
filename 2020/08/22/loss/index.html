@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="交叉熵损失函数 二分类： $$tlogy_i + (1-t)log(1-y_i)$$ 多分类： $$-\sum_{i=1}^Clog(y_i)$$    focal loss focal loss由两部分组成，一部分解决类别不平衡，如下公式，pt是分类正确的概率，$\alpha_t$是一个可以设置的参数，当正类很多的时候，即$p_t$接近1的值很多，CE几乎由正类样本组成，这时把$\alpha_">
+<meta name="description" content="交叉熵损失函数 二分类： $$tlogy_i + (1-t)log(1-y_i)$$ 而分类有正负类概念，t为label，y为模型预测的概率，label为正类，预测为正类的概率大，这样loss就低 多分类： $$-\sum_{i=1}^C p(x_i)log(y_i)$$ $p(x_i)$为label, $y_i$为预测值，只有当预测为类i大概率$y_i$很大时，才会有很小的损失  focal">
 <meta property="og:type" content="article">
-<meta property="og:title" content="loss, 损失函数">
+<meta property="og:title" content="常见损失函数">
 <meta property="og:url" content="http://yoursite.com/2020/08/22/loss/index.html">
 <meta property="og:site_name" content="黄汉卿">
-<meta property="og:description" content="交叉熵损失函数 二分类： $$tlogy_i + (1-t)log(1-y_i)$$ 多分类： $$-\sum_{i=1}^Clog(y_i)$$    focal loss focal loss由两部分组成，一部分解决类别不平衡，如下公式，pt是分类正确的概率，$\alpha_t$是一个可以设置的参数，当正类很多的时候，即$p_t$接近1的值很多，CE几乎由正类样本组成，这时把$\alpha_">
+<meta property="og:description" content="交叉熵损失函数 二分类： $$tlogy_i + (1-t)log(1-y_i)$$ 而分类有正负类概念，t为label，y为模型预测的概率，label为正类，预测为正类的概率大，这样loss就低 多分类： $$-\sum_{i=1}^C p(x_i)log(y_i)$$ $p(x_i)$为label, $y_i$为预测值，只有当预测为类i大概率$y_i$很大时，才会有很小的损失  focal">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-08-22T15:51:37.101Z">
+<meta property="og:updated_time" content="2021-06-14T11:32:25.190Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="loss, 损失函数">
-<meta name="twitter:description" content="交叉熵损失函数 二分类： $$tlogy_i + (1-t)log(1-y_i)$$ 多分类： $$-\sum_{i=1}^Clog(y_i)$$    focal loss focal loss由两部分组成，一部分解决类别不平衡，如下公式，pt是分类正确的概率，$\alpha_t$是一个可以设置的参数，当正类很多的时候，即$p_t$接近1的值很多，CE几乎由正类样本组成，这时把$\alpha_">
+<meta name="twitter:title" content="常见损失函数">
+<meta name="twitter:description" content="交叉熵损失函数 二分类： $$tlogy_i + (1-t)log(1-y_i)$$ 而分类有正负类概念，t为label，y为模型预测的概率，label为正类，预测为正类的概率大，这样loss就低 多分类： $$-\sum_{i=1}^C p(x_i)log(y_i)$$ $p(x_i)$为label, $y_i$为预测值，只有当预测为类i大概率$y_i$很大时，才会有很小的损失  focal">
 
 
 
@@ -125,7 +125,7 @@
 
 
 
-  <title>loss, 损失函数 | 黄汉卿</title>
+  <title>常见损失函数 | 黄汉卿</title>
   
 
 
@@ -291,7 +291,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">loss, 损失函数</h1>
+          <h1 class="post-title" itemprop="name headline">常见损失函数</h1>
         
 
         <div class="post-meta">
@@ -341,21 +341,40 @@
       
 
       
-        <ul>
+        <ol>
 <li><p>交叉熵损失函数</p>
 <p>二分类： $$tlogy_i + (1-t)log(1-y_i)$$</p>
-<p>多分类： $$-\sum_{i=1}^Clog(y_i)$$</p>
+<p>而分类有正负类概念，t为label，y为模型预测的概率，label为正类，预测为正类的概率大，这样loss就低</p>
+<p>多分类： $$-\sum_{i=1}^C p(x_i)log(y_i)$$</p>
+<p>$p(x_i)$为label, $y_i$为预测值，只有当预测为类i大概率$y_i$很大时，才会有很小的损失</p>
 </li>
-</ul>
-<ul>
 <li><p>focal loss</p>
 <p>focal loss由两部分组成，一部分解决类别不平衡，如下公式，pt是分类正确的概率，$\alpha_t$是一个可以设置的参数，当正类很多的时候，即$p_t$接近1的值很多，CE几乎由正类样本组成，这时把$\alpha_t$设置成当样本为正类是0-0.5之间，这样削减容易样本的loss值</p>
 <p>$$<br>CE(p_t)=-\alpha_tlog(p_t)<br>$$</p>
-<p>另一部分解决难样本问题，通过设置$\lambda$,控制容易样本(p接近1)与难样本(p远离1)的的loss权重，让容易分的样本loss值低</p>
-</li>
-</ul>
-<p>$$<br>FL(p_t)=-(1-p_t)^{\lambda}log(p_t)<br>$$</p>
+<p>另一部分解决难样本问题，通过设置$\lambda$,控制容易样本(p接近1)与难样本(p远离1)的的loss权重，让容易分的样本loss值低<br>$$<br>FL(p_t)=-(1-p_t)^{\lambda}log(p_t)<br>$$</p>
 <p>​    focal loss通过综合上面两个特点，既控制样本不均衡的损失，也控制难分样本的损失<br>$$<br>FL(p_t) = -\alpha(1-p_t)^{\lambda}log(p_t)<br>$$</p>
+</li>
+<li><p>平方损失函数</p>
+<p>$L(Y, f(X))=(Y-f(X))^2$</p>
+</li>
+<li><p>L1损失(绝对值损失)</p>
+<p>$L(Y,f(X)) = |Y-f(X)|$</p>
+</li>
+<li><p>对比损失函数</p>
+<p>$L(I_p,I_q)=\frac12 [yd^2 + (1-y)max(\alpha-d, 0)^2]$</p>
+<p>y等于1代表两个样本是同一个类别，y等于0代表两个样本不是同一个类别，d代表两个样本的特征欧式距离，正样本对下，d应该要很小才能使得损失很小。对比损失函数通常用于人脸识别，图像检索等地方，尤其是对于图像去重领域有效</p>
+</li>
+<li><p>0-1损失函数</p>
+<p>$L(Y, f(X))=0, Y=f(X)$</p>
+<p>$L(Y,f(X))=1,Y!=f(X)$</p>
+</li>
+<li><p>合页损失</p>
+<p>$L(\hat{y}=max(0,1-y*\hat{y}))$</p>
+<p>y是label，其值是正负1，代表该样本是正类还是负类，预测值$\hat{y}$，当y为正样本，$\hat{y}$大于等于1时，loss为0，当y为负样本，$\hat{y}$小于等于-1时，loss为0， 其他情况下都会返回loss值。</p>
+<p>另一种表达:$L(w, b)=max(0,1-f(yf(X)))$</p>
+<p>该损失函数最知名的一个应用就是svm，推理在边界之外的都不会产生损失，在边界内部就会产生损失</p>
+</li>
+</ol>
 
       
     </div>

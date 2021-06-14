@@ -1340,7 +1340,7 @@ cd  incubator-mxnet/tools
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/08/22/loss/" itemprop="url">loss, 损失函数</a></h1>
+                <a class="post-title-link" href="/2020/08/22/loss/" itemprop="url">常见损失函数</a></h1>
         
 
         <div class="post-meta">
@@ -1395,14 +1395,12 @@ cd  incubator-mxnet/tools
           
 交叉熵损失函数
 二分类： $$tlogy_i + (1-t)log(1-y_i)$$
-多分类： $$-\sum_{i=1}^Clog(y_i)$$
-
-
+而分类有正负类概念，t为label，y为模型预测的概率，label为正类，预测为正类的概率大，这样loss就低
+多分类： $$-\sum_{i=1}^C p(x_i)log(y_i)$$
+$p(x_i)$为label, $y_i$为预测值，只有当预测为类i大概率$y_i$很大时，才会有很小的损失
 
 focal loss
-focal loss由两部分组成，一部分解决类别不平衡，如下公式，pt是分类正确的概率，$\alpha_t$是一个可以设置的参数，当正类很多的时候，即$p_t$接近1的值很多，CE几乎由正类样本组成，这时把$\alpha_t$设置成当样本为正类是0-0.5之间，这样削减容易样本的loss值
-$$CE(p_t)=-\alpha_tlog(p_t)$$
-另一部分解决难样本问题，通过设
+focal loss由两部分组成，一部分解决类别不平衡，如下公式，pt是分类正确的概率，$\alpha_t$是一个可以设置的参数，当正类很多的时候，即
           ...
           <!--noindex-->
           <div class="post-button text-center">
