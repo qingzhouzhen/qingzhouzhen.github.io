@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="##从0到1 彼得·蒂尔 ###内容简介 #####第0章 前言 从0到1是什么–从无创造出有，不是从竞争的零和中获利 #####第1章 未来的挑战 解释从0到1，水平进步与垂直进步，从0到1是垂直进步 #####第2章 像1999年那样狂欢 描述了1999年互联网泡沫前后的情景以及总结出了经验教训 第3章 所有成功的企业都是不同的成功的企业都是解决了问题，失败的企业都是无法逃避竞争，描述了垄断与">
+<meta name="description" content="一，背景显著性目标检测是模拟人的视觉系统，针对一幅图片检测出人眼关注的区域，简单描述就是一个二分类的语义分割模型。有很多应用比如图像传输与压缩(优先保证显著区域)，判定为显著区域等等。 二，方法在深度学习占有绝对优势之前，显著区域检测已经有了很多方法，传统显著性目标检测主要利用直观感觉或者启发式经验，如利用色度比较，背景比较，边界点检测等人工提取特征的方法，但是这类方法需要复杂的经验，以及比较耗时">
 <meta property="og:type" content="article">
-<meta property="og:title" content="读书笔记3.11">
-<meta property="og:url" content="http://yoursite.com/2020/08/22/读书笔记3.4/index.html">
+<meta property="og:title" content="显著性目标检测调研">
+<meta property="og:url" content="http://yoursite.com/2021/06/14/显著性目标检测调研/index.html">
 <meta property="og:site_name" content="黄汉卿">
-<meta property="og:description" content="##从0到1 彼得·蒂尔 ###内容简介 #####第0章 前言 从0到1是什么–从无创造出有，不是从竞争的零和中获利 #####第1章 未来的挑战 解释从0到1，水平进步与垂直进步，从0到1是垂直进步 #####第2章 像1999年那样狂欢 描述了1999年互联网泡沫前后的情景以及总结出了经验教训 第3章 所有成功的企业都是不同的成功的企业都是解决了问题，失败的企业都是无法逃避竞争，描述了垄断与">
+<meta property="og:description" content="一，背景显著性目标检测是模拟人的视觉系统，针对一幅图片检测出人眼关注的区域，简单描述就是一个二分类的语义分割模型。有很多应用比如图像传输与压缩(优先保证显著区域)，判定为显著区域等等。 二，方法在深度学习占有绝对优势之前，显著区域检测已经有了很多方法，传统显著性目标检测主要利用直观感觉或者启发式经验，如利用色度比较，背景比较，边界点检测等人工提取特征的方法，但是这类方法需要复杂的经验，以及比较耗时">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-08-22T15:51:37.333Z">
+<meta property="og:updated_time" content="2021-06-14T09:35:32.442Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="读书笔记3.11">
-<meta name="twitter:description" content="##从0到1 彼得·蒂尔 ###内容简介 #####第0章 前言 从0到1是什么–从无创造出有，不是从竞争的零和中获利 #####第1章 未来的挑战 解释从0到1，水平进步与垂直进步，从0到1是垂直进步 #####第2章 像1999年那样狂欢 描述了1999年互联网泡沫前后的情景以及总结出了经验教训 第3章 所有成功的企业都是不同的成功的企业都是解决了问题，失败的企业都是无法逃避竞争，描述了垄断与">
+<meta name="twitter:title" content="显著性目标检测调研">
+<meta name="twitter:description" content="一，背景显著性目标检测是模拟人的视觉系统，针对一幅图片检测出人眼关注的区域，简单描述就是一个二分类的语义分割模型。有很多应用比如图像传输与压缩(优先保证显著区域)，判定为显著区域等等。 二，方法在深度学习占有绝对优势之前，显著区域检测已经有了很多方法，传统显著性目标检测主要利用直观感觉或者启发式经验，如利用色度比较，背景比较，边界点检测等人工提取特征的方法，但是这类方法需要复杂的经验，以及比较耗时">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/08/22/读书笔记3.4/">
+  <link rel="canonical" href="http://yoursite.com/2021/06/14/显著性目标检测调研/">
 
 
 
 
 
-  <title>读书笔记3.11 | 黄汉卿</title>
+  <title>显著性目标检测调研 | 黄汉卿</title>
   
 
 
@@ -274,7 +274,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/22/读书笔记3.4/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/06/14/显著性目标检测调研/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -291,7 +291,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">读书笔记3.11</h1>
+          <h1 class="post-title" itemprop="name headline">显著性目标检测调研</h1>
         
 
         <div class="post-meta">
@@ -303,8 +303,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-22T23:51:37+08:00">
-                2020-08-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-06-14T17:35:32+08:00">
+                2021-06-14
               </time>
             
 
@@ -341,63 +341,66 @@
       
 
       
-        <p>##从0到1</p>
-<p>彼得·蒂尔</p>
-<p>###内容简介</p>
-<p>#####第0章 前言</p>
-<p>从0到1是什么–从无创造出有，不是从竞争的零和中获利</p>
-<p>#####第1章 未来的挑战</p>
-<p>解释从0到1，水平进步与垂直进步，从0到1是垂直进步</p>
-<p>#####第2章 像1999年那样狂欢</p>
-<p>描述了1999年互联网泡沫前后的情景以及总结出了经验教训</p>
-<h5 id="第3章-所有成功的企业都是不同的"><a href="#第3章-所有成功的企业都是不同的" class="headerlink" title="第3章 所有成功的企业都是不同的"></a>第3章 所有成功的企业都是不同的</h5><p>成功的企业都是解决了问题，失败的企业都是无法逃避竞争，描述了垄断与非垄断的相关问题</p>
-<h5 id="第4章-竞争意识"><a href="#第4章-竞争意识" class="headerlink" title="第4章 竞争意识"></a>第4章 竞争意识</h5><p>不要去追求竞争，随大流的去竞争，要放弃跟风的竞争，专注于自己</p>
-<h5 id="第5章-后发优势"><a href="#第5章-后发优势" class="headerlink" title="第5章 后发优势"></a>第5章 后发优势</h5><p>还是在讲垄断与创新</p>
-<h5 id="第6章-成功不是中彩票"><a href="#第6章-成功不是中彩票" class="headerlink" title="第6章 成功不是中彩票"></a>第6章 成功不是中彩票</h5><p>成功前需要准备，愿景，规划等等</p>
-<h5 id="第7章-向钱看齐"><a href="#第7章-向钱看齐" class="headerlink" title="第7章 向钱看齐"></a>第7章 向钱看齐</h5><p>幂次法则</p>
-<h5 id="第8章-秘密"><a href="#第8章-秘密" class="headerlink" title="第8章 秘密"></a>第8章 秘密</h5><p>讲述商业机会，怎么发现商业机会与如何对待商业机会</p>
-<h5 id="第9章-基础决定命运"><a href="#第9章-基础决定命运" class="headerlink" title="第9章 基础决定命运"></a>第9章 基础决定命运</h5><p>创业公司的基础，合伙人，股权，董事会等等，不要先天残疾</p>
-<h5 id="第10章-打造帮派文化"><a href="#第10章-打造帮派文化" class="headerlink" title="第10章 打造帮派文化"></a>第10章 打造帮派文化</h5><p>员工招聘与文化培养的一些问题</p>
-<h5 id="第11章-顾客不会自动上门"><a href="#第11章-顾客不会自动上门" class="headerlink" title="第11章 顾客不会自动上门"></a>第11章 顾客不会自动上门</h5><p>写了产品销售吗，营销人员等地问题</p>
-<h5 id="第12章-人类和机器"><a href="#第12章-人类和机器" class="headerlink" title="第12章 人类和机器"></a>第12章 人类和机器</h5><p>论文人类和机器的关系，机器就是机器，不能替代人</p>
-<h5 id="第13章-绿色能源与特斯拉"><a href="#第13章-绿色能源与特斯拉" class="headerlink" title="第13章 绿色能源与特斯拉"></a>第13章 绿色能源与特斯拉</h5><p>论述公司发展壮大几个必要而非充分的条件，以及举特斯拉的例子</p>
-<h5 id="第14章-创始人悖论"><a href="#第14章-创始人悖论" class="headerlink" title="第14章 创始人悖论"></a>第14章 创始人悖论</h5><p>讲述创始人对于公司的重大意义</p>
-<h3 id="个人感悟"><a href="#个人感悟" class="headerlink" title="个人感悟"></a>个人感悟</h3><p>最近看的一堆烂书中比较好的一本，没有创业过，也没有在硅谷呆过，纯粗BB</p>
-<p>关于竞争，说中提到的是多数人会选择竞争比较激烈的地方吗，因为那意味着市场大，收获多，对于我来说我从来没有主动选择过，但是不能不说没有竞争，从初中起座位就是按考试排名来安排的，所以按照作者的思路，我和我初中高中同学(大学也差不多，我们大学和高中几乎没有区别)大部分人都是选择了最激烈的竞争领域，所以20几年来拿的出来的东西少之又少，如果学点其他东西，肯定会更有意义。我是比较赞同作者的这个观点的，不要随大流的去参与竞争，盲目的去竞争，那往往意味着激烈的竞争，而应该从自身的特点出发，选择别人不容易复制，能形成垄断壁垒的地方，不一定是自身的能力，比如钢琴十级，可以是自身坚定的信仰，甚至是自身一段念念不忘的痛苦的遭遇，竞争于垄断，一定要着眼于垄断。</p>
-<p>关于paypal黑帮，必须有才华，并且由衷的热爱与现在同事共事，把同事当作一生都可以合作与联系的伙伴，而不是冷漠的为了工资勉强凑一起的人。最好是团队目标一致，齐心协力，把事业当作一身追求的东西，而身边的伙伴都是可以共同实现这个目的的人。</p>
-<p>关于合适的机会与合适的人，书中举过很多例子吗，比如招聘时应聘的人会说喜欢公司文化，公司的氛围，名气，有才华的同事等等一堆，很不幸，这些好像我都有前科，但是最合适的公司提供独一无二的岗位，比如解决某个问题，与团队一起完成公司的使命，但问题是，在中国，同一个行业，哪怕是细分行业，能做到独一无二的，可能就只有造原子弹这种事情了。</p>
-<p>从较小的市场切入，很多公司都是从很小的，在当时被人所看不起或不理解的场景做起来的，最后逐渐通过扩大领域占领其他市场，活着开创一片市场，按照这个思想，农村包围城市，星星之火可以燎原，只要抓住身边一小点的机会吗，能让它活下来，在慢慢的扩大，这个应该就是作者的思路了。</p>
-<p>##番茄工作法图解</p>
-<p>书比较简单，主要包括一些时间管理学习效率的理论和实验结果，诸如脑补结构，生物节律，记忆原理的描述，还花了很多篇幅描述如何使用番茄时钟，比如如何处理外部中断，内部中断，团体番茄钟等，看完就忘记了，不过番茄钟这个思想还是比较有意思的，最核心的部分大概就是：开启一个番茄时钟，时间是25分钟，集中精力的工作25分钟，然后休息3-5分钟，期间会有杂七杂八的一大堆事情会发生，作者都做了详细的描述，这种我觉得得根据个人情况做调整，没必要按照它这个生搬硬套</p>
-<p>##活出生命的意义</p>
-<p>维克多·佛兰尔克</p>
-<p>####作者背景介绍</p>
-<p>作者维克多·佛兰尔克有纳粹集中营的经历，他的家人全部被毒气室毒死，只有他和妹妹幸存，他一生对生命充满了热情，67岁学习驾驶飞机，80岁登上阿尔卑斯山。他本人是个医学博士，著名心理医生，将自己的人生经历和理论结合起来开创了意义疗法，找到了自己生命的意义。</p>
-<p>####本书内容梗概</p>
-<p>书分为两部分，前半部分讲述作者在集中营的生活，后半部分讲述意义疗法</p>
-<p>前半部分讲述了作者如何被送进奥斯维辛，集中营中的组织结构，囚头对待犯人的态度与手段，犯人进去了以后的生理与心理的变化，集中营生活的劳动与饮食的艰辛，最后作者是怎么活着出来的。</p>
-<p>后半部分结合作者的具体案例描述意义疗法，如果承受苦难是有意义的，那苦难就不在时苦难，描述了爱对于个人的意义，生命的本质等问题，阐述了找到人生的意义的方法：1通过创立某项工作或事业 2通过体验（爱）3通过忍受苦难，在与苦难对抗中产生意义</p>
-<p>####个人总结与感悟</p>
-<p>全书看的时候是非常轻松的，流畅连贯，但是总感觉缺少理工科要的层次与逻辑，包括第一部分的经历描述，似乎既不是按照时间的逻辑，也不是按照具体人物场景的逻辑，导致看完没办法塞到一个框架里面去做总结；第二部分也是看的云里雾里，心理学，医学的概念完全没有什么概念，看完不知所云。</p>
-<p>弗洛依德认为人追求快乐，阿德勒认为人追求优越，维克多认为人追求意义。每个人生来不一样，心理长期不平衡或者扭曲，必然影响身体健康。读完全书，作者的找到人生意义的方法给了我很大的启发同时我也非常认可这种观点。创立某项事业，人活着的意义很多时候是通过工作体现出来的，职业使命让人活的更充实而有目的；人一辈子的时间大多时候都是在解决爱与恨，工作两个问题，如果爱与恨能导致进步，那爱是在前面牵引带力量，恨是在后面驱赶的力量，如果可以隔断(比如血缘的割不断)，爱就爱的彻底，恨的恨的彻底，爱用爱来回报，仇恨用仇恨来回报，其他人这一辈子都不会有交集；如果忍受困难是有意义的，那苦难就是有意义的，作者忍受苦难是为了思念妻子家人，期待将来能重逢，没有办法改变的事情就选择忍受，因为忍受的目的是清楚的，为了爱，为了生活，为了将来大富大贵都行，为了达成某个目的而与命运对抗，达到自己能力范围内的胜利</p>
-<h2 id="柳井正全传"><a href="#柳井正全传" class="headerlink" title="柳井正全传"></a>柳井正全传</h2><p>李鑫</p>
-<h3 id="故事梗概"><a href="#故事梗概" class="headerlink" title="故事梗概"></a>故事梗概</h3><p>家中独子(日本人的思维估计是长子要继承家业，小的，女的可以随便想干啥就干啥)，富二代，父亲与伯父起初都是经营西装，后来扩展到建筑等行业，从小就一直不服输，受严厉的管教，毕业后去工作不久就辞职经营家族生意，恋爱，找到了一生的归宿，后来自己创业，贩卖衣服，从西装转型到休闲服装，创立优衣库，靠低价以及自助等经营方式，以及出色的宣传手段，在日本迅速走红，之后在香港，美国相继开店，描述了中间的曲折与故事，扩张到其他行业比如食品，最终成了现在优衣库王朝，期间讲述了不少优衣库的理念与手段，比如质量控制，广告策略，用人策略，权利分配，公司应该维持稳定还是激进</p>
-<h3 id="个人感悟-1"><a href="#个人感悟-1" class="headerlink" title="个人感悟"></a>个人感悟</h3><p>柳井正是松下幸之助，稻盛和夫之后新一代经营之神，但是我总感觉学这些东西用在科技行业是行不通的，目前我还没有到达’道’的精神层面，所以看的飞快。但凡牛逼的人不一定是家境怎么样，但是大多从小都有个性，有抱负，心中有一颗不甘平凡的愿望，活着有一个强烈的理由让其孜孜不倦的坚持，柳井正大概就是想超越他父亲，等到他真正超越他父亲，他在事业上已经已经进入指数增长的阶段，找到了通往高速路店路口</p>
-<p>关于优衣库的高科技保暖内衣，我也是不明觉厉，所以亲自试了一下，然后并没什么*用，轻薄倒是事实，价格相对其他品牌的来说也确实是挺便宜的，确实是打价格战出身的</p>
-<p>顺便吐槽下这本书，看看目录，懵懂的青春期有1，2，3，4，5，你怎么不叫人生1，2，3，4，5到结束呢，不能概括一下吗，非要用这么抽象的标题，我喜欢逻辑清晰的东西，一眼看过去就知道框架是什么，再读详细内容的时候去补充血与肉，这么个标题，太不符合我的口味了</p>
-<h2 id="区块链：定义未来金融与经济新格局"><a href="#区块链：定义未来金融与经济新格局" class="headerlink" title="区块链：定义未来金融与经济新格局"></a>区块链：定义未来金融与经济新格局</h2><p>火币网 张健</p>
-<p>####前言</p>
-<p>之所读这本书，是特意找的，最近区块链太火，也想了解一下，虽然比特币早就出了，10年要是拿着手机台式机去搞两个现在就发了，当前比特币的单价大概8000多吗，火币网是中国最大的数字资产交易平台与数字资产金融服务商，据说这是具有颠覆效果的技术，看了一下，也是云里雾里</p>
-<h4 id="内容简介"><a href="#内容简介" class="headerlink" title="内容简介"></a>内容简介</h4><p>第0章讲区块链的背景，文字与货币的诞生，货币的运行机制，有中央信息维护中心或者第三方信用认证，再描述了互联网加速信息的传播，有一大段的内容应用了kk失控的关于密码朋克的论述，也就是说很早就有人想做去中心化的事情</p>
-<p>第一章区块链是什么，描述了大概是个什么，发明人中本聪与他发明该技术的来由，将区块链解释为一本公共的账本，网络中所有的节点都存有一份改账本，一次写权限需要修改所有账本，去中心化的优点以及区块链的未来展望的描述</p>
-<p>第二章描写区块链带来的机遇，描述区块链对数字货币诸如比特币，以太币的相互关系，区块链对金融将会产生什么样的影响，去中心化对金融场景是最诱人的，区块链对物联网与共享经济带来的新机遇，原先所有的公司都是一个第三方机构或者认证机构，比如在淘宝买东西，其实是我和卖家的关系，区块链可以把淘宝撇开，省去中间的这些麻烦，同理似乎银行也不是必要的在某些场景下，这样推广下去，央行好像也是可有可无的</p>
-<p>第三章讲区块链的应用场景，包括已经比较成熟的数字货币比特币，众筹，合同合约，征信等等，按照目前很多公司在孵化的项目，太多东西能和区块链沾点边</p>
-<p>第四章讲述区块链的原理，讲述了密码学，侧链等一些技术，也没怎么看太懂</p>
-<h4 id="个人总结"><a href="#个人总结" class="headerlink" title="个人总结"></a>个人总结</h4><p>区块链在18年太火了，突然之间觉得进入18年没有人再说人工智能等事，一夜之间17年被炒的火热的人工智能就没什么人提了，转而铺天盖地区块链，打开朋友圈公众号的都是区块链，这节奏比衣服的流行趋势还要换的快，挖矿造成的结果之一就是英伟达的gpu卖脱销，100强的It企业买不到gpu，要排队，价格还涨了很多，当然这个也不光是挖矿造成的，深度学习本身就是计算密集型的东西。</p>
-<p>虽然书中总结了很多技术，也赋予了很多新的名词，但是计算机的本质就那么些东西，大概就是一个去中心化的账本，每个节点都有机会去写这个账本，获取写的机会的过程就叫挖矿，挖矿比的就是机器的计算能力，获取写的权利后再去更新所有的分布式的账本，最后拿到一个串数字，以后发红包就一串数字发来发去，这样发展下去是不是有可能造钱的机构会有危险比如美帝，大家都不用他印的美元了。能解决的问题包括一些电子货币比如比特币什么的，这种事没有使用价值就像纸币一样，另外作为技术，能够用于去中心化，很多的金融机构都会用这个来提升效率，或者但凡有网络，且有一个中枢，且效率比使用分布式的更低都有可能被区块链技术优化</p>
-<h2 id="跟钱钱学理财"><a href="#跟钱钱学理财" class="headerlink" title="跟钱钱学理财"></a>跟钱钱学理财</h2><p>水湄物语</p>
-<p>花了两个小时，理论读了一堆，实践没有，因为没钱，所以收获几乎为0，倒是被作者字里行间的秀恩爱的狗粮伤的扶不起，等我以后有了我的’暖手’我也去对这个世界一报还一报。</p>
-<p>套路和穷爸爸富爸爸差不多，就是用钱生钱，让钱自动为你工作，养一只为你生蛋的鹅，我也对无人看管而自动增值的东西比较感兴趣，机器可以替代人，程序可以替代人，嗯，无人概念会替代掉很多人的工作，无人超市，无人驾驶以及一切</p>
+        <h3 id="一，背景"><a href="#一，背景" class="headerlink" title="一，背景"></a>一，背景</h3><p>显著性目标检测是模拟人的视觉系统，针对一幅图片检测出人眼关注的区域，简单描述就是一个二分类的语义分割模型。有很多应用比如图像传输与压缩(优先保证显著区域)，判定为显著区域等等。</p>
+<h3 id="二，方法"><a href="#二，方法" class="headerlink" title="二，方法"></a>二，方法</h3><p>在深度学习占有绝对优势之前，显著区域检测已经有了很多方法，传统显著性目标检测主要利用直观感觉或者启发式经验，如利用色度比较，背景比较，边界点检测等人工提取特征的方法，但是这类方法需要复杂的经验，以及比较耗时。</p>
+<h4 id="2-1-基于边缘-语义增强的显著目标检测"><a href="#2-1-基于边缘-语义增强的显著目标检测" class="headerlink" title="2.1 基于边缘/语义增强的显著目标检测"></a>2.1 基于边缘/语义增强的显著目标检测</h4><p>深度网络的低层特征能更好的表征物体结构，边缘，高层特征能更好的表征语义信息，因此很多研究通过对低层特征操作来增强显著区域边缘，通过操作高层特征来获取更丰富的语义特征。</p>
+<h5 id="2-1-1基于边缘"><a href="#2-1-1基于边缘" class="headerlink" title="2.1.1基于边缘"></a>2.1.1基于边缘</h5><p>[1]通过提取低层特征，最后与高层特征融合，达到边缘分割更好的效果，该论文对颜色及其分布和滤波器响应位置等低层特征的特征距离进行编码，生成低阶距离图一获得良好的边界检测效果。</p>
+<p>[2]构建了一种核化子空间排序模型，将高维特征降低维度，通过高低维度来检测显著物体边缘，该方法通过编码低层特征的距离来定为显著物体的边缘。</p>
+<p>为了进一步解决显著目标检测的边缘模糊的问题，很多文章通过对低层特征做一些操作来达到这个目的，Li等人在[3]中提出DCL(deep contrast learning)算法，该方法提出分段空间池流模拟不连续的显著目标边界，解决显著目标边界模糊的问题。[4]提出DSS(deeply supervised salient)算法，该算法是在HED(holistically-nested edge detection)体系结构中加入具有跳跃结构的短连接，使网络结构中每一层都有更丰富的多尺度信息。</p>
+<p>除此之外，还有一些增强边界检测的角度是直接检测显著物体的边缘，[5]提出了一个能识别边界的损失函数，通过这个损失函数可以识别显著物体的边界从而得出更好的显著物体边界。[6]提出了一个效果更好的，新的网络用于检测边界，同时提出了一个新的损失函数，该函数融合了BCE,SSIM, IoU等损失函数，得出了更好的边界检测效果。</p>
+<h5 id="2-1-2基于语义增强"><a href="#2-1-2基于语义增强" class="headerlink" title="2.1.2基于语义增强"></a>2.1.2基于语义增强</h5><p>[7]是2016年的文章，神经网络处于爆发的时候，作者通过全卷积网络来提取高层语义信息来定为物体的位置，类别等信息，通过解决boundbox问题来解决显著物体定位的问题。[8]提出了CPD算法，引入空间注意力机制，提出了比较新的语义编码解码网络结构，同时融合了网络的多尺度，最后达到了显著性检测的SOTA结果。[9]提出了PoolNet， 主要创新在于提出了池化金字塔，在U-Net的顶部加入池化金字塔操作，将池化金字塔的特征依次融合到每个尺度的特征中用于和显著检测的ground-truth做loss。除此之外，一些研究者还通过引入注意力机制来检测显著性区域。[10]为每个像素生成注意力图，然后通过注意力图有选选择的保留显著区域，最后将注意力图与U-net的特征结合。Chen 等人在[11]提出的 RAS(reverse attention salient)算法，根据逆向注意提出了一个自 上而下的边训练边输出的剩余学习方式，实现对最深层语义信息的增强。</p>
+<h5 id="2-1-3-基于边界-语义增强的显著性目标检测方法"><a href="#2-1-3-基于边界-语义增强的显著性目标检测方法" class="headerlink" title="2.1.3 基于边界+语义增强的显著性目标检测方法"></a>2.1.3 基于边界+语义增强的显著性目标检测方法</h5><p>[12]提出了amulet算法，该算法通过卷积的尺度，将特征映射到不同的分辨率，然后通过聚合多个尺度的特征获得同时包含边缘信息和语义信息的显著图，2017年的文章，这么说有点牵强，多尺度融合现在已经是标准配置，不知道怎么中的ICCV。[13]提出BDMPM算法，该算法的创新之处在于通过门控函数来控制消息的传递，双向消息消息传递结构可以同时对语义信息和空间信息进行编解码从而检测出显著的目标。</p>
+<p>此外还有一些文章对抽取的高低层特征同使用特征金字塔，实现对图像边缘和语义的同时增强。[14]提出了SRM(stagewise refinement model)算法，该方法先使用深度网络得到一个粗略的显著图，然后在另外一个stage重新输出图片，对该分支使用特征金字塔多尺度池化，然后上采样并与第一个阶段的特征融合，最后得到显著图。[15]提出PAGE(pyramid attention edge)算法，该算法首先提出了一个金字塔注意力结构，提取多尺度特征，并与未经过金字塔结构的特征融合而达到提取语义信息，同时提出了一个salient edge网络结构，用于解决在特征被kernal平滑掉边缘的问题。[16]提出PFA算法，该算法通过对低层与高层不同的处理最后融合来得到更好的结果。对于高层特征通过内容感知特征金字塔(context-aware pyramid feature extraction)来提取内容信息，然后通过通过注意力模块加强语义信息。对于低层特征采用空间注意力机制(SA)获取显著边缘。</p>
+<h4 id="2-2-基于全局-局部结合的显著性目标检测"><a href="#2-2-基于全局-局部结合的显著性目标检测" class="headerlink" title="2.2 基于全局/局部结合的显著性目标检测"></a>2.2 基于全局/局部结合的显著性目标检测</h4><p>[17]提出了DHSNET，该方法首先利用全局对比度，对象性，和紧凑性等全局信息得到一个显著图，然后采用层次递归神经网络利用局部上下文信息对显著性图进一步增强。[18]提出GRL算法，该方法采用递归方式利用加权响应图提取上下文信息定位显著 性目标，然后对局部边界进行细化以获得更加清晰 的边界。虽然递归方式取得了一定的效果，但是研 究发现递归操作非常耗时耗力。[19]提出NLDF方法，该方法设计了一个4x5的主干网络，用低层多分辨率特征检测边缘，高层检测语义，最后融合起来得到显著性图。[20]提出PAGR算法，该网络是一个渐进注意引导递归网络，对提取的全局/局部信息进一步加强，得到更好的显著目标检测效果。</p>
+<h4 id="2-3-基于辅助网络的显著性目标检测"><a href="#2-3-基于辅助网络的显著性目标检测" class="headerlink" title="2.3 基于辅助网络的显著性目标检测"></a>2.3 基于辅助网络的显著性目标检测</h4><p>基于辅助网络的显著性目标检测是指采用其他 领域已有模型作为辅助网络来提升显著性目标检测</p>
+<p>性能。[21]提出的 MDF(multiscale deep features) 算法使用预先训练的图像分类模型来产生分级的显著性图。[22]提出的C2S-Ne(t contourtocontour salient network)算法将深度轮廓检测模型自动转换为显著性目标检测模型。[23]提出的CapSal算法将字幕网络(image captioning network，ICN)作为 辅助语义任务来提高复杂场景中的显著目标检测性能。[24]提出的MLSLNe(t mutual learning super- vised learning network)算法以一种交互方式让显著性目标检测和前景轮廓检测交替进行来得到显著性图。</p>
+<h3 id="三，评价指标"><a href="#三，评价指标" class="headerlink" title="三，评价指标"></a>三，评价指标</h3><h4 id="F-measure"><a href="#F-measure" class="headerlink" title="F-measure"></a>F-measure</h4><p>ground-truth的二值图为G， 显著目标图谱二值化为M，显著目标图谱二值化的阈值为$T=\frac{2}{WH}\sum^{W}<em>{x=1}\sum^H</em>{y=1}S(x,y)$</p>
+<p>准确率: $precision=\frac{G\bigcap M}{M}$</p>
+<p>召回率：$recall=\frac{G \bigcap M}{G}$</p>
+<p>计算F-measure: $F=\frac{(1+\beta ^2)precision*recall}{\beta^2 precesion + recall}$， 一般$\beta $设置为0.3</p>
+<p>通常每一对P-R都可以得到一个F，取最大的作为$F-max$, 取均值作为$F-mean$</p>
+<h4 id="PR曲线"><a href="#PR曲线" class="headerlink" title="PR曲线"></a>PR曲线</h4><p>计算PR的方式如F-measure，但是通过预测的显著图二值化M的过程中，可以去不同的阈值，0-255共255总可能，分别对应不同的PR值，这样总共有255对PR值，以P为横轴以R为纵轴做出曲线，面积越大代表模型越好</p>
+<h4 id="MAE"><a href="#MAE" class="headerlink" title="MAE"></a>MAE</h4><p>MAE是计算模型输出的显著性图与ground-truth之间的平均绝对误差，首先将两者二值化，然后用下面的公式计算</p>
+<p>$error = \sum^W_{x=1}\sum^H_{y=1}(y_i-\hat y_i)$</p>
+<h3 id="四，数据集"><a href="#四，数据集" class="headerlink" title="四，数据集"></a>四，数据集</h3><ol>
+<li><p>ECSSD</p>
+<p>下载地址：<a href="http://www.cse.cuhk.edu.hk/leojia/projects/hsaliency/dataset.html" target="_blank" rel="noopener">http://www.cse.cuhk.edu.hk/leojia/projects/hsaliency/dataset.html</a></p>
+</li>
+<li><p>Pascal-s</p>
+</li>
+<li><p>DUTS, 是目前最大的显著性数据集，通常用于训练，分为训练集和测试集</p>
+</li>
+<li><p>SOD</p>
+</li>
+<li><p>DUT-OMRON</p>
+</li>
+</ol>
+<p>参考<a href="https://blog.csdn.net/studyeboy/article/details/102383922下载" target="_blank" rel="noopener">https://blog.csdn.net/studyeboy/article/details/102383922下载</a></p>
+<h3 id="五，-参考"><a href="#五，-参考" class="headerlink" title="五， 参考"></a>五， 参考</h3><p>[1] Gayoung Lee, Yu-Wing Tai, Junmo Kim, Deep Saliency with Encoded Low level Distance Map and High Level Features, CVPR, 2017</p>
+<p>[2] Tiantian Wang，Lihe Zhang，Huchuan Lu，Kernelized Subspace Ranking for Saliency Detection，ECCV, 2016</p>
+<p>[3] LI G B, YU Y Z, Deep contrast learning for salient object detection, CVPR, 2016</p>
+<p>[4] HOU Q B, CHENG M M, HU X W, Deeply super- vised salient object detection with short connections, IEEE Transactions on Pattern Analysis and Machine Intelli- gence, 2019</p>
+<p>[5] Mengyang Feng, Huchuan Lu, Errui Ding, Attentive Feedback Network for Boundary-Aware Salient Object Detection, CVPR, 2019</p>
+<p>[6] Xuebin Qin, Zichen Zhang, Chenyang Huang, BASNet: Boundary-Aware Salient Object Detection, CVPR, 2019</p>
+<p>[7] Jifeng Dai, Yi Li, Kaiming He, R-FCN: Object Detection via Region-based Fully Convolutional Networks, NIPS, 2016</p>
+<p>[8] Zhe Wu, Li Su, Qingming Huang, Cascaded Partial Decoder for Fast and Accurate Salient Object Detection, CVPR, 2019</p>
+<p>[9] Jiang-Jiang Liu, Qibin Hou, Ming-Ming Cheng, A Simple Pooling-Based Design for Real-Time Salient Object Detection, CVPR, 2019</p>
+<p>[10]Nian Liu, Junwei Han, Ming-Hsuan Yang, PiCANet: Learning Pixel-wise Contextual Attention for Saliency Detection, CVPR, 2017</p>
+<p>[11] Shuhan Chen, Xiuli Tan, Ben Wang, Reverse Attention for Salient Object Detection, ECCV, 2018</p>
+<p>[12] Pingping Zhang, Dong Wang, Huchuan Lu, Amulet: Aggregating Multi-level Convolutional Features for Salient Object Detection, ICCV, 2017</p>
+<p>[13] Lu Zhang,  Ju Dai, Huchuan Lu, You He, A Bi-directional Message Passing Model for Salient Object Detection, CVPR, 2018</p>
+<p>[14] Tiantian Wang, Ali Borji, Lihe Zhang, A Stagewise Refinement Model for Detecting Salient Objects in Images, ICCV, 2017</p>
+<p>[15] Wenguan Wang,  Shuyang Zhao, Jianbing Shen, Salient Object Detection with Pyramid Attention and Salient Edges, CVPR, 2019</p>
+<p>[16] Ting Zhao, Xiangqian Wu, Pyramid Feature Attention Network for Saliency detection, CVPR, 2019</p>
+<p>[17] Nian Liu, Junwei Han, DHSNet: Deep Hierarchical Saliency Network for Salient Object Detection, CVPR, 2016</p>
+<p>[18] Tiantian Wang, Lihe Zhang, Shuo Wang, Detect Globally, Refine Locally: A Novel Approach to Saliency Detection, CVPR, 2018</p>
+<p>[19] Zhiming Luo, Akshaya Mishra, Andrew Achkar, Non-Local Deep Features for Salient Object Detection, CVPR, 2017</p>
+<p>[20] Xiaoning Zhang, Tiantian Wang, Jinqing Qi, Progressive Attention Guided Recurrent Network for Salient Object Detection, CVPR, 2018</p>
+<p>[21] Guanbin Li, Yizhou Yu, Visual Saliency Based on Multiscale Deep Features, CVPR, 2015</p>
+<p>[22] Xin Li,  Fan Yang, Hong Cheng, Contour Knowledge Transfer for Salient Object Detection, ECCV, 2018</p>
+<p>[23] Lu Zhang, Jianming Zhang, Zhe Lin, CapSal: Leveraging Captioning to Boost Semantics for Salient Object Detection, CVPR, 2019</p>
+<p>[24] Runmin Wu, Mengyang Feng, Wenlong Guan, A Mutual Learning Method for Salient Object Detection with intertwined Multi-Supervision, CVPR, 2019</p>
+<p>数据集下载参考：<a href="https://blog.csdn.net/wanyq07/article/details/75268430" target="_blank" rel="noopener">https://blog.csdn.net/wanyq07/article/details/75268430</a></p>
 
       
     </div>
@@ -422,8 +425,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/08/22/人脸识别算法/" rel="next" title="人脸识别算法">
-                <i class="fa fa-chevron-left"></i> 人脸识别算法
+              <a href="/2021/06/14/SIMCLR自监督算法论文读书笔记/" rel="next" title="SIMCLR自监督算法论文读书笔记">
+                <i class="fa fa-chevron-left"></i> SIMCLR自监督算法论文读书笔记
               </a>
             
           </div>
@@ -431,10 +434,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/08/22/仿射变换/" rel="prev" title="仿射变换">
-                仿射变换 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -558,7 +557,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#第3章-所有成功的企业都是不同的"><span class="nav-number">1.</span> <span class="nav-text">第3章 所有成功的企业都是不同的</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第4章-竞争意识"><span class="nav-number">2.</span> <span class="nav-text">第4章 竞争意识</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第5章-后发优势"><span class="nav-number">3.</span> <span class="nav-text">第5章 后发优势</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第6章-成功不是中彩票"><span class="nav-number">4.</span> <span class="nav-text">第6章 成功不是中彩票</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第7章-向钱看齐"><span class="nav-number">5.</span> <span class="nav-text">第7章 向钱看齐</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第8章-秘密"><span class="nav-number">6.</span> <span class="nav-text">第8章 秘密</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第9章-基础决定命运"><span class="nav-number">7.</span> <span class="nav-text">第9章 基础决定命运</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第10章-打造帮派文化"><span class="nav-number">8.</span> <span class="nav-text">第10章 打造帮派文化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第11章-顾客不会自动上门"><span class="nav-number">9.</span> <span class="nav-text">第11章 顾客不会自动上门</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第12章-人类和机器"><span class="nav-number">10.</span> <span class="nav-text">第12章 人类和机器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第13章-绿色能源与特斯拉"><span class="nav-number">11.</span> <span class="nav-text">第13章 绿色能源与特斯拉</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第14章-创始人悖论"><span class="nav-number">12.</span> <span class="nav-text">第14章 创始人悖论</span></a></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#个人感悟"><span class="nav-number"></span> <span class="nav-text">个人感悟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#柳井正全传"><span class="nav-number"></span> <span class="nav-text">柳井正全传</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#故事梗概"><span class="nav-number"></span> <span class="nav-text">故事梗概</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#个人感悟-1"><span class="nav-number"></span> <span class="nav-text">个人感悟</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#区块链：定义未来金融与经济新格局"><span class="nav-number"></span> <span class="nav-text">区块链：定义未来金融与经济新格局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内容简介"><span class="nav-number"></span> <span class="nav-text">内容简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#个人总结"><span class="nav-number"></span> <span class="nav-text">个人总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跟钱钱学理财"><span class="nav-number"></span> <span class="nav-text">跟钱钱学理财</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一，背景"><span class="nav-number">1.</span> <span class="nav-text">一，背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二，方法"><span class="nav-number">2.</span> <span class="nav-text">二，方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-基于边缘-语义增强的显著目标检测"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 基于边缘/语义增强的显著目标检测</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-1基于边缘"><span class="nav-number">2.1.1.</span> <span class="nav-text">2.1.1基于边缘</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-2基于语义增强"><span class="nav-number">2.1.2.</span> <span class="nav-text">2.1.2基于语义增强</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-3-基于边界-语义增强的显著性目标检测方法"><span class="nav-number">2.1.3.</span> <span class="nav-text">2.1.3 基于边界+语义增强的显著性目标检测方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-基于全局-局部结合的显著性目标检测"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 基于全局/局部结合的显著性目标检测</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-基于辅助网络的显著性目标检测"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 基于辅助网络的显著性目标检测</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三，评价指标"><span class="nav-number">3.</span> <span class="nav-text">三，评价指标</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#F-measure"><span class="nav-number">3.1.</span> <span class="nav-text">F-measure</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PR曲线"><span class="nav-number">3.2.</span> <span class="nav-text">PR曲线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MAE"><span class="nav-number">3.3.</span> <span class="nav-text">MAE</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四，数据集"><span class="nav-number">4.</span> <span class="nav-text">四，数据集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五，-参考"><span class="nav-number">5.</span> <span class="nav-text">五， 参考</span></a></li></ol></div>
             
 
           </div>
