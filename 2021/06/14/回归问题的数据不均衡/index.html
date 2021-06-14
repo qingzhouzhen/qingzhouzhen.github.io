@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="回归问题数据不平衡一，背景机器学习中数据不平衡是一种常见问题，数据集不平衡分为分类(离散)数据的失衡和回归(连续)数据的失衡，目前绝大部分的解决方案都是针对分类失衡而提出的，回归问题的失衡指的是连续数据比例分布不均匀，如在图片美学数据集的场景下，AADB的数据统计分布为正太分布，两端得分分布较少，用不均衡的数据拟合训练得到的模型，会导致很多意想不到的问题。 二，方法数据不平衡问题的解决方法基本上">
+<meta property="og:type" content="article">
+<meta property="og:title" content="黄汉卿">
+<meta property="og:url" content="http://yoursite.com/2021/06/14/回归问题的数据不均衡/index.html">
+<meta property="og:site_name" content="黄汉卿">
+<meta property="og:description" content="回归问题数据不平衡一，背景机器学习中数据不平衡是一种常见问题，数据集不平衡分为分类(离散)数据的失衡和回归(连续)数据的失衡，目前绝大部分的解决方案都是针对分类失衡而提出的，回归问题的失衡指的是连续数据比例分布不均匀，如在图片美学数据集的场景下，AADB的数据统计分布为正太分布，两端得分分布较少，用不均衡的数据拟合训练得到的模型，会导致很多意想不到的问题。 二，方法数据不平衡问题的解决方法基本上">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2021-06-14T04:21:12.743Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="黄汉卿">
+<meta name="twitter:description" content="回归问题数据不平衡一，背景机器学习中数据不平衡是一种常见问题，数据集不平衡分为分类(离散)数据的失衡和回归(连续)数据的失衡，目前绝大部分的解决方案都是针对分类失衡而提出的，回归问题的失衡指的是连续数据比例分布不均匀，如在图片美学数据集的场景下，AADB的数据统计分布为正太分布，两端得分分布较少，用不均衡的数据拟合训练得到的模型，会导致很多意想不到的问题。 二，方法数据不平衡问题的解决方法基本上">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2021/06/14/回归问题的数据不均衡/">
+
+
+
+
+
+  <title> | 黄汉卿</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">黄汉卿</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/06/14/回归问题的数据不均衡/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄汉卿">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-06-14T12:21:12+08:00">
+                2021-06-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<h2 id="回归问题数据不平衡"><a href="#回归问题数据不平衡" class="headerlink" title="回归问题数据不平衡"></a>回归问题数据不平衡</h2><h3 id="一，背景"><a href="#一，背景" class="headerlink" title="一，背景"></a>一，背景</h3><p>机器学习中数据不平衡是一种常见问题，数据集不平衡分为分类(离散)数据的失衡和回归(连续)数据的失衡，目前绝大部分的解决方案都是针对分类失衡而提出的，回归问题的失衡指的是连续数据比例分布不均匀，如在图片美学数据集的场景下，AADB的数据统计分布为正太分布，两端得分分布较少，用不均衡的数据拟合训练得到的模型，会导致很多意想不到的问题。</p>
+<h3 id="二，方法"><a href="#二，方法" class="headerlink" title="二，方法"></a>二，方法</h3><p>数据不平衡问题的解决方法基本上可以分为基于数据层面的解决方案，基于算法层面的解决方案，以及一些其他比较小众的方案。</p>
+<h4 id="2-1-分类问题的数据不平衡"><a href="#2-1-分类问题的数据不平衡" class="headerlink" title="2.1 分类问题的数据不平衡"></a>2.1 分类问题的数据不平衡</h4><h5 id="2-1-1-基于数据的解决方案"><a href="#2-1-1-基于数据的解决方案" class="headerlink" title="2.1.1 基于数据的解决方案"></a>2.1.1 基于数据的解决方案</h5><ol>
+<li>下采样，对样本数量比较多的类别数据进行下采样[17]。</li>
+<li>上采样，对样本数量比较少的类别数据进行上采样[16]。</li>
+<li>生成新的数据样本，[2][3]对数量少的类别进行线性插值的操作，使数量少的类别的数据变多，缓解数据不平衡。</li>
+</ol>
+<h5 id="2-2-2-基于算法层面的解决方案"><a href="#2-2-2-基于算法层面的解决方案" class="headerlink" title="2.2.2 基于算法层面的解决方案"></a>2.2.2 基于算法层面的解决方案</h5><ol>
+<li>修改模型损失函数，如对样本数量比较少的类别赋予更重的损失权重，focal loss[9]同时调整正负样本权重和难易分类样本的权重来提升模型的性能。对于分类问题，很多算法努力扩大类之间的margin，各个类别设置的margin通常是一样的，[5]设计了一种能使各个类别使用不同margin的loss。[6][7][8]基于数据，设计不同的损失函数，提升失衡类别或整体类别的性能。</li>
+<li>使用学习技巧，使用决策树，boost, bagging，transfer learning, meta learning, two stage learning，[10]通过调整UR(Under Representation,即失衡类别)类的特征分布，使UR类特征分布像常规类特征分布，从而提升整体模型性能，[1]中作者使用了元学习来解决类别失衡问题，除了抽取图片特征，作者使用了一个额外的memory模块来表示类内与类间距离，对于长尾类别，模型从memory模块获取有效信息来提升模型性能。[11]通过度量学些，将长尾数据映射到更高维空间，扩大类间距离，防止样本少的类别被样本多的类别所淹没，提升模型性能。[12]将特征表达和分类解耦，通过两阶段学习来提升长尾问题的性能。</li>
+<li>自监督/半监督学习提升性能表现，[4]使用自监督与半监督学习提升模型在长尾数据的性能，作者通过理论分析了自监督与半监督可以提升长尾数据的性能，随后做了实验证明了在标准训练方法之前插入自监督和半监督的预训练，可以提升模型的性能。</li>
+</ol>
+<h5 id="2-2-3-改变模型评价"><a href="#2-2-3-改变模型评价" class="headerlink" title="2.2.3 改变模型评价"></a>2.2.3 改变模型评价</h5><ol>
+<li>选择合适的评价方式[18]，如不使用准确率，如1）ROC曲线下面积，2）mean Average Precesion，指的是在不同召回下的最大精确度的平均值，3）假设共有<em>n</em>个点，假设其中<em>k</em>个点是少数样本时的Precision，这个评估方法在推荐系统中也常常会用。</li>
+<li>调整阈值，大部分默认阈值为输出值的中位数，如逻辑回归输出0-1，正常阈值取0.5，解决办法之一是提高阈值。</li>
+<li>转换问题定义，将少分类的问题定义为异常检测，使用无监督学习检测异常类别。</li>
+</ol>
+<h4 id="2-2-回归问题的数据不平衡"><a href="#2-2-回归问题的数据不平衡" class="headerlink" title="2.2 回归问题的数据不平衡"></a>2.2 回归问题的数据不平衡</h4><p>回归问题的数据不平衡目前还研究的比较少，主要是直接将部分分类问题的数据不平衡解决办法迁移到回归问题。</p>
+<h5 id="2-2-1-基于数据的解决方案"><a href="#2-2-1-基于数据的解决方案" class="headerlink" title="2.2.1 基于数据的解决方案"></a>2.2.1 基于数据的解决方案</h5><ol>
+<li>下采样，对样本数量比较多的区间进行下采样，评判的标准比较模糊。</li>
+<li>上采样，对样本数量比较少的区间进行上采样，评判的标准比较模糊。</li>
+<li>生成新的数据样本，[14]对样本数量比较少的区间进行插值生成新的样本， 该方法的缺点是比较难生成高维的数据，如图片。</li>
+</ol>
+<h5 id="2-2-2-基于算法层面的解决方案-1"><a href="#2-2-2-基于算法层面的解决方案-1" class="headerlink" title="2.2.2 基于算法层面的解决方案"></a>2.2.2 基于算法层面的解决方案</h5><ol>
+<li>修改损失函数，对不同区间样本re-weight，修改特征等。[13]通过损失函数对不同的区间样本赋予不同的损失权重，这篇论文利用连续数据之间的相关性，对数据的统计值进行平滑，然后对数据的损失函数赋予统计函数的倒数权重。[13]调整高维数据特征，该方法是针对图片的方法，原理是基于一个假设，即数据的输入特征分布应该和输出特征分布类似，通过调整输出特征分布来提高模型的表现性能</li>
+<li>使用学习技巧，boost, bagging，[15]采用集成学习的方式，多次采样，使用多个模型，最终取各个模型得分的平均值。</li>
+</ol>
+<h3 id="三，-总结"><a href="#三，-总结" class="headerlink" title="三， 总结"></a>三， 总结</h3><p>目前大部分的研究都集中于分类问题的数据不均衡，回归问题的数据不均衡被研究的比较少，同时相应的解决方案也比较少。这样的原因一方面是分类问题比较常见，是各种其他任务如检测的基础模块，其被研究的时间更长，另一方面的原因是回归的长尾部分可以转化为其他问题，如异常检测等。</p>
+<p>对于分类问题，通常我们应该根据不同的具体情况采取不同的解决放啊：</p>
+<p>1、在正负样本都非常之少的情况下，应该采用数据合成的方式。</p>
+<p>2、在负样本足够多，正样本非常之少且比例及其悬殊的情况下，应该考虑一分类方法。</p>
+<p>3、在正负样本都足够多且比例不是特别悬殊的情况下，应该考虑采样或者加权的方法。</p>
+<p>4、采样和加权在数学上是等价的，但实际应用中效果却有差别。尤其是采样了诸如Random Forest等分类方法，训练过程会对训练集进行随机采样。在这种情况下，如果计算资源允许过采样往往要比加权好一些。</p>
+<p>5、另外，虽然过采样和欠采样都可以使数据集变得平衡，并且在数据足够多的情况下等价，但两者也是有区别的。实际应用中，我的经验是如果计算资源足够且小众类样本足够多的情况下使用过采样，否则使用欠采样，因为过采样会增加训练集的大小进而增加训练时间，同时小的训练集非常容易产生过拟合。</p>
+<p>6、对于欠采样，如果计算资源相对较多且有良好的并行环境，应该选择Ensemble方法。</p>
+<p>对于回归问题，大部分分类问题的解决办法都可以迁移到回归问题上，回归问题的数据不平衡由分类数据不均衡发展而来，单目前解决方案并不充分。</p>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a><strong>参考文献</strong></h3><p>[1] Ziwei Liu, Zhongqi Miao, Xiaohang, Large-Scale Long-Tailed Recognition in an Open World, <em>CVPR</em>, 2019</p>
+<p>[2] Chawla, N. V., Bowyer, K. W., Hall, L. O., and Kegelmeyer, W. P. Smote: synthetic minority over-sampling technique. <em>Journal of artificial intelligence research</em>, 16:321–357, 2002</p>
+<p>[3] He, H., Bai, Y., Garcia, E. A., and Li, S. Adasyn: Adaptive synthetic sampling approach for imbalanced learning. In <em>IEEE international joint conference on neural networks</em>, pp. 1322–1328, 2008</p>
+<p>[4] Yuzhe Yang, Zhi Xu,Rethinking the Value of Labels for Improving Class-Imbalanced Learning, <em>CVPR</em>, 2020</p>
+<p>[5] Kaidi Cao, Colin Wei, Adrien Gaidon, Learning Imbalanced Datasets with Label-Distribution-Aware Margin Loss, <em>NeurIPS</em>, 2019</p>
+<p>[6] Yin Cui, Menglin Jia, Class-Balanced Loss Based on Effective Number of Samples, <em>CVPR</em>, 2019</p>
+<p>[7] Dong, Q., Gong, S., and Zhu, X. Imbalanced deep learning by minority class incremental rectification. <em>IEEE Transactions on Pattern Analysis and Machine Intelligence</em>, 2019</p>
+<p>[8] Huang, C., Li, Y., Chen, C. L., and Tang, X. Deep imbal- anced learning for face recognition and attribute predic- tion. <em>IEEE transactions on pattern analysis and machine intelligence</em>, 2019</p>
+<p>[9] Tsung-Yi Lin, Priya Goyal, Ross Girshick, Focal Loss for Dense Object Detection, <em>CVPR</em>, 2017</p>
+<p>[10] Xi Yin, Xiang Yu, Kihyuk Sohn, Feature Transfer Learning for Face Recognition with Under-Represented Data, <em>CVPR</em>, 2019</p>
+<p>[11] Zhang, X., Fang, Z., Wen, Y., Li, Z., and Qiao, Y. Range loss for deep face recognition with long-tailed training data. In <em>Proceedings of the IEEE International Conference on Computer Vision</em>, 2017</p>
+<p>[12] Kang, B., Xie, S., Rohrbach, M., Yan, Z., Gordo, A., Feng, J., and Kalantidis, Y. Decoupling representation and classifier for long-tailed recognition. <em>ICLR</em>, 2020</p>
+<p>[13] Yuzhe Yang Kaiwen Zha Ying-Cong Chen, Delving into Deep Imbalanced Regression, arxiv, 2021</p>
+<p>[14] Paula Branco, Luıs Torgo, Rita P. Ribeiro, SMOGN: a Pre-processing Approach for Imbalanced Regression, PMLR, 2017</p>
+<p>[15] Branco, P., Torgo, L., and Ribeiro, R. P. Rebagg: Resampled bagging for imbalanced regression.PMLR, 2018</p>
+<p>[16] Samira Pouyanfar, et al. Dynamic sampling in convolutional neural networks for imbalanced data classification</p>
+<p>[17] He, H. and Garcia, E. A. Learning from imbalanced data. TKDE, 2008.</p>
+<p>After pre-training, natural language is used to reference learned visual concepts (or describe new ones) enabling zero-shot transfer of the model to downstream tasks</p>
+<p>[18] Jason Brownlee, <a href="https://machinelearningmastery.com/classification-accuracy-is-not-enough-more-performance-measures-you-can-use/" target="_blank" rel="noopener">https://machinelearningmastery.com/classification-accuracy-is-not-enough-more-performance-measures-you-can-use/</a>, blog, 2019</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/06/14/nms及其变种/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/06/14/图片自动裁剪调研/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/qingzhouzhen" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#回归问题数据不平衡"><span class="nav-number">1.</span> <span class="nav-text">回归问题数据不平衡</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一，背景"><span class="nav-number">1.1.</span> <span class="nav-text">一，背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二，方法"><span class="nav-number">1.2.</span> <span class="nav-text">二，方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-分类问题的数据不平衡"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 分类问题的数据不平衡</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-1-基于数据的解决方案"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">2.1.1 基于数据的解决方案</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-2-基于算法层面的解决方案"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">2.2.2 基于算法层面的解决方案</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-3-改变模型评价"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">2.2.3 改变模型评价</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-回归问题的数据不平衡"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 回归问题的数据不平衡</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-1-基于数据的解决方案"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">2.2.1 基于数据的解决方案</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-2-基于算法层面的解决方案-1"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">2.2.2 基于算法层面的解决方案</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三，-总结"><span class="nav-number">1.3.</span> <span class="nav-text">三， 总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文献"><span class="nav-number">1.4.</span> <span class="nav-text">参考文献</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
